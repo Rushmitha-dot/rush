@@ -1,0 +1,37 @@
+name: 115 product finder
+
+on:
+  push:
+    paths: ["pipelines/115_review_product_finder/**", ".github/workflows/pipeline-115-product-finder.yml"]
+  pull_request:
+    paths: ["pipelines/115_review_product_finder/**"]
+
+defaults:
+  run:
+    working-directory: pipelines/115_review_product_finder
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: pipelines/115_review_product_finder/requirements*.txt}
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check src tests app dags
+      # includes a dbt build against a temp DuckDB file on hand-written rows
+      - run: python -m pytest -q
+        env: {PYTHONPATH: src}
+
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with: {terraform_version: 1.9.8}
+      - run: terraform init -backend=false -input=false
+        working-directory: pipelines/115_review_product_finder/infra/terraform
+      - run: terraform fmt -check
+        working-directory: pipelines/115_review_product_finder/infra/terraform
+      - run: terraform validate
+        working-directory: pipelines/115_review_product_finder/infra/terraform

@@ -37,7 +37,10 @@ def run_checks(stats: dict, recent_daily_rows: list[int], kind: str) -> list[Che
 
     q_share = stats["quarantined"] / rows_in if rows_in else 0.0
     out.append(CheckResult("quarantine_share_max", ERROR, q_share <= 0.05, round(q_share, 5), "<= 5%"))
-    out.append(CheckResult("quarantine_share", WARN, q_share <= 0.01, round(q_share, 5), "<= 1%",
+    # a 130-row day with two exact repeats is already over 1%, which fired on 8 of the
+    # first 14 days. The warning now needs a real count as well as the share.
+    out.append(CheckResult("quarantine_share", WARN, q_share <= 0.01 or stats["quarantined"] < 10,
+                           round(q_share, 5), "<= 1% or under 10 rows",
                            f"{stats['quarantined']} rows: {stats['quarantine_reasons']}"))
 
     loaded = rows_in - stats["quarantined"]

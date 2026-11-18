@@ -22,6 +22,8 @@ def test_misfiled_drop_blocks():
 
 def test_quarantine_thresholds():
     r = run_checks(stats(quarantined=2), [], "daily")
+    assert not failed(r, WARN), "two repeats in a small day shouldn't page anyone"
+    r = run_checks(stats(rows_in=1000, manifest_rows=1000, quarantined=20), [], "daily")
     assert "quarantine_share" in names(r, WARN) and not failed(r, ERROR)
     assert "quarantine_share_max" in names(run_checks(stats(quarantined=6), [], "daily"), ERROR)
 

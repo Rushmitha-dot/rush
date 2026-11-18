@@ -6,9 +6,10 @@
 
 The sample is drawn from reviews that mention skin, hair, scalp or face and are
 40 to 600 characters long. Those words are deliberately not extractor terms, so
-the sample isn't picked by the thing it's grading. Short reviews only, so I
-could read every one properly. The first 50 are the dev split (allowed to look
-at when changing rules), the other 100 are test and only get scored.
+the sample isn't picked by the thing it's grading. Short reviews only, so every one
+can be read in full. The first 50 are the dev split (allowed to look at when
+changing rules), the other 100 are test and only get scored. Labels were
+reviewed manually, one review at a time, without looking at extractor output.
 
 Label format, one JSON line per review:
   {"review_id": ..., "split": "dev"|"test", "concerns": {"dryness": "+"}, "skin_types": ["dry"],

@@ -53,7 +53,7 @@ def counts(cfg):
 
 def test_load_quarantines_and_is_idempotent(cfg):
     write_drop(cfg.drops, DAY, rows())
-    assert runner.load_day(cfg, DAY, "test", {}) == "warn"  # 2 of 46 quarantined, over the 1% warn line
+    assert runner.load_day(cfg, DAY, "test", {}) == "ok"  # 2 of 46 quarantined, under the 10 row warn floor
     first = counts(cfg)
     assert first[:2] == (44, 2)
     with warehouse.connect(cfg.db_path, read_only=True) as con:
@@ -61,7 +61,7 @@ def test_load_quarantines_and_is_idempotent(cfg):
     assert reasons == ["duplicate", "empty_text"]
 
     assert runner.load_day(cfg, DAY, "test", {}) == "skipped"
-    assert runner.load_day(cfg, DAY, "test", {}, force=True) == "warn"
+    assert runner.load_day(cfg, DAY, "test", {}, force=True) == "ok"
     assert counts(cfg) == first
 
 
@@ -81,7 +81,7 @@ def test_misfiled_drop_is_blocked(cfg):
 
 def test_build_rescore_and_swap(cfg):
     write_drop(cfg.drops, DAY, rows())
-    assert runner.run_day(cfg, DAY, "test") == "warn"
+    assert runner.run_day(cfg, DAY, "test") == "ok"
     meta = json.loads((cfg.serving / "_published.json").read_text())
     assert meta["model_version"] == "rules-v1"
 
