@@ -10,7 +10,8 @@ Production style pipelines, each in its own folder under `pipelines/` with tests
 
 | # | Project | Stack | Data |
 |---|---------|-------|------|
-| 112 | [Last mile lateness pipeline](pipelines/112_last_mile_lateness/) | S3, Lambda, Glue PySpark, Redshift Serverless, Terraform, data quality gates | Amazon Last Mile Routing (6,112 real routes) |
+| 112 | [Last mile lateness pipeline](pipelines/112_last_mile_lateness/) | S3, Lambda, Glue PySpark, Redshift Serverless, Terraform, data quality gates | Amazon Last Mile Routing (6,112 routes) |
+| 114 | [Late-night campus mobility](pipelines/114_late_night_campus_mobility/) | Dagster partitions and sensor, dbt incremental on DuckDB, quarantine and data checks, static report | Bluebikes trip history, MBTA GTFS (fall 2025, 34,969 late-night trips) |
 
 ## Featured
 
