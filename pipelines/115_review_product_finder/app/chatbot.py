@@ -115,8 +115,8 @@ else:
 for row in top.itertuples():
     with st.container(border=True):
         st.markdown(f"**{row.title}**")
-        st.caption(f"{row.store or 'unknown brand'} · score {row.score:.0f}/100 from {row.n_reviews} reviews "
-                   f"({row.positive_reviews} positive, {row.negative_reviews} negative)")
+        st.caption(f"{row.store or 'unknown brand'} · score {row.score:.0f}/100 from {int(row.n_reviews)} reviews "
+                   f"({int(row.positive_reviews)} positive, {int(row.negative_reviews)} negative)")
         ev = evidence[(evidence.parent_asin == row.parent_asin) & (evidence.concern == concern)
                       & (evidence.type_key == type_key)].sort_values("evidence_rank")
         for e in ev.itertuples():

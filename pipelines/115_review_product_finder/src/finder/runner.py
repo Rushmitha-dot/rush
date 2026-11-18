@@ -2,10 +2,10 @@
 
     python -m finder.runner init
     python -m finder.runner run 2023-01-05                 land + check + score + dbt build + publish
-    python -m finder.runner backfill 2022-12-31 2023-09-08 [--dbt-once]
+    python -m finder.runner backfill 2022-12-31 2023-09-09 [--dbt-once]
     python -m finder.runner score-version rules-v2         versioned backfill next to the active version
     python -m finder.runner activate rules-v2              swap the current views, old scores stay
-    python -m finder.runner freshness --expect 2023-09-08
+    python -m finder.runner freshness --expect 2023-09-09
     python -m finder.runner status
 
 Every attempt gets a row in ops.pipeline_runs and its checks in ops.dq_results.
@@ -311,8 +311,10 @@ def main():
     elif args.cmd == "backfill":
         res = backfill(cfg, args.start, args.end, args.dbt_once, args.keep_going, args.force)
         bad = {d: s for d, s in res.items() if s not in ("ok", "warn", "skipped")}
-        counts = {s: sum(1 for v in res.values() if v == s) for s in set(res.values())}
-        log.info("backfill done: %s %s", counts, bad or "")
+        days = {d: s for d, s in res.items() if d != "transform"}
+        counts = {s: sum(1 for v in days.values() if v == s) for s in set(days.values())}
+        log.info("backfill done: %d days %s, final transform %s %s", len(days), counts, res.get("transform", "per day"),
+                 bad or "")
         sys.exit(1 if bad else 0)
     elif args.cmd == "score-version":
         score_version(cfg, args.version)

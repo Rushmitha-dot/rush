@@ -22,7 +22,7 @@ default_args = {
 with DAG(
     dag_id="product_finder_daily",
     start_date=datetime(2023, 1, 1),
-    end_date=datetime(2023, 9, 8),
+    end_date=datetime(2023, 9, 9),
     schedule="@daily",
     catchup=True,
     max_active_runs=1,

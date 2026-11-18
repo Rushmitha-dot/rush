@@ -25,7 +25,15 @@ def test_quarantine_thresholds():
     assert not failed(r, WARN), "two repeats in a small day shouldn't page anyone"
     r = run_checks(stats(rows_in=1000, manifest_rows=1000, quarantined=20), [], "daily")
     assert "quarantine_share" in names(r, WARN) and not failed(r, ERROR)
-    assert "quarantine_share_max" in names(run_checks(stats(quarantined=6), [], "daily"), ERROR)
+    bad = stats(quarantined=12, quarantine_reasons={"empty_text": 12})
+    assert "rejected_rows_max" in names(run_checks(bad, [], "daily"), ERROR)
+
+
+def test_duplicates_and_small_counts_never_block():
+    dupes = stats(rows_in=15, manifest_rows=15, quarantined=6, quarantine_reasons={"duplicate": 6})
+    assert not failed(run_checks(dupes, [], "daily"), ERROR)
+    one_bad = stats(rows_in=15, manifest_rows=15, quarantined=1, quarantine_reasons={"empty_text": 1})
+    assert not failed(run_checks(one_bad, [], "daily"), ERROR)
 
 
 def test_volume_check_only_for_daily_with_history():

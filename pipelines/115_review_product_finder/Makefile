@@ -5,7 +5,7 @@ export PYTHONPATH := src
 
 SRC   := https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw
 FIRST ?= 2022-12-31
-LAST  ?= 2023-09-08
+LAST  ?= 2023-09-09
 AIRFLOW_HOME := $(CURDIR)/airflow_home
 
 .PHONY: setup airflow-setup data init run backfill parity score-v2 activate freshness status eval chat airflow \
@@ -59,8 +59,8 @@ eval:
 chat:
 	$(VENV)/bin/streamlit run app/chatbot.py --server.port 8215 --server.headless true
 
-airflow:  ## UI on :8115
-	AIRFLOW_HOME=$(AIRFLOW_HOME) AIRFLOW__CORE__DAGS_FOLDER=$(CURDIR)/dags AIRFLOW__CORE__LOAD_EXAMPLES=False \
+airflow:  ## UI on :8115. standalone starts its parts by calling `airflow` from PATH, so the venv goes first
+	PATH=$(CURDIR)/.venv-airflow/bin:$$PATH AIRFLOW_HOME=$(AIRFLOW_HOME) AIRFLOW__CORE__DAGS_FOLDER=$(CURDIR)/dags AIRFLOW__CORE__LOAD_EXAMPLES=False \
 	  AIRFLOW__API__PORT=8115 .venv-airflow/bin/airflow standalone
 
 test:

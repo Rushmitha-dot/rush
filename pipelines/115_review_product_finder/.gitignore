@@ -13,3 +13,4 @@ airflow_home/
 infra/terraform/.terraform/
 infra/terraform/*.tfstate*
 infra/terraform/.terraform.lock.hcl
+dbt/.user.yml
