@@ -1,0 +1,14 @@
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["dbt: runs dbt against a temp DuckDB file (slower)", "network: downloads from the Bluebikes bucket"]
+
+[tool.ruff]
+line-length = 120
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.dagster]
+module_name = "latenight.definitions"

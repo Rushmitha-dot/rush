@@ -1,0 +1,9 @@
+dagster==1.13.30
+dagster-webserver==1.13.30
+dagster-dbt==0.29.30
+dbt-core==1.12.7
+dbt-duckdb==1.11.1
+duckdb==2.0.0
+matplotlib==3.11.2
+gtfs-realtime-bindings==2.2.0
+protobuf==6.33.6
