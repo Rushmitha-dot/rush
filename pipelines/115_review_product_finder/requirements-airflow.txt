@@ -1,0 +1,2 @@
+# separate venv, installed with the official constraints file (see Makefile)
+apache-airflow==3.3.2

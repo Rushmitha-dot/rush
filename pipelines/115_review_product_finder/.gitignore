@@ -1,0 +1,15 @@
+.venv/
+.venv-airflow/
+data/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.ruff_cache/
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+airflow_home/
+infra/terraform/.terraform/
+infra/terraform/*.tfstate*
+infra/terraform/.terraform.lock.hcl
