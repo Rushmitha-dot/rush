@@ -64,7 +64,7 @@ def download(gtfs_dir: Path) -> Path:
     return zip_path
 
 
-def derive(zip_path: Path, out_dir: Path, segments_path: Path | None = None) -> dict:
+def derive(zip_path: Path, out_dir: Path) -> dict:
     """Write gtfs_night_speeds.csv and mbta_night_stops.csv into out_dir."""
     with tempfile.TemporaryDirectory() as tmp:
         with zipfile.ZipFile(zip_path) as z:
@@ -77,10 +77,6 @@ def derive(zip_path: Path, out_dir: Path, segments_path: Path | None = None) -> 
             f"select feed_version from read_csv('{tmp}/feed_info.txt', {CSV_OPTS})").fetchone()[0]
         stops = _night_stops(con)
         speeds, detour = _night_speeds(con)
-        if segments_path is not None:
-            segments_path.parent.mkdir(parents=True, exist_ok=True)
-            con.execute(f"copy (select trip_id, stop_id, next_stop_id, seq, secs, m from seg) "
-                        f"to '{segments_path}' (format parquet)")
         con.close()
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -226,7 +222,7 @@ def _night_speeds(con) -> tuple[list[tuple], float]:
 def refresh() -> dict:
     cfg = load_settings()
     zip_path = download(cfg.gtfs_dir)
-    return derive(zip_path, SEEDS_DIR, segments_path=cfg.gtfs_dir / "campus_segments.parquet")
+    return derive(zip_path, SEEDS_DIR)
 
 
 if __name__ == "__main__":
