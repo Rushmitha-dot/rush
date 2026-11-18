@@ -79,13 +79,22 @@ REJECT_REASON = """
         when ride_id is null or ride_id = '' then 'missing ride_id'
         when try_cast(started_at as timestamp) is null then 'bad started_at'
         when try_cast(ended_at as timestamp) is null then 'bad ended_at'
-        when try_cast(ended_at as timestamp) < try_cast(started_at as timestamp) then 'ended before started'
+        when try_cast(ended_at as timestamp) < try_cast(started_at as timestamp) and not {repeated_hour}
+            then 'ended before started'
         when try_cast(ended_at as timestamp) - try_cast(started_at as timestamp) > interval 24 hour
             then 'longer than 24 hours'
         when try_cast(start_lat as double) is null or try_cast(start_lng as double) is null
             then 'missing start coordinates'
         when rideable_type not in ('classic_bike', 'electric_bike') then 'unknown rideable_type'
     end"""
+
+
+# Times are local with no offset. When clocks fall back, 1 to 2 a.m. happens
+# twice, and a trip that starts in the first 1 a.m. and ends in the second one
+# looks like it ended before it started. Those are real trips, staging fixes them.
+REPEATED_HOUR = """(month(try_cast(started_at as timestamp)) = 11 and dayofweek(try_cast(started_at as timestamp)) = 0
+    and day(try_cast(started_at as timestamp)) <= 7 and hour(try_cast(started_at as timestamp)) = 1
+    and hour(try_cast(ended_at as timestamp)) = 1)"""
 
 
 @dataclass
@@ -127,7 +136,7 @@ def load_night(con, night: date, calendar: dict, run_id: str = "cli") -> LoadRes
                 select * from t
                 where hour(try_cast(started_at as timestamp)) in {NIGHT_HOURS}
                   and cast(try_cast(started_at as timestamp) - interval 4 hour as date) = ?)
-            select *, {REJECT_REASON} as reject_reason,
+            select *, {REJECT_REASON.format(repeated_hour=REPEATED_HOUR)} as reject_reason,
                    row_number() over (partition by ride_id order by source_month) > 1 as is_repeat
             from tonight""", [night])
         total, rejected, repeats, trips = con.execute("""
