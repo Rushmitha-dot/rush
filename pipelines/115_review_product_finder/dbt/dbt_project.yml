@@ -1,0 +1,30 @@
+name: product_finder
+version: "1.0.0"
+config-version: 2
+profile: product_finder
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: target
+clean-targets: [target, dbt_packages, logs]
+
+vars:
+  min_reviews: 5     # a score is only published when at least this many reviews talk about the concern
+  prior_weight: 10   # pseudo-reviews pulling small samples toward the concern average
+
+models:
+  product_finder:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+    marts:
+      +schema: marts
+      +materialized: table
+
+seeds:
+  product_finder:
+    +schema: ref

@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: reviews
+        columns:
+          - name: review_id
+            tests: [not_null, unique]
+      - name: products
+  - name: nlp
+    schema: nlp
+    tables:
+      - name: scored_reviews
+      - name: mentions
+  - name: ops
+    schema: ops
+    tables:
+      - name: model_versions

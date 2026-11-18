@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: product_concern_scores
+    tests:
+      - unique_combination:
+          arguments:
+            columns: [model_version, parent_asin, concern, type_key]
+    columns:
+      - name: n_reviews
+        tests:
+          - at_least:
+              arguments:
+                value: "{{ var('min_reviews') }}"
+      - name: score
+        tests:
+          - not_null
+          - between_values:
+              arguments:
+                low: 0
+                high: 100
+      - name: concern
+        tests:
+          - relationships:
+              arguments:
+                to: ref('concern_taxonomy')
+                field: concern
+      - name: type_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('type_taxonomy')
+                field: type_key
+              config:
+                where: "type_key <> 'any'"
+  - name: product_concern_evidence
+    columns:
+      - name: sentence
+        tests: [not_null]
+      - name: evidence_rank
+        tests:
+          - between_values:
+              arguments:
+                low: 1
+                high: 3

@@ -1,0 +1,11 @@
+concern,domain,label,sort_order
+dryness,both,Dryness,1
+oiliness,both,Oiliness or greasiness,2
+breakouts,skin,Breakouts and acne,3
+sensitivity,both,Irritation and sensitivity,4
+dark_spots,skin,Dark spots and scars,5
+aging,skin,Fine lines and firmness,6
+frizz,hair,Frizz,7
+hair_loss,hair,Thinning and shedding,8
+dandruff,hair,Dandruff and itchy scalp,9
+damage,hair,Damage and split ends,10

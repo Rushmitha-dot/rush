@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_mentions
+    columns:
+      - name: label
+        tests:
+          - accepted_values:
+              arguments:
+                values: [CONCERN, SKIN_TYPE, HAIR_TYPE]
+  - name: stg_products
+    columns:
+      - name: parent_asin
+        tests: [not_null, unique]
+      - name: domain
+        tests:
+          - accepted_values:
+              arguments:
+                values: [hair, skin, other]

@@ -1,0 +1,13 @@
+type_group,type_key,label,sort_order
+skin,dry,Dry skin,1
+skin,oily,Oily skin,2
+skin,combination,Combination skin,3
+skin,sensitive,Sensitive skin,4
+skin,normal,Normal skin,5
+hair,straight,Straight hair,1
+hair,wavy,Wavy hair,2
+hair,curly,Curly hair,3
+hair,coily,Coily or natural hair,4
+hair,fine,Fine or thin hair,5
+hair,thick,Thick or coarse hair,6
+hair,color_treated,Color treated hair,7

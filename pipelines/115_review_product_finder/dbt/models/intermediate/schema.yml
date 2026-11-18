@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_review_concerns
+    tests:
+      - unique_combination:
+          arguments:
+            columns: [review_id, model_version, concern]
+    columns:
+      - name: concern
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('concern_taxonomy')
+                field: concern
+              config:
+                where: "concern <> 'none'"
+  - name: int_review_types
+    tests:
+      - unique_combination:
+          arguments:
+            columns: [review_id, model_version, type_group, type_key]
+    columns:
+      - name: type_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('type_taxonomy')
+                field: type_key
+              config:
+                where: "type_key <> 'none'"

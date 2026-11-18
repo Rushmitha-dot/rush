@@ -1,0 +1,21 @@
+# Local runs use dev (DuckDB). The snowflake target is what I'd run in a real
+# account. I don't have one, so it's never been executed, only kept in shape.
+product_finder:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('FINDER_DB') }}"
+      threads: 2
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'not-set') }}"
+      user: "{{ env_var('SNOWFLAKE_USER', 'not-set') }}"
+      authenticator: snowflake_jwt
+      private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH', 'not-set') }}"
+      role: FINDER_TRANSFORM
+      warehouse: FINDER_XS
+      database: FINDER
+      schema: ANALYTICS
+      threads: 4
+      query_tag: product_finder_dbt
