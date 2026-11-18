@@ -225,7 +225,7 @@ def night_report() -> MaterializeResult:
     return MaterializeResult(metadata={"path": str(path), "bytes": path.stat().st_size})
 
 
-nightly_job = define_asset_job("nightly", selection=AssetSelection.groups("nightly"), partitions_def=nights)
+nightly_job = define_asset_job("nightly", selection=AssetSelection.groups("nightly"))
 report_job = define_asset_job("report", selection=AssetSelection.assets(night_report, bluebikes_stations))
 
 # rebuild the page every morning even when no new month landed, so the 7 a.m. SLA is about the pipeline running

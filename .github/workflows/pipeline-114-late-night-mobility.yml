@@ -1,0 +1,41 @@
+name: 114 late night campus mobility
+
+on:
+  push:
+    paths: ["pipelines/114_late_night_campus_mobility/**", ".github/workflows/pipeline-114-late-night-mobility.yml"]
+  pull_request:
+    paths: ["pipelines/114_late_night_campus_mobility/**"]
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: pipelines/114_late_night_campus_mobility
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: pipelines/114_late_night_campus_mobility/requirements*.txt}
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check src tests
+      - run: cd dbt && dbt parse -q
+        env: {LATENIGHT_WAREHOUSE: /tmp/parse.duckdb, DBT_PROFILES_DIR: .}
+      - run: python -m pytest -q
+        env: {PYTHONPATH: src}
+
+  # two real weeks end to end (downloads one month file, about 21 MB) and keeps the page as an artifact
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: pipelines/114_late_night_campus_mobility/requirements*.txt}
+      - run: python -m venv .venv && .venv/bin/pip install -q -r requirements.txt
+      - run: make backfill FIRST=2025-10-01 LAST=2025-10-14
+      - uses: actions/upload-artifact@v4
+        with:
+          name: late-night-report
+          path: pipelines/114_late_night_campus_mobility/site/
