@@ -1,0 +1,94 @@
+{
+  "version": "rules-v1",
+  "split": "dev",
+  "reviews": 50,
+  "reviews_with_concern": 10,
+  "concern": {
+    "tp": 6,
+    "fp": 4,
+    "fn": 6,
+    "precision": 0.6,
+    "recall": 0.5,
+    "f1": 0.545
+  },
+  "type": {
+    "tp": 7,
+    "fp": 1,
+    "fn": 4,
+    "precision": 0.875,
+    "recall": 0.636,
+    "f1": 0.737
+  },
+  "per_concern": {
+    "dryness": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.667
+    },
+    "oiliness": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "breakouts": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "sensitivity": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.857
+    },
+    "aging": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "frizz": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "hair_loss": {
+      "tp": 1,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.333,
+      "recall": 1.0,
+      "f1": 0.5
+    },
+    "damage": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "polarity": {
+    "graded": 6,
+    "sign_agreement": 0.667,
+    "directional_labels": 6,
+    "directional_agreement": 0.667
+  }
+}

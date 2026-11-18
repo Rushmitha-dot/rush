@@ -1,0 +1,150 @@
+{"review_id": "5c376cc735f5c8fd87bdeeba2d4c4bc5", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["color_treated"], "note": "brassiness is not in the taxonomy"}
+{"review_id": "df4e97896d96889b7db60ee14a7f1893", "split": "dev", "concerns": {"hair_loss": "-"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "7117a0350c77271f00dee309f4f56dc1", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c6beab1e3615e4f593ad140bafff6eb2", "split": "dev", "concerns": {"sensitivity": "+", "oiliness": "+"}, "skin_types": ["sensitive", "oily"], "hair_types": [], "note": ""}
+{"review_id": "0d2909b25ce1a8a5e6858c56a810c97f", "split": "dev", "concerns": {"frizz": "+"}, "skin_types": [], "hair_types": ["fine", "curly"], "note": "thin = fine"}
+{"review_id": "e35e0be253d72076e507540dc7054e9a", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": "natural hair here means her own hair next to a wig, not a type"}
+{"review_id": "268f3f46505068818508c3140e747a2e", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": "wig shedding is a product defect, not hair loss"}
+{"review_id": "b8594e811b183092cecf59258ab95921", "split": "dev", "concerns": {}, "skin_types": ["sensitive"], "hair_types": [], "note": "type only, no outcome stated"}
+{"review_id": "9dc653c5c91d02c6b2f817123d8fd0a6", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "72dc2532bdbf40a21c6edc76639e904e", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "448d714533994bc28bc154e457398604", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "4ee1bfeddc5a78d1ef16e35ef87c017f", "split": "dev", "concerns": {"breakouts": "-"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "12fe088284d3e3a32b4f884ae04538d0", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "17b56986554ddd5794bc7bb875309abe", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "5b97a7d64c5a034c5258dab35b1fe848", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["fine"], "note": ""}
+{"review_id": "8164088b460169fd44a314f4976dff6b", "split": "dev", "concerns": {"dryness": "+", "aging": "+"}, "skin_types": [], "hair_types": [], "note": "moisturizing in title; tightened read as firming, judgment call"}
+{"review_id": "cd45ee368d7e124f9d8228be7221e37b", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["thick"], "note": ""}
+{"review_id": "34352c08e0d38c1dbe542ad124ac7e55", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "655713825846403efe1ed71276144c36", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c7ad0b6fb40a4bf31ed8475d114b67ed", "split": "dev", "concerns": {"sensitivity": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "3b3c5fe6bb286a2139dd65bf947063cb", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "b677f10654a2e34178e0dcbc64f6c698", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "55fbabf44cdec01555bba55dbd485c13", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "07f4504b520e35eba74eb18a31bf911e", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["coily"], "note": "natural hair as a hair type"}
+{"review_id": "19b40e12684d2d3a2174299cdae02792", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "377a99747d1168d875f94b87ee500d7c", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["thick"], "note": ""}
+{"review_id": "02e9fed1a0569da950c0940d546c0a39", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "5bebf8d9e4049bf56f27edfb145b7ab4", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["fine"], "note": ""}
+{"review_id": "3ba261a11608a247cc1502442e8950c8", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "bd0a6fc5e0b32ed06b7995d0498c8a2f", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "466e2092a3b232969569421c357cf34d", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": "wig shedding is a product defect"}
+{"review_id": "ce5da2eb1bdd99bc85344a151a6fb081", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "ba83622b7a3f0cbf2cc7bb8ba93a436f", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c872313910e80a03910c41fc6eef71d7", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "89a000722f26d2c385786d2dc71d13a8", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c741f48b2da05ec71fa7869cdc8a05e6", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "29c0921da14eafbf92472890b9265344", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "f9919f195b90a11ca2991ff2c8f822e3", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "050019524c7920502fa71a9b0dff49ac", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "776acf6555f0d42c40b8658dc5bc1f4a", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "778e17aa018c5924094148ac01e12a71", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "af62438dc21a81e1667b5af635e95708", "split": "dev", "concerns": {"sensitivity": "+"}, "skin_types": [], "hair_types": [], "note": "rash from other deodorants, none from this one"}
+{"review_id": "6795dcd406aca5df82c93b97d5eed614", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "070d574dfd0b2407907549d325b494e3", "split": "dev", "concerns": {"aging": "+"}, "skin_types": [], "hair_types": [], "note": "taut read as firming, judgment call"}
+{"review_id": "fe89fd082b4291884c28e56b3660ae32", "split": "dev", "concerns": {"damage": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "6dd913bc39f4ad583a15e022d78675ed", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "bf8a5cf8bcaadc06a6b250008c623d95", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "8c2cbe2b08efb1c208c058e38e6a11ee", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "deb408124f0270c6f26451c4ae122836", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "e8787f22c1698b7c882ccae7d2e942c3", "split": "dev", "concerns": {"sensitivity": "+"}, "skin_types": [], "hair_types": [], "note": "gentle on skin"}
+{"review_id": "4388f0e443984b3a50346b6d2011095a", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "b6eea1b175acc46eda5ff5469087eaff", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "6e3658251565fe23fd36dae373a1f7ea", "split": "test", "concerns": {"hair_loss": "-", "dryness": "-", "frizz": "-"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "b9fa81da13379959717d0a8db6b230ed", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c26f8756e34db7fe03ba88e337191394", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "6dc0210ec1b97123ad46b39c9bebf586", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "6fb319a2874955f00c87b0ad1140ffb2", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "de4bb2ff6d4bf8974113fb79ac0f43f4", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["coily"], "note": "fine hair is a recommendation for others, not her type"}
+{"review_id": "22c014d47e2c6a3f5c8c4dce12ecf6e1", "split": "test", "concerns": {"sensitivity": "-"}, "skin_types": [], "hair_types": [], "note": "feels hot on my skin"}
+{"review_id": "c70e97c43f536e67a3684c7634328fcb", "split": "test", "concerns": {"oiliness": "+", "breakouts": "+"}, "skin_types": ["sensitive"], "hair_types": [], "note": ""}
+{"review_id": "ff551f28f414f34e06512312d6899bbf", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "5c30db9ddb50878c6d03b0fb97d476c1", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "98b5c3c2c39fe0213413da3509a9fe73", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["thick"], "note": "daughter's hair"}
+{"review_id": "41467b18c7ef4d1550fceab584eb3eb2", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "be1c84c93c33ddcee9358ae0320c7c9c", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "3a452c0e885bc64de02718a0cec42a4b", "split": "test", "concerns": {"breakouts": "+"}, "skin_types": [], "hair_types": [], "note": "gunk out of pores = clogged pores"}
+{"review_id": "f8c9aa559fd9f8df6fb99cbac8c2da30", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "41cbcd3973e8ca9ca17560c6196ca8c8", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "bac17931180d17b07aab4dba38b67592", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["color_treated"], "note": ""}
+{"review_id": "f79fce8887f4e13077ca64db7d583bd2", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "033a365503e8d91bd494fe7a5393ef32", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "78957a1f6efe7caad7187cc2ac62ee6c", "split": "test", "concerns": {"sensitivity": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "8068ffeda81c909b0f57ea84f9119ad9", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "2919695a6fc70a499545fb8dab55b29d", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "3675ee250eb25afd854928907767e91e", "split": "test", "concerns": {}, "skin_types": ["oily", "sensitive"], "hair_types": [], "note": ""}
+{"review_id": "1c25e92c7a895f240bd6988c26f623cc", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "f631511bed90bd00f2b4e2c1a09aa8d4", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "a537abe41d257edac3a6f4b9d72e93f9", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "0ba3c145f7fc9333a7961939b07d0c9a", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "f22c8fde4b8f8380c9d29ec0b00185c1", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "416f847527e73bc2f99945c7444bf69a", "split": "test", "concerns": {"hair_loss": "+"}, "skin_types": [], "hair_types": [], "note": "my hair is growing"}
+{"review_id": "3eb8ff9886a3a0b8a70de23f6beabc6a", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "05335dc92d99feb17050dacdd9b41032", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c4cf33a831757392dcddaf5c3bbbed24", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "5a3814e259d425a21f87486279223f2f", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "fa60bc32f8448b5f38113e5071375375", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "8311a4183a80d2cd5bf0d9de9ce9529c", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "b971649194e2e48a47825fdcd2e1d9d9", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "bd44fcaa2752adb33743f3cdae4d4d67", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "68e4585512ff7f5da7ad687f98336a73", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["fine", "thick"], "note": "fine (reviewer, daughter) and thick (granddaughter), all tried them"}
+{"review_id": "8fa5cc6cb89025242931ce65ab97f2bc", "split": "test", "concerns": {"dandruff": "+"}, "skin_types": [], "hair_types": [], "note": "itchy scalp under braids"}
+{"review_id": "c11e42995490e5dc4efc023dfdaaca95", "split": "test", "concerns": {"hair_loss": "+"}, "skin_types": [], "hair_types": [], "note": "headband covers thinning hair"}
+{"review_id": "a4e26e097efe1598ab88dc74adca71cb", "split": "test", "concerns": {"hair_loss": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "2110abbd5230725f518f0ef369b2f0e2", "split": "test", "concerns": {"breakouts": "+", "sensitivity": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "6a0215b29400289c0aa225eeac82a2e8", "split": "test", "concerns": {"aging": "+", "breakouts": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "0430c16a5f96c753f46288327e864cde", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "dd9bf6bf147c9f9d308d61c952e9a88f", "split": "test", "concerns": {"frizz": "+"}, "skin_types": [], "hair_types": [], "note": "thicker hair not counted as hair loss"}
+{"review_id": "a2ed6516fc4fb8cdc0d07c75ad7fbc57", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["wavy"], "note": "daughter's hair"}
+{"review_id": "7d7b088a3a07d9bf5189d096dacfc507", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "cf5eb7210ccc70b1fd1016761de95514", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["thick", "curly"], "note": ""}
+{"review_id": "aa94ec7d739a3e90cbc2e730f5de53b4", "split": "test", "concerns": {"dryness": "+"}, "skin_types": [], "hair_types": ["curly"], "note": "dry hair is a concern, not a hair type"}
+{"review_id": "4d690c6cb0f720ddb10e4b27bf5e1b37", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "fb9242b72a46c8d8dafb59cbaaaaa8e6", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": "breakage in extension hair is a product defect"}
+{"review_id": "61751688e241dcf3f6381eb9f2009ce7", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["straight"], "note": ""}
+{"review_id": "4ac26ba919eb5d0eadcdeef18eccf3ca", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["curly"], "note": ""}
+{"review_id": "ff6924bfeaee266626e0ce8773120b14", "split": "test", "concerns": {"dryness": "+"}, "skin_types": ["dry"], "hair_types": [], "note": ""}
+{"review_id": "ae048697ee9075fcee48d3dc7eb03940", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": "fine blonde hair is body hair being waxed"}
+{"review_id": "02c85c46dccde9c60e6a0ff4ee233723", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "a083caf1b0b1c2b46711dd46030007bd", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "bee4b1ffa2bc2df573b7b2fdecb18828", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": "mannequin hair"}
+{"review_id": "d683dcbb732b5f57fc66f4ee226389ca", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "8fa893b46c6fd44f4cf2286c9c2cf8b6", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "bc2e5f4c43c14cffe08f1b9f20691ee3", "split": "test", "concerns": {"dryness": "+"}, "skin_types": ["dry"], "hair_types": [], "note": ""}
+{"review_id": "b67b7563442fb553ec50527e57a11d7b", "split": "test", "concerns": {}, "skin_types": ["sensitive"], "hair_types": [], "note": "under-eye puffiness is not in the taxonomy"}
+{"review_id": "d0b030799ccaa4a9be75bee1df8f19a4", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "a3738cf487d4851154ff0491ee8bf729", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "7647cbfe07b63b2758c34d3d08a340f5", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "eda879c9a436e3cd5eb3498b3df9ae0d", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "8ab7fa63723cb04b894866846a451fd1", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["thick", "curly"], "note": "coarse = thick, mother's hair"}
+{"review_id": "2c6afa18e1afd8548d43670d506c7021", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "a8d973c722ee461d17de3b38820b7ebc", "split": "test", "concerns": {"dryness": "+"}, "skin_types": [], "hair_types": ["curly"], "note": "hydrated"}
+{"review_id": "818d4509a6803360e9051cc19d8488df", "split": "test", "concerns": {"breakouts": "+"}, "skin_types": [], "hair_types": [], "note": "blackheads"}
+{"review_id": "f956fc9191911fa2daa8cb631bdd6bc7", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "d9aaa36efa7faf4e5166910294ed77eb", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "552330715692ae384a19c1c4c7bbeb28", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "9efd5f52f66c320c1407390575421d80", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "e61f5e7758429cb59e5f6a1de48c9151", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "09c69fff0e5c2b36453f3298727d5a4b", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "3785ab73b56edcbe38a67d5a8048e07d", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "92d9df1d55549869194f29a44642a205", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "52ebf63969f933f686174a31399a1978", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "7eaf6b34e1b92a2741ad5b4ce98286b1", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "2bb6eb173e81f76e07c4e8e8011020f8", "split": "test", "concerns": {"breakouts": "-"}, "skin_types": [], "hair_types": [], "note": "says she does NOT have sensitive skin"}
+{"review_id": "7d3c0e55d5fb526da6a5b9198f14996e", "split": "test", "concerns": {"breakouts": "+"}, "skin_types": [], "hair_types": [], "note": "clear skin read as blemish free, judgment call"}
+{"review_id": "698c1a797c916cbb1541200022499bda", "split": "test", "concerns": {}, "skin_types": ["sensitive"], "hair_types": [], "note": "allergic skin as a type description, no outcome"}
+{"review_id": "35d3067b4a9d5c51e160936a3ba42d12", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "c8d3196d4eae57d6520f91054feb8b7a", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "cea3e29f04ce8a2608ea69a7f70991c9", "split": "test", "concerns": {"frizz": "+"}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "e492b9260c7c5ed303404b521395f039", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "8382feef30815554f90e7b710a101515", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "db2c4c00226c769330a6abc0b2f621cf", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["curly"], "note": ""}
+{"review_id": "7fed7a4926f12e68ccde7ef0f5879b47", "split": "test", "concerns": {"breakouts": "+", "sensitivity": "+"}, "skin_types": ["sensitive"], "hair_types": [], "note": "gentle"}
+{"review_id": "7bcdf1e1d3a51fa246b2198f096f9a3f", "split": "test", "concerns": {}, "skin_types": [], "hair_types": ["thick"], "note": "coarse = thick"}
+{"review_id": "2289f5681e0f8dd7dc100bcc4cb62cb5", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "eaf3ed56e684ae6aca186f844e2967a9", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "64fc59cf667c3e1fb5b2fa6fac5c8643", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "712f70054ee1f68368033112fed19a38", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "ab24d756b3d19db1df52eb8ddbe97f43", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "aa141a08339414ac2ca0cbaf3d61e32b", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
+{"review_id": "94b4f1e341149168c32801ce4787e117", "split": "test", "concerns": {"frizz": "+"}, "skin_types": [], "hair_types": ["curly", "wavy"], "note": ""}
