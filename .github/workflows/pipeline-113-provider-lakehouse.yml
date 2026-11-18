@@ -1,0 +1,40 @@
+name: 113 provider lakehouse
+
+on:
+  push:
+    paths: ["pipelines/113_provider_lakehouse/**", ".github/workflows/pipeline-113-provider-lakehouse.yml"]
+  pull_request:
+    paths: ["pipelines/113_provider_lakehouse/**"]
+
+defaults:
+  run:
+    working-directory: pipelines/113_provider_lakehouse
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: "17"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: pipelines/113_provider_lakehouse/requirements*.txt}
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check src tests
+      # first Spark start pulls the Delta jars from Maven
+      - uses: actions/cache@v4
+        with: {path: ~/.ivy2, key: ivy-delta-3.2.1}
+      - run: python -m pytest -q
+        env: {PYTHONPATH: "src:tests"}
+
+  bundle:
+    runs-on: ubuntu-latest
+    if: ${{ vars.DATABRICKS_HOST != '' }}
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+      - run: databricks bundle validate -t dev
+        working-directory: pipelines/113_provider_lakehouse/databricks

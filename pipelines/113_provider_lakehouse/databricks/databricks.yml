@@ -1,0 +1,30 @@
+# Databricks Asset Bundle. `databricks bundle deploy -t dev` from this folder.
+# Written for Free Edition, which is serverless only, so there is no cluster spec.
+bundle:
+  name: provider_lakehouse
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog that holds bronze, silver, gold, ops and analyst
+    default: provider_lake
+  volume_root:
+    description: landing files and downloads live in a UC volume
+    default: /Volumes/provider_lake/ops/files
+
+artifacts:
+  provider_lake:
+    type: whl
+    path: ..
+    build: python3 -m pip wheel --no-deps --wheel-dir dist .
+
+targets:
+  dev:
+    mode: development
+    default: true
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}

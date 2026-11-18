@@ -1,0 +1,59 @@
+resources:
+  jobs:
+    provider_lake_nppes:
+      name: provider-lake-nppes
+      # NPPES posts the weekly file on Monday or Tuesday with no fixed hour. Polling every
+      # 6 hours keeps the 24 hour SLA, and the load ledger turns the extra polls into no-ops.
+      schedule:
+        quartz_cron_expression: "0 0 */6 * * ?"
+        timezone_id: UTC
+      max_concurrent_runs: 1
+      email_notifications:
+        on_failure: [rushi.rushmitha@gmail.com]
+      environments:
+        - environment_key: default
+          spec:
+            client: "2"
+            dependencies:
+              - ../dist/*.whl
+      tasks:
+        - task_key: load_new_files
+          environment_key: default
+          python_wheel_task:
+            package_name: provider_lake
+            entry_point: provider-lake
+            parameters: ["--catalog", "${var.catalog}", "--home", "${var.volume_root}", "run"]
+        - task_key: freshness
+          depends_on: [{task_key: load_new_files}]
+          environment_key: default
+          python_wheel_task:
+            package_name: provider_lake
+            entry_point: provider-lake
+            parameters: ["--catalog", "${var.catalog}", "--home", "${var.volume_root}", "freshness"]
+
+    provider_lake_partd:
+      name: provider-lake-partd
+      # Part D is annual, CMS releases a new data year around May. Run by hand with the year.
+      parameters:
+        - name: year
+          default: "2024"
+      environments:
+        - environment_key: default
+          spec:
+            client: "2"
+            dependencies:
+              - ../dist/*.whl
+      tasks:
+        - task_key: load_year
+          environment_key: default
+          python_wheel_task:
+            package_name: provider_lake
+            entry_point: provider-lake
+            parameters: ["--catalog", "${var.catalog}", "--home", "${var.volume_root}", "partd", "{{job.parameters.year}}"]
+        - task_key: gold
+          depends_on: [{task_key: load_year}]
+          environment_key: default
+          python_wheel_task:
+            package_name: provider_lake
+            entry_point: provider-lake
+            parameters: ["--catalog", "${var.catalog}", "--home", "${var.volume_root}", "gold"]
