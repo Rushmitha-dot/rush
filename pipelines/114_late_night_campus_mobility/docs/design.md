@@ -71,7 +71,7 @@ ERROR checks run before anything is written and block the night and dbt. WARN ch
 
 Rows that fail a rule go to `raw.bluebikes_trips_quarantine` with a reason. In fall 2025 that was 29 trips, all longer than 24 hours.
 
-The volume check compares like with like. In 112 a trailing average flagged the start of a break and then got used to it within a week. Here the baseline is the same weekday over the last four weeks, but only nights in the same kind of period (classes, finals, break), and the check says "no comparable nights" instead of guessing. In fall 2025 it fired three times. October 12 and 13 had 74 and 103 trips against about 330, the nights of the October 12 to 14 nor'easter. November 15 had 160 against 590; trips fell off from about 9 p.m. on, and the forecast that day called for rain overnight, but I haven't matched it to an observed weather record. I left the band wide because late-night bike demand swings a lot more than shuttle demand.
+The volume check compares like with like. In 112 a trailing average flagged the start of a break and then got used to it within a week. Here the baseline is the same weekday over the last four weeks, but only nights in the same kind of period (classes, finals, break), and the check says "no comparable nights" instead of guessing. In fall 2025 it fired three times. October 12 and 13 had 74 and 103 trips against about 330, the nights of the October 12 to 14 nor'easter. November 15 had 160 against 590; trips fell off from about 9 p.m. on, and the forecast that day called for rain overnight, but I haven't matched it to an observed weather record. I left the band wide because late-night bike demand swings a lot with weather and events.
 
 ## MBTA GTFS
 
@@ -95,7 +95,7 @@ GTFS-realtime (TripUpdates and VehiclePositions on cdn.mbta.com, no key needed) 
 
 ## Cost
 
-Near zero. A month file is 6 to 31 MB zipped (one month was a 133 MB plain CSV) and S3 egress from a public bucket costs me nothing. A full semester backfill took 194 seconds on my laptop from an empty data folder, the DuckDB file is a few MB, and GitHub Actions runs the tests and a two-week end-to-end build on every push to this folder. MotherDuck's free tier would host the warehouse if the report needed to query it live, but a static page doesn't.
+Near zero. A month file is 6 to 31 MB zipped (one month was a 133 MB plain CSV) and S3 egress from a public bucket costs me nothing. A full semester backfill took 194 seconds on my laptop from an empty data folder, the DuckDB file is about 11 MB, and GitHub Actions runs the tests and a two-week end-to-end build on every push to this folder. MotherDuck's free tier would host the warehouse if the report needed to query it live, but a static page doesn't.
 
 ## Failure modes
 
