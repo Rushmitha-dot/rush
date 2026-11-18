@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: fct_late_night_trips
+    description: >
+      One row per Bluebikes trip that starts between 10 p.m. and 3 a.m. and
+      starts or ends within 1 km of a campus anchor. Times are Boston local time.
+    columns:
+      - name: ride_id
+        data_tests: [unique, not_null]
+      - name: night
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_nights')
+                field: night
+      - name: duration_min
+        data_tests: [not_negative]
+      - name: start_station_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_stations')
+                field: station_id
+    data_tests:
+      - max_share:
+          arguments:
+            condition: "end_station_id is null"
+            max_share: 0.05
+          config:
+            severity: warn
+
+  - name: mart_hourly_demand
+    description: Trips per night and start hour, split by member type, bike type and direction.
+    columns:
+      - name: trips
+        data_tests: [not_null]
+  - name: mart_nightly_demand
+    description: One row per night with a rolling 7 night average and a same weekday 4 week average.
+    columns:
+      - name: night
+        data_tests: [unique, not_null]
+  - name: mart_duration_buckets
+    description: Share of trips in each duration bucket by night type and start hour.
+  - name: mart_station_hotspots
+    description: Campus area stations ranked by late-night departures, with net flow and trips per dock.
+  - name: mart_cluster_flows
+    description: Trips between the three campus clusters and the rest of the system.
+  - name: mart_peak_windows
+    description: Average rolling 60 minute demand by window start; top 3 per night type are peaks.
+  - name: mart_transit_gap
+    description: Late-night bike departures per station next to MBTA night departures within 400 m.
+  - name: mart_bike_vs_bus_speed
+    description: Median straight-line bike speed by hour next to scheduled MBTA bus speed.
+  - name: mart_data_quality
+    description: Loaded, quarantined and flagged trips per night.
+  - name: dim_stations
+    columns:
+      - name: station_id
+        data_tests: [unique, not_null]
+  - name: dim_nights
+    columns:
+      - name: night
+        data_tests: [unique, not_null]

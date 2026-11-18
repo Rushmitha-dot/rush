@@ -1,0 +1,48 @@
+name: late_night_mobility
+version: "1.0.0"
+profile: late_night_mobility
+config-version: 2
+
+model-paths: [models]
+seed-paths: [seeds]
+test-paths: [tests]
+macro-paths: [macros]
+target-path: target
+clean-targets: [target]
+
+vars:
+  # set by the Dagster asset to the nights in the run; empty means all nights
+  first_night: ""
+  last_night: ""
+
+models:
+  late_night_mobility:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table
+
+seeds:
+  late_night_mobility:
+    +schema: reference
+    academic_calendar:
+      +column_types:
+        night: date
+        term: varchar
+        period: varchar
+        holiday: varchar
+        weekend_night: boolean
+    gtfs_night_speeds:
+      +column_types:
+        night_type: varchar
+        hour: integer
+        filled_from_hour: integer
+    mbta_night_stops:
+      +column_types:
+        stop_id: varchar
+        stop_name: varchar

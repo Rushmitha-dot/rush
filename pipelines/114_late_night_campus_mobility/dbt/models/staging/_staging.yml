@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_bluebikes_trips
+    columns:
+      - name: ride_id
+        data_tests: [unique, not_null]
+      - name: rideable_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [classic_bike, electric_bike]
+      - name: member_casual
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [member, casual]
+      - name: start_hour
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [22, 23, 0, 1, 2]
+                quote: false
+  - name: stg_bluebikes_stations
+    columns:
+      - name: station_id
+        data_tests: [unique, not_null]
+  - name: stg_academic_calendar
+    columns:
+      - name: night
+        data_tests: [unique, not_null]

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: int_trips_with_area
+    columns:
+      - name: start_cluster
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [northeastern, longwood, fenway, outside]
+      - name: direction
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [within_area, leaving_area, arriving_area]
+  - name: int_stations
+    columns:
+      - name: station_id
+        data_tests: [unique, not_null]

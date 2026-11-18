@@ -1,0 +1,7 @@
+late_night_mobility:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('LATENIGHT_WAREHOUSE') }}"
+      threads: 1

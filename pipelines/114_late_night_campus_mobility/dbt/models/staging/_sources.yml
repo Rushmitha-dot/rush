@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: bluebikes
+    description: Bluebikes trip history (public monthly files) and GBFS stations, loaded by latenight.load and latenight.stations.
+    schema: raw
+    tables:
+      - name: bluebikes_trips
+        description: Late-night trips (start 10 p.m. to 3 a.m.) that start or end within 1 km of a campus anchor.
+        loaded_at_field: loaded_at
+        freshness:
+          # the files are monthly and land in the first week of the next month
+          warn_after: {count: 40, period: day}
+      - name: bluebikes_trips_quarantine
+      - name: bluebikes_stations
+        description: Snapshot of the GBFS station_information feed.
+  - name: ops
+    schema: ops
+    tables:
+      - name: load_ledger
+      - name: source_files
