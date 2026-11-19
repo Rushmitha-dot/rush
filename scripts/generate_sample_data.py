@@ -1,5 +1,5 @@
 """
-Sample data generator for notebooks 01, 07, 14, 15, 16, 17, 18, 21, 22.
+Sample data generator for notebooks 001, 015, 016, 017 and 018 (template-generated inputs, not real records).
 Schemas chosen to match what the notebooks expect (verified in their cell 2-4).
 """
 import json
@@ -406,7 +406,7 @@ def gen_products(n=120):
 
 
 if __name__ == "__main__":
-    print("Generating generated datasets...")
+    print("Generating sample datasets...")
     gen_mortgages()
     gen_course_materials()
     gen_diffs()
