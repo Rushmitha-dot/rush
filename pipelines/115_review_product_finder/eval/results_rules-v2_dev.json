@@ -1,7 +1,7 @@
 {
   "version": "rules-v2",
   "split": "dev",
-  "reviews": 50,
+  "reviews": 49,
   "reviews_with_concern": 10,
   "concern": {
     "tp": 10,

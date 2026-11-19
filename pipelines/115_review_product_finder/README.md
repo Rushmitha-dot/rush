@@ -45,11 +45,11 @@ Full run on my laptop (M2, 8 GB), shared with two other builds.
 | Published scores (rules-v1) | 2,463 rows over 1,429 products |
 | Forced rerun of one day, twice | identical counts and content hashes in every layer |
 
-Then I switched the model. rules-v2 was scored for every review next to v1 (12 min 7 s), both built and tested, then activated with one row update (20 s). v2 publishes 2,147 score rows over 1,218 products, stricter than v1 mainly because bare "dry" no longer matches verbs. 40 of the 65 slots in the "any type" top 5 lists kept the same product. v1's scores are still there for rollback.
+Then I switched the model. rules-v2 was scored for every review next to v1 (6 min 39 s), both built and tested, then activated with one row update (8 s). v2 publishes 2,149 score rows over 1,219 products, stricter than v1 mainly because bare "dry" no longer matches verbs. 40 of the 65 slots in the "any type" top 5 lists kept the same product. v1's scores are still there for rollback.
 
 A parity run built January twice, a dbt build after each day versus one build at the end, and the incremental models and marts came out identical.
 
-Extraction quality on a manually reviewed label set of 150 reviews, split 50 dev (used to write rules-v2) and 100 test (only scored). The test split has 28 concern labels, so read these as rough.
+Extraction quality on a manually reviewed label set of 148 reviews, split 49 dev (used to write rules-v2) and 99 test (only scored). The test split has 28 concern labels, so read these as rough.
 
 | Test split | rules-v1 | rules-v2 |
 |---|---|---|
@@ -96,7 +96,7 @@ src/finder/
 dbt/             staging, incremental intermediate models, marts, seeds, tests
 dags/            Airflow DAG
 app/chatbot.py   Streamlit menu and button assistant
-eval/            150 sampled reviews, labels, results per version
+eval/            148 sampled reviews, labels, results per version
 infra/terraform/ Snowflake database, XS warehouse, resource monitor, roles
 docs/design.md
 ```

@@ -145,7 +145,7 @@ TYPE_FILLER = {",", "and", "but", "very", "really", "super", "extremely", "long"
 
 # wig, bundle and extension reviews talk about the product's hair shedding, not the buyer's
 DEFECT_CONTEXT = {"wig", "wigs", "bundle", "bundles", "extension", "extensions", "weave", "lace", "closure",
-                  "frontal", "install", "installed", "crochet", "braiding", "generated"}
+                  "frontal", "install", "installed", "crochet", "braiding"}
 DEFECT_CONCERNS = {"hair_loss", "damage"}
 
 NEGATIONS = {"no", "not", "n't", "never", "without", "zero", "nor", "didn't", "doesn't", "don't", "wasn't",

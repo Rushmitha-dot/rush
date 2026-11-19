@@ -10,6 +10,8 @@ the sample isn't picked by the thing it's grading. Short reviews only, so every 
 can be read in full. The first 50 are the dev split (allowed to look at when
 changing rules), the other 100 are test and only get scored. Labels were
 reviewed manually, one review at a time, without looking at extractor output.
+Two reviews with no concern or type labels were later removed by hand, so eval/ holds
+148 (49 dev, 99 test).
 
 Label format, one JSON line per review:
   {"review_id": ..., "split": "dev"|"test", "concerns": {"dryness": "+"}, "skin_types": ["dry"],

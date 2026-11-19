@@ -15,7 +15,6 @@
 {"review_id": "5b97a7d64c5a034c5258dab35b1fe848", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["fine"], "note": ""}
 {"review_id": "8164088b460169fd44a314f4976dff6b", "split": "dev", "concerns": {"dryness": "+", "aging": "+"}, "skin_types": [], "hair_types": [], "note": "moisturizing in title; tightened read as firming, judgment call"}
 {"review_id": "cd45ee368d7e124f9d8228be7221e37b", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": ["thick"], "note": ""}
-{"review_id": "34352c08e0d38c1dbe542ad124ac7e55", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "655713825846403efe1ed71276144c36", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "c7ad0b6fb40a4bf31ed8475d114b67ed", "split": "dev", "concerns": {"sensitivity": "+"}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "3b3c5fe6bb286a2139dd65bf947063cb", "split": "dev", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
@@ -79,7 +78,6 @@
 {"review_id": "0ba3c145f7fc9333a7961939b07d0c9a", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "f22c8fde4b8f8380c9d29ec0b00185c1", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "416f847527e73bc2f99945c7444bf69a", "split": "test", "concerns": {"hair_loss": "+"}, "skin_types": [], "hair_types": [], "note": "my hair is growing"}
-{"review_id": "3eb8ff9886a3a0b8a70de23f6beabc6a", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "05335dc92d99feb17050dacdd9b41032", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "c4cf33a831757392dcddaf5c3bbbed24", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}
 {"review_id": "5a3814e259d425a21f87486279223f2f", "split": "test", "concerns": {}, "skin_types": [], "hair_types": [], "note": ""}

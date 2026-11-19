@@ -13,7 +13,7 @@ So the pipeline's job is turning free review text into a tested table of (produc
 [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) from the McAuley lab, category All_Beauty. 701,528 reviews of 112,565 products from Nov 2000 to Sep 2023, plus 112,590 rows of product metadata. Download is 94 MB of reviews and 40 MB of metadata, gzipped.
 
 * The links on the Hugging Face dataset card point at `datarepo.eng.ucsd.edu`, which returned 404 when I built this. The same files are served from `mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/`, which is what the Makefile uses.
-* The dataset card has no license field. The project page asks for a citation and describes it as research data. I download it in the pipeline and don't commit the raw files. The only review text in the repo is the 150 short reviews in `eval/sample.jsonl`, kept so the labels can be checked against what they label.
+* The dataset card has no license field. The project page asks for a citation and describes it as research data. I download it in the pipeline and don't commit the raw files. The only review text in the repo is the 148 short reviews in `eval/sample.jsonl`, kept so the labels can be checked against what they label.
 * Beauty_and_Personal_Care would be the bigger category (tens of millions of reviews). All_Beauty fits the laptop budget I gave myself (under 3 GB of disk, under 1.5 GB of RAM) and still has skin, hair and body products.
 
 Everything in the pipeline is real reviews. Nothing is generated. The "daily feed" is the same records split by their own timestamps, see below. Unit tests use a handful of hand written rows.
@@ -56,7 +56,7 @@ Scoring the whole history drop with rules-v1 took 885 seconds of load plus extra
 
 ### Two model versions
 
-A model version pins the vocabulary and the rules together. rules-v1 is the taxonomy lists plus VADER. rules-v2 came out of reading the extractor's mistakes on the 50 dev reviews (never the test reviews), and adds
+A model version pins the vocabulary and the rules together. rules-v1 is the taxonomy lists plus VADER. rules-v2 came out of reading the extractor's mistakes on the dev reviews (never the test reviews), and adds
 
 * split and multi-word phrases ("broke my face out", "breaking out in a rash" as sensitivity, not breakouts)
 * bare "dry" only with an intensifier or a body part, because "put it in wet hair and dry" was a verb
@@ -68,7 +68,7 @@ One bug found later by a unit test, not by the test set. Reviews use both `'` an
 
 ## Evaluation
 
-`label.py` draws 150 reviews that mention skin, hair, scalp or face and are 40 to 600 characters (seed 115). Those four words are not extractor terms, so the sample isn't chosen by the thing it grades. The first 50 are dev, the other 100 are test. The labels are a manually reviewed label set of 150 reviews, written one review at a time without looking at the extractor's output, with a note on every judgment call. 32 of the 150 reviews have at least one concern, 22 of them in test, so the numbers below have wide error bars.
+`label.py` draws 150 reviews that mention skin, hair, scalp or face and are 40 to 600 characters (seed 115). Those four words are not extractor terms, so the sample isn't chosen by the thing it grades. The first 50 are dev, the other 100 are test. Two hair bundle reviews with no concern or type labels were later taken out (one dev, one test), so the set is 148, 49 dev and 99 test. The labels are a manually reviewed label set, written one review at a time without looking at the extractor's output, with a note on every judgment call. 32 of the 148 reviews have at least one concern, 22 of them in test, so the numbers below have wide error bars.
 
 Labeling rules I used
 
@@ -77,7 +77,7 @@ Labeling rules I used
 * wig, extension and doll hair problems are product defects, not concerns
 * outcome is + (helped, or no problem happened), - (caused it or didn't help), 0 (mentioned with no outcome)
 
-Results on the 100 test reviews (`make eval`)
+Results on the 99 test reviews (`make eval`)
 
 | | rules-v1 | rules-v2 |
 |---|---|---|
@@ -106,10 +106,10 @@ Scores are keyed by review id plus model version. Activating a new model is thre
 
 What happened when I did it for rules-v2
 
-* scoring all 693,547 reviews took 12 minutes 7 seconds and wrote 139,587 mentions. dbt then built both versions side by side, 38 tests passing.
-* concern mentions went from 124,845 to 103,669, mostly bare "dry" no longer matching verbs. Published "any type" dryness scores went from 1,033 to 743 and hair loss from 98 to 71 (wig reviews).
-* v2 publishes 2,147 score rows over 1,218 products, against 2,463 over 1,429 for v1. Of the 13 "any type" top 5 lists, 1 came out identical and 40 of the 65 slots kept the same product.
-* `activate` took 20 seconds including the dbt build and the new snapshot. The 2,463 v1 rows are still in the table.
+* scoring all 693,547 reviews took 6 minutes 39 seconds and wrote 139,688 mentions. dbt then built both versions side by side, 38 tests passing.
+* concern mentions went from 124,845 to 103,770, mostly bare "dry" no longer matching verbs. Published "any type" dryness scores went from 1,033 to 743 and hair loss from 98 to 73 (wig reviews).
+* v2 publishes 2,149 score rows over 1,219 products, against 2,463 over 1,429 for v1. Of the 13 "any type" top 5 lists, 1 came out identical and 40 of the 65 slots kept the same product.
+* `activate` took 8 seconds including the dbt build and the new snapshot. The 2,463 v1 rows are still in the table.
 
 ## Data quality
 
@@ -189,7 +189,7 @@ Cost, estimated from Snowflake's published rate of 1 credit per hour for an XS w
 
 ## Limits
 
-* The test set is 100 reviews with 28 concern labels. Treat the precision and recall as rough.
+* The test set is 99 reviews with 28 concern labels. Treat the precision and recall as rough.
 * Sentence level VADER is a weak polarity model for this domain, see above.
 * Product domain (skin or hair) comes from title keywords, so hair tools land in the hair domain and pick up concern scores from how they feel to use. Under v1 a curling wand topped hair sensitivity because reviewers write about burns. Under v2, which reads "no more burns" as a good outcome, a heat resistant mat for hot tools tops it instead.
 * Products with lots of reviews that say "not greasy" score well on oiliness. That's the right reading of the text, but it means the oiliness list is full of oils.
