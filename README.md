@@ -11,6 +11,7 @@ Production style pipelines, each in its own folder under `pipelines/` with tests
 | # | Project | Stack | Data |
 |---|---------|-------|------|
 | 112 | [Last mile lateness pipeline](pipelines/112_last_mile_lateness/) | S3, Lambda, Glue PySpark, Redshift Serverless, Terraform, data quality gates | Amazon Last Mile Routing (6,112 routes) |
+| 113 | [Provider lakehouse](pipelines/113_provider_lakehouse/) | Delta Lake on Spark, SCD2 MERGE on a row hash, file ledger, Change Data Feed, time travel backfill, Unity Catalog masks, Databricks Asset Bundle | NPPES monthly + weekly files, Medicare Part D by provider and drug (Texas, 653,089 providers, 3.7M facts) |
 | 114 | [Late-night campus mobility](pipelines/114_late_night_campus_mobility/) | Dagster partitions and sensor, dbt incremental on DuckDB, quarantine and data checks, static report | Bluebikes trip history, MBTA GTFS (fall 2025, 34,969 late-night trips) |
 | 115 | [Review-scored product finder](pipelines/115_review_product_finder/) | dbt incremental (DuckDB, Snowflake target), spaCy rules + VADER, versioned rescoring with view swap, Airflow, Streamlit | Amazon Reviews 2023, All Beauty (701,528 reviews) |
 
