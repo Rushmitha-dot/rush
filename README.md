@@ -28,7 +28,7 @@ NL-to-SQL on the Spider benchmark with execution-style evaluation. Includes a wo
 LangChain agent with sliding-window short-term memory and a vector-store backed long-term memory. Includes a reflection step that decides what to commit to long-term storage. Honest about LangChain's compatibility quirks (`ConversationSummaryBufferMemory` failed on Gemini due to tiktoken; swapped for `ConversationBufferWindowMemory`).
 
 ### [012 — Fraud Detection Drift Monitor](notebooks/012_fraud_drift_monitor/)
-Production-style monitoring around a fraud classifier: dataset and feature-level drift detection via Evidently, four generated drift scenarios (including a no-drift control), and honest reporting on which signals actually fire. The kind of work you'd inherit in a real MLOps role.
+Production-style monitoring around a fraud classifier: dataset and feature-level drift detection via Evidently, four drift scenarios on the real ULB card transactions (three simulated shifts plus a no-drift control), and honest reporting on which signals actually fire. The kind of work you'd inherit in a real MLOps role.
 
 ### [007 — Course Q&A Assistant (RAG)](notebooks/007_course_qa_assistant/)
 RAG over course materials with retrieval evaluation (Recall@k, rank-of-correct) and a separate faithfulness judge. The judge prompt grades the answer text (not the context — a common bug we caught and fixed during review). Full pipeline runs offline-ish with local embeddings.
@@ -85,16 +85,16 @@ Projects are numbered with a 3-digit zero-padded prefix so directory listings so
 | # | Project | Topic | Size |
 |---|---------|-------|------|
 | 034 | [Restaurant Reviews Sentiment](notebooks/034_restaurant_reviews/) | NLP | S |
-| 035 | [Flipkart Reviews Sentiment](notebooks/035_flipkart_sentiment/) † | NLP | S |
+| 035 | [Flipkart Reviews Sentiment](notebooks/035_flipkart_sentiment/) | NLP | S |
 | 036 | [Twitter Sentiment Analysis](notebooks/036_twitter_sentiment/) | NLP | S |
-| 037 | [Facebook / Social Media Sentiment](notebooks/037_facebook_sentiment/) † | NLP | S |
+| 037 | [Social Media Sentiment (TweetEval)](notebooks/037_facebook_sentiment/) | NLP | S |
 | 038 | [Fake News Detection (TF-IDF)](notebooks/038_fake_news_detection/) | NLP | S |
-| 039 | [Customer Segmentation (K-Means)](notebooks/039_customer_segmentation/) † | Unsupervised | S |
-| 040 | [Customer Churn (Telco)](notebooks/040_customer_churn/) † | Classification | S |
-| 041 | [Loan Approval Prediction](notebooks/041_loan_approval/) † | Classification | S |
-| 042 | [Loan Eligibility (SVM)](notebooks/042_loan_eligibility_svm/) † | Classification | S |
-| 043 | [Disease Prediction from Symptoms](notebooks/043_disease_prediction_multilabel/) † | Classification | S |
-| 044 | [Medical Insurance Cost](notebooks/044_medical_insurance_cost/) † | Regression | S |
+| 039 | [Customer Segmentation (K-Means)](notebooks/039_customer_segmentation/) | Unsupervised | S |
+| 040 | [Customer Churn (Telco)](notebooks/040_customer_churn/) | Classification | S |
+| 041 | [Loan Approval Prediction](notebooks/041_loan_approval/) | Classification | S |
+| 042 | [Loan Eligibility (SVM)](notebooks/042_loan_eligibility_svm/) | Classification | S |
+| 043 | [Disease Prediction from Symptoms](notebooks/043_disease_prediction_multilabel/) | Classification | S |
+| 044 | [Medical Insurance Cost](notebooks/044_medical_insurance_cost/) | Regression | S |
 
 ### Medical, forecasting, handwritten digits (045-055)
 
@@ -105,9 +105,9 @@ Projects are numbered with a 3-digit zero-padded prefix so directory listings so
 | 047 | [Parkinson's Detection (voice features)](notebooks/047_parkinsons_detection/) | Classification | S |
 | 048 | [Autism Screening (AQ-10)](notebooks/048_autism_screening/) | Classification | S |
 | 049 | [Auto MPG / Fuel Efficiency](notebooks/049_fuel_efficiency/) | Regression | S |
-| 050 | [Sales Forecast (SARIMA)](notebooks/050_sales_forecast/) † | Time Series | S |
-| 051 | [Click-Through Rate Prediction](notebooks/051_click_through_rate/) † | Classification | S |
-| 052 | [Used Cars Price Analysis](notebooks/052_used_cars_price/) † | Regression | S |
+| 050 | [Sales Forecast (SARIMA)](notebooks/050_sales_forecast/) | Time Series | S |
+| 051 | [Click-Through Rate Prediction](notebooks/051_click_through_rate/) | Classification | S |
+| 052 | [Used Cars Price Analysis](notebooks/052_used_cars_price/) | Regression | S |
 | 053 | [MNIST Handwritten Digits (CNN)](notebooks/053_mnist_digits_classification/) | CV | M |
 | 054 | [MNIST Digits (sklearn classical)](notebooks/054_mnist_digits_sklearn/) | Classical ML | S |
 | 055 | [Keras Sequential Intro (Fashion-MNIST)](notebooks/055_keras_sequential_intro/) | CV | S |
@@ -117,12 +117,12 @@ Projects are numbered with a 3-digit zero-padded prefix so directory listings so
 | # | Project | Topic | Size |
 |---|---------|-------|------|
 | 056 | [Deep Learning OCR (digits + letters)](notebooks/056_deep_learning_ocr/) | CV | M |
-| 057 | [Text Detection & Extraction](notebooks/057_text_detection_extraction/) † | CV / OCR | S |
-| 058 | [Face Mask Detection](notebooks/058_face_mask_detection/) † | CV | S |
-| 059 | [Dog Breed Classification (transfer learning)](notebooks/059_dog_breed_classification/) † | CV | S |
-| 060 | [Flower Recognition](notebooks/060_flower_recognition/) † | CV | S |
-| 061 | [Cat vs Dog (small CNN)](notebooks/061_cat_dog_cnn/) † | CV | S |
-| 062 | [Traffic Signs Recognition](notebooks/062_traffic_signs/) † | CV | S |
+| 057 | [Text Detection & Extraction](notebooks/057_text_detection_extraction/) | CV / OCR | S |
+| 058 | [Face Mask Detection](notebooks/058_face_mask_detection/) | CV | S |
+| 059 | [Dog Breed Classification (transfer learning)](notebooks/059_dog_breed_classification/) | CV | S |
+| 060 | [Flower Recognition](notebooks/060_flower_recognition/) | CV | S |
+| 061 | [Cat vs Dog (small CNN)](notebooks/061_cat_dog_cnn/) | CV | S |
+| 062 | [Traffic Signs Recognition](notebooks/062_traffic_signs/) | CV | S |
 | 063 | [CIFAR-10 Image Classification](notebooks/063_cifar10_classification/) | CV | M |
 | 064 | [Multiclass Image Classification (architecture sweep)](notebooks/064_multiclass_image_classification/) | CV | M |
 | 065 | [Image Caption Generator (BLIP)](notebooks/065_image_caption_generator/) | Multimodal | M |
@@ -136,7 +136,7 @@ Projects are numbered with a 3-digit zero-padded prefix so directory listings so
 | 068 | [Count Faces in an Image](notebooks/068_count_faces/) | CV | S |
 | 069 | [Count Objects (YOLO)](notebooks/069_count_objects/) | CV | S |
 | 070 | [Age Detection from Face](notebooks/070_age_detection/) | CV | S |
-| 071 | [Face & Hand Landmarks](notebooks/071_face_hand_landmarks/) † | CV | S |
+| 071 | [Face & Hand Landmarks](notebooks/071_face_hand_landmarks/) | CV | S |
 | 072 | [Human Activity Recognition (UCI HAR)](notebooks/072_human_activity_recognition/) | Classification | S |
 | 073 | [Speech Recognition Demo](notebooks/073_speech_recognition_demo/) | Audio | S |
 | 074 | [Simple Voice Assistant](notebooks/074_voice_assistant/) | Audio / LLM | S |
@@ -148,12 +148,12 @@ Projects are numbered with a 3-digit zero-padded prefix so directory listings so
 
 | # | Project | Topic | Size |
 |---|---------|-------|------|
-| 078 | [TED Talks Recommender](notebooks/078_ted_talks_recommender/) † | Recommenders | S |
+| 078 | [TED Talks Recommender](notebooks/078_ted_talks_recommender/) | Recommenders | S |
 | 079 | [Emotion-Based Movie Recommender](notebooks/079_emotion_movie_recommender/) | Recommenders | S |
-| 080 | [Credit Card Fraud Detection](notebooks/080_credit_card_fraud/) † | Classification | M |
-| 081 | [Online Payment Fraud](notebooks/081_payment_fraud_online/) † | Classification | S |
-| 082 | [Inventory Demand Forecast](notebooks/082_inventory_demand_forecast/) † | Time Series | S |
-| 083 | [Vehicle Count Prediction](notebooks/083_vehicle_count_prediction/) † | CV / Regression | S |
+| 080 | [Credit Card Fraud Detection](notebooks/080_credit_card_fraud/) | Classification | M |
+| 081 | [Online Payment Fraud](notebooks/081_payment_fraud_online/) | Classification | S |
+| 082 | [Inventory Demand Forecast](notebooks/082_inventory_demand_forecast/) | Time Series | S |
+| 083 | [Vehicle Count Prediction (I-94 hourly traffic)](notebooks/083_vehicle_count_prediction/) | Regression | S |
 | 084 | [Air Quality Index (GBM)](notebooks/084_air_quality_index/) | Regression | S |
 | 085 | [Air Quality (Neural Net)](notebooks/085_air_quality_nn/) | Regression | S |
 | 086 | [Ola Bike Demand Forecast](notebooks/086_ola_bike_demand/) | Time Series | S |
@@ -170,28 +170,28 @@ Projects are numbered with a 3-digit zero-padded prefix so directory listings so
 | 092 | [Stock Price Direction (classification)](notebooks/092_stock_price_direction/) | Classification | S |
 | 093 | [Share Price Long-Horizon Forecast (Prophet)](notebooks/093_share_price_forecasting_longterm/) | Time Series | S |
 | 094 | [Employee Management System (CRUD / SQL)](notebooks/094_employee_management_system/) | SQL / DB | S |
-| 095 | [License Plate Recognition (OCR)](notebooks/095_license_plate_recognition/) † | CV / OCR | S |
-| 096 | [Car License Plate Pipeline (CNN)](notebooks/096_car_license_plate_pipeline/) † | CV | S |
-| 097 | [Fake News Detection (DistilBERT)](notebooks/097_fake_news_bert/) † | NLP / Transformers | M |
+| 095 | [License Plate Recognition (OCR)](notebooks/095_license_plate_recognition/) | CV / OCR | S |
+| 096 | [Car License Plate Pipeline (CNN)](notebooks/096_car_license_plate_pipeline/) | CV | S |
+| 097 | [Fake News Detection (DistilBERT)](notebooks/097_fake_news_bert/) | NLP / Transformers | M |
 | 098 | [Next Sentence Prediction (BERT)](notebooks/098_next_sentence_prediction/) | NLP / Transformers | S |
-| 099 | [BERT Fine-Tune for Sentiment](notebooks/099_bert_finetune_sentiment/) † | NLP / Transformers | M |
+| 099 | [BERT Fine-Tune for Sentiment](notebooks/099_bert_finetune_sentiment/) | NLP / Transformers | M |
 
 ### Advanced deep learning (100-111)
 
 | # | Project | Topic | Size |
 |---|---------|-------|------|
-| 100 | [BERT Sentiment (frozen embeddings)](notebooks/100_bert_sentiment_classification/) † | NLP / Transformers | M |
+| 100 | [BERT Sentiment (frozen embeddings)](notebooks/100_bert_sentiment_classification/) | NLP / Transformers | M |
 | 101 | [ResNet From Scratch (CIFAR-10)](notebooks/101_resnet_from_scratch/) | Deep Learning | M |
-| 102 | [Skin Cancer Detection*](notebooks/102_skin_cancer_detection/) | Medical CV | S |
-| 103 | [Lung Cancer Prediction*](notebooks/103_lung_cancer_detection/) | Medical | S |
-| 104 | [Pneumonia X-Ray Detection*](notebooks/104_pneumonia_detection/) | Medical CV | S |
-| 105 | [COVID-19 X-Ray Detection*](notebooks/105_covid_xray_detection/) | Medical CV | S |
-| 106 | [Image Segmentation (U-Net)](notebooks/106_image_segmentation_unet/) † | Deep Learning | M |
+| 102 | [Skin Cancer Detection](notebooks/102_skin_cancer_detection/) | Medical CV | S |
+| 103 | [Lung Cancer Prediction](notebooks/103_lung_cancer_detection/) | Medical | S |
+| 104 | [Pneumonia X-Ray Detection](notebooks/104_pneumonia_detection/) | Medical CV | S |
+| 105 | [COVID-19 X-Ray Detection](notebooks/105_covid_xray_detection/) | Medical CV | S |
+| 106 | [Image Segmentation (U-Net)](notebooks/106_image_segmentation_unet/) | Deep Learning | M |
 | 107 | [B&W → Color (Autoencoder)](notebooks/107_image_colorization/) | Deep Learning | M |
 | 108 | [Heart Disease ANN (follow-up to 004)](notebooks/108_heart_disease_ann/) | Deep Learning | S |
-| 109 | [Spaceship Titanic (Kaggle)](notebooks/109_spaceship_titanic/) † | Classical ML | S |
+| 109 | [Spaceship Titanic (Kaggle)](notebooks/109_spaceship_titanic/) | Classical ML | S |
 | 110 | [Zillow Home Value (Zestimate)](notebooks/110_zillow_zestimate/) | Regression | M |
-| 111 | [Box Office Revenue](notebooks/111_box_office_revenue/) † | Regression | S |
+| 111 | [Box Office Revenue](notebooks/111_box_office_revenue/) | Regression | S |
 
 ## Setup
 
@@ -210,8 +210,9 @@ Datasets live in `data/` (one folder per project). Built-in datasets (`sklearn`,
 A portfolio this size deserves some transparency about what's real and what isn't.
 
 - **⭐ Featured projects** are the ones I'd send first. The full list exists because I wanted breadth across classical ML, CV, NLP, and LLM work; the strongest material is concentrated in `001-022`.
-- **† Sample data.** Projects marked with a dagger use generated stand-in data because the real dataset was gated (Kaggle competitions), large (medical imaging), or not freely mirrored (e.g., Flipkart reviews). Each affected notebook says so in its markdown. These are pipeline / methodology demos, not benchmarks.
-- **\* Medical CV (102, 104, 105)** specifically use generated image data (real datasets like HAM10000 / ChestX-ray / COVID-19 Radiography require accounts and licenses). These notebooks demonstrate the modeling pipeline only — they are not clinical models and should not be read as such.
+- **Data sources.** Projects 035-111 run on public datasets (UCI, OpenML, Hugging Face mirrors of Kaggle sets, MedMNIST, TMDB, HMDA, FRED and others). Each notebook names its source and license near the top. Some large sets are subsampled to keep CPU runtime short, and the notebook says how.
+- **Medical projects (102-105)** use real images and survey data (DermaMNIST / HAM10000, PneumoniaMNIST, a pooled COVID-19 x-ray collection, a lung cancer survey), but they are small CPU models and not clinical tools. The COVID notebook in particular discusses source leakage in pooled x-ray datasets.
+- **LLM projects 001 and 015-018** still run on documents and dialogues I generated (mortgage PDFs, chat sessions, resume/JD pairs, invoices). Each notebook says so in its data section. Moving them to real public data means re-running the LLM calls, which I haven't done yet.
 - **Stock / crypto projects (087-093)** are time-series methodology demos. They do not claim to predict prices or earn returns; markdown is honest that beating naive baselines is hard at the horizons covered.
 - **CV training budgets** are small (1-3 epochs on CPU) to keep notebook execution under a few minutes. Real benchmarking would need GPU and longer schedules.
 - **Project 094 (Employee Management System)** is a database CRUD assignment, not ML — it's included for completeness because it was a class deliverable.

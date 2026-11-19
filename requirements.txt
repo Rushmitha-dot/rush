@@ -43,6 +43,13 @@ uvicorn
 streamlit
 pydantic
 
+# data loading for the notebook datasets
+pyarrow
+huggingface_hub
+scikit-image
+soundfile
+mediapipe
+
 # misc
 beautifulsoup4
 requests
