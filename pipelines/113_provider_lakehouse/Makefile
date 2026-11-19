@@ -30,7 +30,8 @@ backfill:  ## make backfill SINCE=2026-11-08, or no SINCE to rebuild from nothin
 	$(RUN) backfill $(if $(SINCE),--since $(SINCE),)
 
 rebuild-parity:  ## rebuild into a scratch lake from the same landed files, then compare
-	rm -rf data/rebuild
+	rm -rf data/rebuild && mkdir -p data/rebuild/downloads
+	cp data/downloads/nucc_taxonomy_261.csv data/rebuild/downloads/  # same reference file, no second download
 	LAKE_HOME=data/rebuild LANDING_DIR=data/landing $(PY) -m provider_lake.runner refs
 	LAKE_HOME=data/rebuild LANDING_DIR=data/landing $(PY) -m provider_lake.runner backfill
 	LAKE_HOME=data/rebuild LANDING_DIR=data/landing $(PY) -m provider_lake.runner partd 2023 2024

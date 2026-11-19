@@ -85,7 +85,12 @@ def run(spark: SparkSession, cfg: Settings, state_end: date, sample_size: int = 
                 "practice_state": row["practice_state"], "practice_postal_code": row["practice_postal_code"],
                 "primary_taxonomy": row["primary_taxonomy"], "is_active": row["is_active"]}
         results["compared"] += 1
-        bad = [f for f in FIELDS if norm(mine[f]) != norm(api.get(f))]
+        # a deactivated NPI has no record in the API, so status is the only thing to compare.
+        # The dimension keeps the last known name and address on purpose.
+        fields = FIELDS if api.get("is_active") or "name" in api else ("is_active",)
+        if fields == ("is_active",):
+            results["deactivated_in_api"] = results.get("deactivated_in_api", 0) + 1
+        bad = [f for f in fields if norm(mine[f]) != norm(api.get(f))]
         for f in bad:
             results["field_mismatches"][f] += 1
         if not bad:

@@ -103,9 +103,13 @@ def cmd_gold(spark, cfg, args, run_id):
 
 def cmd_backfill(spark, cfg, args, run_id):
     since = date.fromisoformat(args.since) if args.since else None
+    dim = cfg.table("silver", "dim_provider")
+    before = pipeline.table_version(spark, dim) if spark.catalog.tableExists(dim) else None
     results = pipeline.backfill(spark, cfg, since, run_id)
+    # what the replay changed compared with the dimension it replaced, normally nothing
+    diff = parity.compare_versions(spark, dim, before, pipeline.table_version(spark, dim)) if before else None
     args.full = True  # the restore rewound silver, so gold can't follow the change feed across it
-    return {"files": results, "gold": cmd_gold(spark, cfg, args, run_id)}
+    return {"files": results, "versus_before": diff, "gold": cmd_gold(spark, cfg, args, run_id)}
 
 
 def cmd_parity(spark, cfg, args, run_id):
