@@ -9,7 +9,7 @@ services:
     # small on purpose, the index is tens of thousands of rows
     command: >
       postgres -c shared_buffers=128MB -c work_mem=16MB -c maintenance_work_mem=128MB
-               -c max_connections=20 -c effective_cache_size=256MB
+               -c max_connections=20 -c effective_cache_size=256MB -c max_wal_size=256MB -c min_wal_size=64MB
     ports: ["55117:5432"]
     mem_limit: 640m
     volumes: [pgdata:/var/lib/postgresql/data]

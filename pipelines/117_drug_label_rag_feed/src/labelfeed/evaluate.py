@@ -1,12 +1,14 @@
 """Retrieval evaluation on eval/questions.jsonl.
 
 A question has one or more expected spans, each a short exact phrase from a section of a
-named drug's label. A retrieved chunk covers a span when it is from that section, from a
-label of that drug (or of the exact set id, for version change questions), and contains the
-phrase. A question is answered at rank r when every span is covered within the top r.
+named drug's label. A retrieved chunk covers a span when it is from one of the span's
+sections, from a label whose generic name contains the drug, and contains the phrase. Generic
+labels from different labelers often share text, and any of them is a right answer. A
+question is answered at rank r when every span is covered within the top r.
 
-Version change questions also carry the phrase the old version had. Any chunk of that set id
-in the top 10 that still contains it is counted as a stale hit, which should never happen.
+Version change questions also name the set id that changed and the phrase its old version
+had. Any chunk of that set id in the top 10 that still contains the old phrase is a stale
+hit. That should never happen, because the old chunks are deleted when the new version lands.
 """
 
 import json
@@ -28,10 +30,7 @@ def norm(text: str) -> str:
 def covers(hit: retrieve.Hit, q: dict, span: dict) -> bool:
     if hit.section_code not in span["sections"]:
         return False
-    if q.get("set_id"):
-        if hit.set_id != q["set_id"]:
-            return False
-    elif norm(q["drug"]) not in norm(hit.generic_name):
+    if norm(q["drug"]) not in norm(hit.generic_name):
         return False
     return norm(span["text"]) in norm(hit.heading + " " + hit.body)
 

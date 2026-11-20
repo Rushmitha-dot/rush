@@ -386,6 +386,13 @@ def load_file(conn, embedder, updates_dir: Path, name: str, force: bool = False,
         write_ledger(conn, name, update.md5, "daily", "blocked", e.stats, time.monotonic() - started, str(e))
         conn.commit()
         raise
+    except Exception as e:
+        # a bug, not a data problem. Record it so the run history shows the attempt
+        conn.rollback()
+        write_ledger(conn, name, update.md5, "daily", "failed", None, time.monotonic() - started,
+                     f"{type(e).__name__}: {e}"[:2000])
+        conn.commit()
+        raise
 
 
 def backfill(conn, embedder, updates_dir: Path, names: list[str], today: date | None = None,

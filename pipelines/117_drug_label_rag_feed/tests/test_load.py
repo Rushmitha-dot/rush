@@ -210,3 +210,15 @@ def test_embedding_work_survives_a_blocked_load(settings, conn):
     embedder = CountingEmbedder()
     _, stats = load.load_file(conn, embedder, settings.updates_dir, D16, cache=cache)
     assert embedder.calls == [] and (stats.embedded, stats.from_cache) == (0, 3)
+
+
+def test_labels_with_no_clinical_sections_do_not_block_a_normal_file(settings, conn):
+    gas = {"51945-4": ("PACKAGE LABEL", ["Oxygen USP. Rx only."])}
+    added = {f"00000000-0000-4000-8000-{n:012d}": spl_xml(f"00000000-0000-4000-8000-{n:012d}", 1, drug="Oxygen",
+                                                           sections=gas) for n in range(6)}
+    for n in range(20):
+        sid = f"00000000-0000-4000-9000-{n:012d}"
+        added[sid] = spl_xml(sid, 1, drug=f"Drug{n}")
+    make(settings, D16, added)
+    outcome, stats = load.load_file(conn, HashEmbedder(), settings.updates_dir, D16)
+    assert outcome == "loaded" and stats.reasons == {"no_target_sections": 6} and stats.labels_applied == 20

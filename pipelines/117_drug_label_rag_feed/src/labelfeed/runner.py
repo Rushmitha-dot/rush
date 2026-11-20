@@ -58,6 +58,10 @@ def _load_one(settings, conn, embedder, name, force=False, cache=None) -> str:
         run.emit("FAIL", {"errorMessage": {"message": str(e)}})
         alert(settings, "error", f"{name} blocked, nothing published: {e}")
         return "blocked"
+    except Exception as e:
+        run.emit("FAIL", {"errorMessage": {"message": f"{type(e).__name__}: {e}"}})
+        alert(settings, "error", f"{name} failed, nothing published: {type(e).__name__}: {e}")
+        raise
     if stats:
         print(f"{name}: {stats.labels_applied} applied, {stats.labels_skipped} unchanged, "
               f"{stats.quarantined} quarantined, {stats.tombstoned} tombstoned, "

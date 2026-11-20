@@ -8,6 +8,11 @@ from . import spl
 # regression than a bad day at the FDA, so nothing from it is published
 MAX_QUARANTINE_SHARE = 0.10
 MIN_QUARANTINED_TO_BLOCK = 5
+# medical gases (oxygen, nitrogen, carbon dioxide) are Rx labels with only a package label
+# and nothing to answer from. They were 12% of the bootstrap, so they get their own, looser
+# limit. A parser that stopped finding sections would still trip it.
+NO_SECTIONS = "no_target_sections"
+MAX_NO_SECTIONS_SHARE = 0.30
 
 
 def label_problem(label: spl.Label, member_set_id: str, today: date) -> tuple[str, str] | None:
@@ -28,9 +33,13 @@ def label_problem(label: spl.Label, member_set_id: str, today: date) -> tuple[st
 
 def publish_gates(cur, stats) -> list[str]:
     failed = []
-    if stats.labels_in and stats.quarantined >= MIN_QUARANTINED_TO_BLOCK \
-            and stats.quarantined / stats.labels_in > MAX_QUARANTINE_SHARE:
-        failed.append(f"{stats.quarantined} of {stats.labels_in} labels quarantined {stats.reasons}")
+    no_sections = stats.reasons.get(NO_SECTIONS, 0)
+    bad = stats.quarantined - no_sections
+    if stats.labels_in and bad >= MIN_QUARANTINED_TO_BLOCK and bad / stats.labels_in > MAX_QUARANTINE_SHARE:
+        failed.append(f"{bad} of {stats.labels_in} labels quarantined {stats.reasons}")
+    if stats.labels_in and no_sections >= MIN_QUARANTINED_TO_BLOCK \
+            and no_sections / stats.labels_in > MAX_NO_SECTIONS_SHARE:
+        failed.append(f"{no_sections} of {stats.labels_in} labels have none of the kept sections")
     queries = {
         "active labels with no chunks": """select count(*) from labels l where l.status = 'active'
             and not exists (select 1 from chunks c where c.set_id = l.set_id)""",
