@@ -1,0 +1,22 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.1-pg17
+    container_name: labelfeed-db
+    environment:
+      POSTGRES_USER: labelfeed
+      POSTGRES_PASSWORD: labelfeed
+      POSTGRES_DB: labelfeed
+    # small on purpose, the index is tens of thousands of rows
+    command: >
+      postgres -c shared_buffers=128MB -c work_mem=16MB -c maintenance_work_mem=128MB
+               -c max_connections=20 -c effective_cache_size=256MB
+    ports: ["55117:5432"]
+    mem_limit: 640m
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U labelfeed"]
+      interval: 2s
+      retries: 30
+
+volumes:
+  pgdata:
