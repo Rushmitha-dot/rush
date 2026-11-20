@@ -1,0 +1,6 @@
+pyiceberg[sql-sqlite,pyarrow]==0.12.0
+pyarrow==26.0.1
+duckdb==2.0.1
+confluent-kafka==2.16.2
+psycopg[binary]==3.3.9
+requests==2.34.2

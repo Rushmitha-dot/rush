@@ -1,0 +1,12 @@
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
+markers = ["stack: needs the docker stack and Kafka Connect running (make up)"]
+filterwarnings = ["ignore:Delete operation did not match any records:UserWarning"]
+
+[tool.ruff]
+line-length = 120
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
