@@ -1,0 +1,64 @@
+name: hpd116
+
+# Postgres and Redpanda stay under about 1 GB together. Kafka Connect with Debezium runs on the host JVM
+# by default (see docs/design.md, the Docker disk on my laptop had no room for the image). The connect
+# service below is the same thing in a container, for a machine that has the space.
+services:
+  postgres:
+    image: postgres:16.4
+    environment:
+      POSTGRES_USER: hpd
+      POSTGRES_PASSWORD: hpd
+      POSTGRES_DB: hpd
+    command: >
+      postgres -c wal_level=logical -c max_wal_senders=4 -c max_replication_slots=4
+      -c shared_buffers=64MB -c max_wal_size=256MB -c min_wal_size=64MB
+    ports: ["55116:5432"]
+    volumes: [pg:/var/lib/postgresql/data]
+    mem_limit: 320m
+    cpus: 1.0
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "hpd"]
+      interval: 3s
+      retries: 20
+
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.2.18
+    command:
+      - redpanda
+      - start
+      - --smp=1
+      - --memory=512M
+      - --reserve-memory=0M
+      - --overprovisioned
+      - --mode=dev-container
+      - --kafka-addr=internal://0.0.0.0:9092,external://0.0.0.0:19116
+      - --advertise-kafka-addr=internal://redpanda:9092,external://localhost:19116
+    ports: ["19116:19116"]
+    volumes: [rp:/var/lib/redpanda/data]
+    mem_limit: 640m
+    cpus: 1.0
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "health", "--exit-when-healthy"]
+      interval: 3s
+      retries: 30
+
+  connect:
+    profiles: [docker-connect]
+    image: quay.io/debezium/connect:2.7.3.Final
+    depends_on: [postgres, redpanda]
+    environment:
+      BOOTSTRAP_SERVERS: redpanda:9092
+      GROUP_ID: hpd116-connect
+      CONFIG_STORAGE_TOPIC: _connect_configs
+      OFFSET_STORAGE_TOPIC: _connect_offsets
+      STATUS_STORAGE_TOPIC: _connect_status
+      KAFKA_HEAP_OPTS: -Xms128m -Xmx384m
+      CONNECT_PRODUCER_COMPRESSION_TYPE: zstd
+    ports: ["18116:8083"]
+    mem_limit: 560m
+    cpus: 1.0
+
+volumes:
+  pg: {}
+  rp: {}
