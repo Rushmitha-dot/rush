@@ -195,3 +195,18 @@ def test_backfill_of_the_range_matches_loading_day_by_day(settings, conn, tmp_pa
     finally:
         store.drop_schema(other)
     assert daily["tombstones"] == [(METF, 3)]
+
+
+def test_embedding_work_survives_a_blocked_load(settings, conn):
+    from labelfeed import store
+
+    cache = load.EmbeddingCache(store.connect(settings, autocommit=True))
+    broken = {f"00000000-0000-4000-8000-{n:012d}": b"<document>cut off" for n in range(6)}
+    make(settings, D16, {ROSU: spl_xml(ROSU, 6), **broken})
+    with pytest.raises(load.Blocked):
+        load.load_file(conn, HashEmbedder(), settings.updates_dir, D16, cache=cache)
+    assert conn.execute("select count(*) from chunk_vectors").fetchone()[0] == 0
+    make(settings, D16, {ROSU: spl_xml(ROSU, 6)})
+    embedder = CountingEmbedder()
+    _, stats = load.load_file(conn, embedder, settings.updates_dir, D16, cache=cache)
+    assert embedder.calls == [] and (stats.embedded, stats.from_cache) == (0, 3)

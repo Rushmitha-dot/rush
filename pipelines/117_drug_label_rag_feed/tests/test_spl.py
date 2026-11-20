@@ -81,3 +81,13 @@ def test_warnings_nested_inside_boxed_warning_are_not_duplicated():
 def test_broken_documents_raise_with_a_reason(xml, reason):
     with pytest.raises(spl.SplError, match=reason):
         spl.parse(xml)
+
+
+def test_a_section_code_used_twice_still_gives_unique_chunk_ids():
+    # seen on a real fluoxetine label, a titled boxed warning and a second untitled one
+    xml = spl_xml(ROSU, 1, sections={"34066-1": ("WARNING: SUICIDAL THOUGHTS", ["Monitor for worsening."])})
+    second = (b'<component><section><code code="34066-1" codeSystem="2.16.840.1.113883.6.1"/>'
+              b"<text><paragraph>Not approved for pediatric use.</paragraph></text></section></component>")
+    xml = xml.replace(b"</structuredBody>", second + b"</structuredBody>")
+    ids = [c.chunk_id for c in spl.parse(xml).chunks]
+    assert len(ids) == len(set(ids)) == 2

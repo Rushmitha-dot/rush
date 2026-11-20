@@ -48,11 +48,12 @@ def cmd_bootstrap(settings, args) -> int:
     return 0
 
 
-def _load_one(settings, conn, embedder, name, force=False) -> str:
+def _load_one(settings, conn, embedder, name, force=False, cache=None) -> str:
     run = lineage.Run(settings, "labelfeed.load", [name])
     run.emit("START")
     try:
-        outcome, stats = load.load_file(conn, embedder, settings.updates_dir, name, force=force)
+        outcome, stats = load.load_file(conn, embedder, settings.updates_dir, name, force=force,
+                                        cache=cache)
     except load.Blocked as e:
         run.emit("FAIL", {"errorMessage": {"message": str(e)}})
         alert(settings, "error", f"{name} blocked, nothing published: {e}")
@@ -61,7 +62,7 @@ def _load_one(settings, conn, embedder, name, force=False) -> str:
         print(f"{name}: {stats.labels_applied} applied, {stats.labels_skipped} unchanged, "
               f"{stats.quarantined} quarantined, {stats.tombstoned} tombstoned, "
               f"chunks +{stats.chunks_added} -{stats.chunks_removed} ={stats.chunks_kept}, "
-              f"{stats.embedded} embedded")
+              f"{stats.embedded} embedded, {stats.from_cache} from the embedding cache")
     else:
         print(f"{name}: already loaded with the same checksum, nothing to do")
     run.emit("COMPLETE")
@@ -71,7 +72,8 @@ def _load_one(settings, conn, embedder, name, force=False) -> str:
 def cmd_load(settings, args) -> int:
     conn = _conn(settings)
     embedder = SentenceEmbedder(settings.model)
-    outcome = _load_one(settings, conn, embedder, args.name, force=args.force)
+    cache = load.EmbeddingCache(store.connect(settings, autocommit=True))
+    outcome = _load_one(settings, conn, embedder, args.name, force=args.force, cache=cache)
     return 1 if outcome == "blocked" else 0
 
 
@@ -84,12 +86,13 @@ def cmd_run(settings, args) -> int:
             alert(settings, "error", f"fetch failed: {e}")
     conn = _conn(settings)
     embedder = SentenceEmbedder(settings.model)
+    cache = load.EmbeddingCache(store.connect(settings, autocommit=True))
     blocked = 0
     for name in _local_updates(settings):
         if dailymed.file_date(name) > (args.until or date.max):
             continue
         t = time.monotonic()
-        outcome = _load_one(settings, conn, embedder, name)
+        outcome = _load_one(settings, conn, embedder, name, cache=cache)
         blocked += outcome == "blocked"
         if outcome == "loaded":
             print(f"  {time.monotonic() - t:.1f}s")
@@ -107,7 +110,8 @@ def cmd_backfill(settings, args) -> int:
     run = lineage.Run(settings, "labelfeed.backfill", names)
     run.emit("START")
     try:
-        stats = load.backfill(conn, SentenceEmbedder(settings.model), settings.updates_dir, names)
+        stats = load.backfill(conn, SentenceEmbedder(settings.model), settings.updates_dir, names,
+                              cache=load.EmbeddingCache(store.connect(settings, autocommit=True)))
     except load.Blocked as e:
         conn.rollback()
         run.emit("FAIL", {"errorMessage": {"message": str(e)}})

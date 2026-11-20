@@ -93,3 +93,12 @@ create table if not exists load_ledger (
     finished_at     timestamptz not null default now(),
     primary key (update_file, source_md5)
 );
+
+-- written outside the load transaction, so a blocked or crashed load doesn't throw away
+-- the embedding work. Never read by retrieval. Safe to truncate.
+create table if not exists embedding_cache (
+    model           text not null,
+    content_hash    text not null,
+    embedding       vector(384) not null,
+    primary key (model, content_hash)
+);

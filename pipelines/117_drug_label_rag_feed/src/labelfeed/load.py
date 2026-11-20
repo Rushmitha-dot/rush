@@ -87,6 +87,7 @@ class Stats:
     chunks_removed: int = 0
     chunks_kept: int = 0
     embedded: int = 0
+    from_cache: int = 0
     reasons: dict = field(default_factory=dict)
     quarantine_rows: list = field(default_factory=list)
 
@@ -144,7 +145,28 @@ def write_quarantine(cur, stats: Stats) -> None:
     )
 
 
-def apply(conn: psycopg.Connection, embedder, events: list[Event], today: date | None = None) -> Stats:
+CACHE_BATCH = 2000
+
+
+class EmbeddingCache:
+    """Vectors already computed, on its own autocommit connection so they outlive a rollback."""
+
+    def __init__(self, conn: psycopg.Connection):
+        self.conn = conn
+
+    def get(self, model: str, hashes: list[str]) -> dict:
+        rows = self.conn.execute("select content_hash, embedding from embedding_cache "
+                                 "where model = %s and content_hash = any(%s)", (model, hashes)).fetchall()
+        return dict(rows)
+
+    def put(self, model: str, vectors: dict) -> None:
+        with self.conn.cursor() as cur:
+            cur.executemany("insert into embedding_cache (model, content_hash, embedding) values (%s, %s, %s) "
+                            "on conflict do nothing", [(model, h, v) for h, v in vectors.items()])
+
+
+def apply(conn: psycopg.Connection, embedder, events: list[Event], today: date | None = None,
+          cache: EmbeddingCache | None = None) -> Stats:
     """Apply events inside the caller's transaction. Raises Blocked if a publish gate fails."""
     today = today or date.today()
     stats = Stats(labels_in=sum(e.kind == "add" for e in events))
@@ -188,12 +210,20 @@ def apply(conn: psycopg.Connection, embedder, events: list[Event], today: date |
             "select content_hash from chunk_vectors where content_hash = any(%s)", (list(hashes),)).fetchall()}
     missing = [h for h in hashes if h not in known]
     if missing:
-        vectors = embedder.encode([hashes[h] for h in missing])
+        found = cache.get(embedder.model, missing) if cache else {}
+        todo = [h for h in missing if h not in found]
+        for start in range(0, len(todo), CACHE_BATCH):
+            batch = todo[start:start + CACHE_BATCH]
+            vectors = dict(zip(batch, embedder.encode([hashes[h] for h in batch]), strict=True))
+            if cache:
+                cache.put(embedder.model, vectors)
+            found.update(vectors)
         cur.executemany(
             "insert into chunk_vectors (content_hash, model, embedding) values (%s, %s, %s) on conflict do nothing",
-            [(h, embedder.model, v) for h, v in zip(missing, vectors, strict=True)],
+            [(h, embedder.model, found[h]) for h in missing],
         )
-    stats.embedded = len(missing)
+        stats.embedded = len(todo)
+        stats.from_cache = len(missing) - len(todo)
 
     touched_hashes: set[str] = set()
     for event, label in plans:
@@ -327,7 +357,7 @@ def write_ledger(conn, update_name: str, md5: str, mode: str, status: str, stats
 
 
 def load_file(conn, embedder, updates_dir: Path, name: str, force: bool = False,
-              today: date | None = None) -> tuple[str, Stats | None]:
+              today: date | None = None, cache: EmbeddingCache | None = None) -> tuple[str, Stats | None]:
     """Returns ('skipped' | 'loaded' | 'blocked', stats). A file already in the ledger with the
     same checksum is a no-op. Same name with a new checksum means DailyMed republished it."""
     started = time.monotonic()
@@ -344,7 +374,7 @@ def load_file(conn, embedder, updates_dir: Path, name: str, force: bool = False,
             return "skipped", None
         raise Blocked(f"{name} was loaded with md5 {seen[0]} and is now {update.md5}. Rerun with --force to apply it")
     try:
-        stats = apply(conn, embedder, events_for(update), today=today)
+        stats = apply(conn, embedder, events_for(update), today=today, cache=cache)
         write_ledger(conn, name, update.md5, "daily", "loaded", stats, time.monotonic() - started,
                      json.dumps({"reasons": stats.reasons, "deletes_not_indexed": stats.deletes_not_indexed}))
         conn.commit()
@@ -358,14 +388,15 @@ def load_file(conn, embedder, updates_dir: Path, name: str, force: bool = False,
         raise
 
 
-def backfill(conn, embedder, updates_dir: Path, names: list[str], today: date | None = None) -> Stats:
+def backfill(conn, embedder, updates_dir: Path, names: list[str], today: date | None = None,
+             cache: EmbeddingCache | None = None) -> Stats:
     """Apply a range of files as one batch, net of intermediate versions, in one transaction."""
     started = time.monotonic()
     updates = [open_update(updates_dir, n) for n in sorted(names, key=dailymed.order_key)]
     todo = [u for u in updates if not (s := ledger_status(conn, u.name)) or s[0] != u.md5]
     if not todo:
         return Stats()
-    stats = apply(conn, embedder, net_events(todo), today=today)
+    stats = apply(conn, embedder, net_events(todo), today=today, cache=cache)
     elapsed = time.monotonic() - started
     detail = json.dumps({"net_of": [u.name for u in todo], "reasons": stats.reasons,
                          "deletes_not_indexed": stats.deletes_not_indexed})

@@ -245,9 +245,14 @@ def parse(xml: bytes) -> Label:
 def chunk(label: Label, root) -> list[Chunk]:
     """Chunks are packed inside each subsection, so an edit in 5.3 only changes 5.3's chunks."""
     out = []
+    # some labels carry the same section twice (a titled and an untitled boxed warning), so
+    # the subsection counter runs per section code, not per section element
+    n_by_code: dict[str, int] = {}
     for code, section in _target_sections(root):
         name = SECTIONS[code]
-        for n_sub, (path, blocks) in enumerate(_walk(section, [])):
+        for path, blocks in _walk(section, []):
+            n_sub = n_by_code.get(code, 0)
+            n_by_code[code] = n_sub + 1
             heading = " > ".join(path) or name
             for i, body in enumerate(_pack(blocks)):
                 embed_text = f"{label.drug_name} ({label.generic_name}). {name}. {heading}. {body}"
