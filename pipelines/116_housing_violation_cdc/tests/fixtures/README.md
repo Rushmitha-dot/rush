@@ -1,0 +1,1 @@
+`soda_page.json` is three real records from the HPD violations API (dataset wvxf-dwi5), as the API returned them on 2026-11-20. `debezium_create.json` is one real insert event as Debezium wrote it to Redpanda while I was building this, with the address fields kept.

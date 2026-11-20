@@ -25,8 +25,15 @@ class Settings:
     )
     sla_minutes: int = field(default_factory=lambda: int(_env("HPD_SLA_MINUTES", "15")))
     alert_webhook: str = field(default_factory=lambda: _env("ALERT_WEBHOOK", ""))
-    topic: str = "hpd.mirror.violations"
-    heartbeat_topic: str = "hpd.mirror.heartbeat"
+    topic_prefix: str = field(default_factory=lambda: _env("HPD_TOPIC_PREFIX", "hpd"))
+
+    @property
+    def topic(self) -> str:
+        return f"{self.topic_prefix}.mirror.violations"
+
+    @property
+    def heartbeat_topic(self) -> str:
+        return f"{self.topic_prefix}.mirror.heartbeat"
 
     @property
     def lake_dir(self) -> Path:

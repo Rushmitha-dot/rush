@@ -53,6 +53,8 @@ services:
       CONFIG_STORAGE_TOPIC: _connect_configs
       OFFSET_STORAGE_TOPIC: _connect_offsets
       STATUS_STORAGE_TOPIC: _connect_status
+      CONNECT_OFFSET_STORAGE_PARTITIONS: 1
+      CONNECT_STATUS_STORAGE_PARTITIONS: 1
       KAFKA_HEAP_OPTS: -Xms128m -Xmx384m
       CONNECT_PRODUCER_COMPRESSION_TYPE: zstd
     ports: ["18116:8083"]
