@@ -109,27 +109,42 @@ def events_for(update: Update) -> list[Event]:
     return out
 
 
-def net_events(updates: list[Update]) -> list[Event]:
-    """For a backfill. The last event per set id across the range, in file order."""
+def net_events(updates: list[Update], today: date | None = None) -> list[Event]:
+    """For a backfill. The last valid event per set id across the range, in file order.
+
+    An add that fails the label checks never becomes the label's last event, the same as
+    day by day, where it would be quarantined and the earlier version kept serving. Those
+    adds are still returned so they reach the quarantine table.
+    """
+    today = today or date.today()
     last: dict[str, Event] = {}
+    rejected: list[Event] = []
     for update in updates:
         for event in events_for(update):
             current = last.get(event.set_id)
-            if event.kind == "add" and current is not None and current.kind == "add":
-                # two versions in the range, keep the higher one
-                if _version(event.xml) < _version(current.xml):
+            if event.kind == "add":
+                version = _valid_version(event, today)
+                if version is None:
+                    rejected.append(event)
+                    continue
+                if current is not None and current.kind == "add" and version < _valid_version(current, today):
                     continue
             if event.kind == "remove" and current is not None:
                 event.prior = current.xml if current.kind == "add" else current.prior
             last[event.set_id] = event
-    return list(last.values())
+    return list(last.values()) + rejected
 
 
-def _version(xml: bytes | None) -> int:
+def _valid_version(event: Event, today: date) -> int | None:
+    if event.xml is None:
+        return None
     try:
-        return spl.parse(xml).version if xml else -1
+        label = spl.parse(event.xml)
     except spl.SplError:
-        return -1
+        return None
+    if checks.label_problem(label, event.set_id, today):
+        return None
+    return label.version
 
 
 def _quarantine(stats: Stats, event: Event, reason: str, detail: str, version: int | None = None):
@@ -403,7 +418,7 @@ def backfill(conn, embedder, updates_dir: Path, names: list[str], today: date | 
     todo = [u for u in updates if not (s := ledger_status(conn, u.name)) or s[0] != u.md5]
     if not todo:
         return Stats()
-    stats = apply(conn, embedder, net_events(todo), today=today, cache=cache)
+    stats = apply(conn, embedder, net_events(todo, today), today=today, cache=cache)
     elapsed = time.monotonic() - started
     detail = json.dumps({"net_of": [u.name for u in todo], "reasons": stats.reasons,
                          "deletes_not_indexed": stats.deletes_not_indexed})

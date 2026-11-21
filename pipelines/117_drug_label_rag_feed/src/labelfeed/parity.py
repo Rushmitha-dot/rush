@@ -24,7 +24,7 @@ def snapshot(conn) -> dict:
 
 
 def vectors(conn) -> dict[str, np.ndarray]:
-    return {h: np.asarray(v) for h, v in conn.execute("select content_hash, embedding from chunk_vectors")}
+    return {h: v.to_numpy() for h, v in conn.execute("select content_hash, embedding from chunk_vectors")}
 
 
 def main(argv=None) -> int:
@@ -39,9 +39,13 @@ def main(argv=None) -> int:
     conn = store.connect(scratch)
     store.init_schema(conn)
     t = time.monotonic()
-    stats = load.backfill(conn, SentenceEmbedder(scratch.model), main_settings.updates_dir, names)
+    # vectors come from the main schema's embedding cache when they're there. The model is
+    # deterministic for a given text, and this check is about which chunks end up served
+    cache = load.EmbeddingCache(store.connect(main_settings, autocommit=True))
+    stats = load.backfill(conn, SentenceEmbedder(scratch.model), main_settings.updates_dir, names, cache=cache)
     elapsed = time.monotonic() - t
     print(f"backfill of {len(names)} files: {stats.labels_applied} labels, {stats.embedded} texts embedded, "
+          f"{stats.from_cache} from the cache, "
           f"{stats.tombstoned} tombstones, {elapsed:.0f}s")
 
     daily = store.connect(main_settings)

@@ -222,3 +222,29 @@ def test_labels_with_no_clinical_sections_do_not_block_a_normal_file(settings, c
     make(settings, D16, added)
     outcome, stats = load.load_file(conn, HashEmbedder(), settings.updates_dir, D16)
     assert outcome == "loaded" and stats.reasons == {"no_target_sections": 6} and stats.labels_applied == 20
+
+
+def test_backfill_keeps_the_last_good_version_when_the_newest_is_quarantined(settings, conn):
+    # seen on the real run, a label whose newest version had an effective date in the future
+    make(settings, D16, {ROSU: spl_xml(ROSU, 14), METF: spl_xml(METF, 1, drug="Oxygen",
+                                                                sections={"51945-4": ("PACKAGE LABEL", ["Rx only."])})})
+    make(settings, D17, {ROSU: spl_xml(ROSU, 15, effective="20991231")}, deleted=[ROSU, METF])
+    for name in (D16, D17):
+        load.load_file(conn, HashEmbedder(), settings.updates_dir, name)
+    daily = state(conn)
+
+    from labelfeed import store
+    from labelfeed.settings import load_settings
+
+    other = load_settings(schema=settings.schema + "_bf", data_dir=settings.data_dir)
+    store.drop_schema(other)
+    try:
+        c2 = store.connect(other)
+        store.init_schema(c2)
+        stats = load.backfill(c2, HashEmbedder(), settings.updates_dir, [D16, D17])
+        assert state(c2) == daily
+        assert stats.reasons == {"future_effective_date": 1, "no_target_sections": 1}
+        c2.close()
+    finally:
+        store.drop_schema(other)
+    assert daily["labels"] == [(ROSU, 14, "active")]
