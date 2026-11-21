@@ -96,6 +96,12 @@ def run(cfg, lake: Lake, group: str, from_beginning=False, since: datetime | Non
             parts = c.offsets_for_times([TopicPartition(p.topic, p.partition, ms) for p in parts], timeout=10)
         c.assign(parts)
 
+    # Subscribing before Debezium has created the topic left the consumer idle until its next metadata
+    # refresh, so wait for the change topic first.
+    for _ in range(60):
+        if cfg.topic in consumer.list_topics(timeout=10).topics:
+            break
+        time.sleep(2)
     consumer.subscribe([cfg.topic, cfg.heartbeat_topic], on_assign=on_assign)
     batches, idle_since = [], time.monotonic()
     try:
@@ -115,8 +121,10 @@ def run(cfg, lake: Lake, group: str, from_beginning=False, since: datetime | Non
                 if once and time.monotonic() - idle_since > idle_seconds:
                     break
                 continue
-            idle_since = time.monotonic()
             rec = process(lake, msgs, snapshots_only, cfg)
+            if rec["events"] or rec["quarantined"]:
+                # heartbeats alone don't count as work, or a drain would never go idle
+                idle_since = time.monotonic()
             consumer.commit(asynchronous=False)
             batches.append(rec)
             log.info("batch messages=%d kept=%d replay=%d same=%d quarantined=%d %.1fs lag_p50=%s",

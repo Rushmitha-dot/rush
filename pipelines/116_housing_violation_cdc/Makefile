@@ -40,6 +40,7 @@ connect-up: tools  ## Connect on the host JVM with a 384 MB heap. Needs Java 17+
 	mkdir -p $(RUN)
 	sed "s#PLUGIN_PATH#$(CURDIR)/data/tools/plugins#" docker/connect-distributed.properties > $(RUN)/connect.properties
 	if [ -f $(RUN)/connect.pid ] && kill -0 $$(cat $(RUN)/connect.pid) 2>/dev/null; then echo "connect already running"; \
+	elif lsof -nP -iTCP:18116 -sTCP:LISTEN >/dev/null; then echo "port 18116 is held by another process, stop that worker first"; exit 1; \
 	else KAFKA_HEAP_OPTS="-Xms128m -Xmx384m" LOG_DIR=$(CURDIR)/$(RUN)/connect-logs \
 	  nohup $(KAFKA)/bin/connect-distributed.sh $(RUN)/connect.properties > $(RUN)/connect.log 2>&1 & echo $$! > $(RUN)/connect.pid; fi
 	for i in $$(seq 1 60); do curl -sf localhost:18116/connectors >/dev/null && exit 0; sleep 2; done; exit 1
