@@ -35,7 +35,13 @@ def parse(value: bytes, consumed_at: datetime) -> dict:
     op, source = msg.get("op"), msg.get("source") or {}
     if op not in ("c", "u", "r", "d"):
         raise BadEvent(f"unknown op {op!r}")
-    if source.get("lsn") is None:
+    lsn = source.get("lsn")
+    snap = op == "r" or str(source.get("snapshot")) in SNAPSHOT_FLAGS
+    if lsn is None and snap and source.get("sequence"):
+        # incremental snapshot reads carry no lsn of their own. The sequence holds the stream position
+        # the chunk was read at, and anything that changed the row later comes after it in the topic.
+        lsn = json.loads(source["sequence"])[-1]
+    if lsn is None:
         raise BadEvent("no lsn")
     image = msg.get("before") if op == "d" else msg.get("after")
     if not image or image.get("violationid") is None:
@@ -55,8 +61,8 @@ def parse(value: bytes, consumed_at: datetime) -> dict:
         if row.get("inspectiondate") is None:
             raise BadEvent("missing inspectiondate")
     row.update(
-        lsn=int(source["lsn"]),
-        snap=op == "r" or str(source.get("snapshot")) in SNAPSHOT_FLAGS,
+        lsn=int(lsn),
+        snap=snap,
         op=op,
         commit_ts=_ts(source["ts_ms"]),
         consumed_at=consumed_at,

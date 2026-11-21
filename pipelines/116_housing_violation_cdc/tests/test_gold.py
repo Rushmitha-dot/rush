@@ -25,8 +25,9 @@ def test_publish_writes_gold_when_checks_pass(lake):
     load(lake)
     ok, results = gold.publish(lake)
     assert ok, gold.blocking(results)
-    ttc = {(r["class"], r["communityboard"]): r for r in lake.read("gold_time_to_close").to_pylist()}
-    c_all = ttc[("C", None)]
+    ttc = {(r["class"], r["community_board"]): r for r in lake.read("gold_time_to_close").to_pylist()}
+    c_all = ttc[("C", "all")]
+    assert ttc[("C", "4")]["violations"] == 3
     assert (c_all["violations"], c_all["closed"], c_all["still_open"]) == (3, 2, 1)
     assert c_all["median_days_to_close"] == 13.0
     repeat = lake.read("gold_repeat_class_c").to_pylist()

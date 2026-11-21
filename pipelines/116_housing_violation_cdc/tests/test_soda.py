@@ -72,5 +72,6 @@ def test_keyset_paging_moves_the_cursor_past_the_last_row():
     pages = list(client.pages_by_updated_at("boro = 'BRONX'", datetime(2026, 11, 14, tzinfo=UTC), 0, "*"))
     assert [len(p) for p in pages] == [2, 1]
     second = session.calls[1]["$where"]
-    assert "(:updated_at > '2026-11-18T16:27:48.285' OR (:updated_at = '2026-11-18T16:27:48.285' AND violationid > 9))" in second
+    wm = "2026-11-18T16:27:48.285"
+    assert f"(:updated_at > '{wm}' OR (:updated_at = '{wm}' AND violationid > 9))" in second
     assert session.calls[0]["$order"] == ":updated_at,violationid"

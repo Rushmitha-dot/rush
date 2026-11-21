@@ -24,12 +24,14 @@ CLOSE_TIMES = """
 
 TIME_TO_CLOSE = f"""
     WITH t AS ({CLOSE_TIMES}), as_of AS (SELECT max(inspectiondate) AS d FROM cur)
-    SELECT class, communityboard,
+    SELECT class,
+           CASE WHEN grouping(communityboard) = 1 THEN 'all'
+                ELSE coalesce(communityboard::varchar, 'unknown') END AS community_board,
            count(*) AS violations,
            count(closed_on) AS closed,
            count(*) - count(closed_on) AS still_open,
            median(days_to_close)::double AS median_days_to_close,
-           quantile_cont(days_to_close, 0.9)::double AS p90_days_to_close,
+           round(quantile_cont(days_to_close, 0.9), 1)::double AS p90_days_to_close,
            count(*) FILTER (WHERE opened_on <= (SELECT d FROM as_of) - 90) AS issued_90d_before,
            round(avg(CASE WHEN closed_on IS NOT NULL AND days_to_close <= 90 THEN 1.0 ELSE 0.0 END)
                  FILTER (WHERE opened_on <= (SELECT d FROM as_of) - 90), 4)::double AS closed_within_90d,
@@ -37,7 +39,7 @@ TIME_TO_CLOSE = f"""
                  FILTER (WHERE closed_on IS NULL)::double AS median_open_age_days
     FROM t
     GROUP BY GROUPING SETS ((class, communityboard), (class))
-    ORDER BY class, communityboard NULLS FIRST
+    ORDER BY class, grouping(communityboard) DESC, communityboard NULLS LAST
 """
 
 REPEAT_CLASS_C = f"""

@@ -6,6 +6,7 @@ import time
 from datetime import UTC, date, datetime
 
 from . import connect, freshness, gold, mirror, parity
+from .alerts import send_alert
 from .consumer import run as consume
 from .lake import Lake
 from .settings import load_settings
@@ -108,8 +109,12 @@ def main(argv=None):
 
         def maybe_publish(rec):
             if args.follow and time.monotonic() - last[0] > args.publish_every:
-                gold.publish(lake, cfg)
                 last[0] = time.monotonic()
+                try:
+                    gold.publish(lake, cfg)
+                except Exception as e:  # a gold failure must not stop the merge
+                    log.exception("publish failed")
+                    send_alert(cfg, "hpd gold publish failed", str(e)[:500])
 
         t0 = time.monotonic()
         batches = consume(cfg, lake, args.group, args.from_beginning, since, args.snapshots_only,
@@ -205,7 +210,7 @@ def show_gold(lake: Lake, limit: int):
     for name in ("gold_time_to_close", "gold_repeat_class_c"):
         con.register(name, lake.read(name))
         print(f"\n{name}")
-        order = "ORDER BY communityboard IS NOT NULL, class, communityboard" if name == "gold_time_to_close" else ""
+        order = "ORDER BY community_board <> 'all', class" if name == "gold_time_to_close" else ""
         con.sql(f"SELECT * FROM {name} {order} LIMIT {limit}").show(max_width=200)
 
 

@@ -47,3 +47,12 @@ def test_new_column_is_found():
     ev["after"]["rentimpairing"] = "Y"
     row = parse(json.dumps(ev).encode(), NOW)
     assert set(extra_fields([row])) == {"rentimpairing"}
+
+
+def test_incremental_snapshot_read_takes_its_position_from_sequence():
+    # shape of a real incremental snapshot event from this run, lsn is null
+    ev = json.loads(json.dumps(EVENT))
+    ev["op"] = "r"
+    ev["source"].update(snapshot="incremental", lsn=None, txId=None, sequence='["197836792","197836792"]')
+    row = parse(json.dumps(ev).encode(), NOW)
+    assert row["snap"] and row["lsn"] == 197836792
