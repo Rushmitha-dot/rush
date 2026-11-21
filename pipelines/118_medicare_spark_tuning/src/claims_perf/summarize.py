@@ -133,7 +133,8 @@ def write_marts(spark: SparkSession, cfg, year: int, opts: JobOptions, out_root=
             staging[name] = publish.staging_dir(root / name, year)
             df = marts[name]
             if opts.files_per_mart:
-                df = df.coalesce(opts.files_per_mart)
+                # repartition, not coalesce. coalesce(1) would run the outlier join itself in one task.
+                df = df.repartition(opts.files_per_mart)
             df.write.mode("overwrite").parquet(str(staging[name]))
             counts[name] = spark.read.parquet(str(staging[name])).count()
         if opts.cache_enriched:

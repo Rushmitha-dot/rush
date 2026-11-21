@@ -4,7 +4,6 @@ Everything for the year is written to staging folders first. Gates run on what w
 and only if no ERROR gate fails are the folders swapped in. A blocked year leaves the last
 good version in place.
 """
-from pyspark import StorageLevel
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
 
@@ -17,8 +16,9 @@ PROVIDER_COLS = {
     "Rndrng_Prvdr_Crdntls": "credentials", "Rndrng_Prvdr_Ent_Cd": "entity_cd", "Rndrng_Prvdr_City": "city",
     "Rndrng_Prvdr_State_Abrvtn": "state", "Rndrng_Prvdr_State_FIPS": "state_fips", "Rndrng_Prvdr_Zip5": "zip5",
     "Rndrng_Prvdr_RUCA": "ruca", "Rndrng_Prvdr_Cntry": "country", "Rndrng_Prvdr_Type": "provider_type",
-    "Rndrng_Prvdr_Mdcr_Prtcptg_Ind": "participating",
 }
+# The participation indicator looks like a provider attribute but varies by line for ~500 NPIs a year
+# (the one_provider_row_per_npi gate blocked both years until it moved to the fact).
 
 TABLES = ("claims", "providers", "hcpcs", "quarantine")
 
@@ -43,6 +43,7 @@ def flag_rows(raw: DataFrame) -> DataFrame:
 def fact_columns(df: DataFrame, year: int) -> DataFrame:
     return df.select(
         F.lit(year).alias("year"), "state", *KEY, F.col("HCPCS_Drug_Ind").alias("drug_ind"),
+        F.col("Rndrng_Prvdr_Mdcr_Prtcptg_Ind").alias("participating"),
         F.col("tot_benes").cast("long").alias("tot_benes"), "tot_srvcs",
         F.col("tot_bene_day_srvcs").cast("long").alias("tot_bene_day_srvcs"),
         "avg_submitted", "avg_allowed", "avg_payment", "avg_standardized",
@@ -74,24 +75,28 @@ def stage_year(spark: SparkSession, cfg, year: int, gates: checks.Gates, prior: 
         publish.clean_leftovers(cfg.lake / t)
     raw = spark.read.parquet(str(cfg.landing / f"year={year}"))
     landed_columns = raw.columns
-    flagged = flag_rows(raw).persist(StorageLevel.MEMORY_AND_DISK)
-    good = flagged.filter(F.size("reasons") == 0)
-    bad = flagged.filter(F.size("reasons") > 0)
-
     staging = {t: publish.staging_dir(cfg.lake / t, year) for t in TABLES}
+    # The flagged rows feed four writes. They go to a Parquet work folder once instead of persist():
+    # a MEMORY_AND_DISK cache of these wide rows ran the 2 GB driver out of heap reading blocks back.
+    work = publish.staging_dir(cfg.lake / "_work", year)
     try:
+        flag_rows(raw).write.mode("overwrite").parquet(str(work))
+        flagged = spark.read.parquet(str(work))
+        good = flagged.filter(F.size("reasons") == 0)
+        bad = flagged.filter(F.size("reasons") > 0)
         write_fact(fact_columns(good, year), str(staging["claims"]), layout)
+        # small outputs use repartition(1), not coalesce(1). coalesce would pull the 9.8M row scan
+        # under them into a single task.
         providers = good.select(
             "npi", *[F.col(src).alias(dst) for src, dst in PROVIDER_COLS.items() if dst not in ("npi", "state")],
             "state").dropDuplicates()
-        providers.coalesce(1).write.mode("overwrite").parquet(str(staging["providers"]))
+        providers.repartition(1).write.mode("overwrite").parquet(str(staging["providers"]))
         (good.select("hcpcs_cd", F.col("HCPCS_Desc").alias("hcpcs_desc"), F.col("HCPCS_Drug_Ind").alias("drug_ind"))
-         .dropDuplicates(["hcpcs_cd"]).coalesce(1).write.mode("overwrite").parquet(str(staging["hcpcs"])))
+         .dropDuplicates(["hcpcs_cd"]).repartition(1).write.mode("overwrite").parquet(str(staging["hcpcs"])))
         (bad.select(F.concat_ws(";", "reasons").alias("reason"), *[c for c in raw.columns if c not in
                     ("Rndrng_NPI", "HCPCS_Cd", "Place_Of_Srvc", "Rndrng_Prvdr_State_Abrvtn")],
                     "npi", "hcpcs_cd", "place_of_service", "state")
-         .coalesce(1).write.mode("overwrite").parquet(str(staging["quarantine"])))
-        flagged.unpersist()
+         .repartition(1).write.mode("overwrite").parquet(str(staging["quarantine"])))
 
         fact = spark.read.parquet(str(staging["claims"]))
         summary = fact.agg(F.count("*").alias("rows"), F.sum("payment_amt").alias("payment"),
@@ -122,10 +127,11 @@ def stage_year(spark: SparkSession, cfg, year: int, gates: checks.Gates, prior: 
             publish.swap_in(p, cfg.lake / t, year)
         return results, detail
     except BaseException:
-        flagged.unpersist()
         for p in staging.values():
             publish.discard(p)
         raise
+    finally:
+        publish.discard(work)
 
 
 def count_files(path) -> int:
