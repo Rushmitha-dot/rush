@@ -1,0 +1,318 @@
+{
+  "experiment": "udf",
+  "year": 2024,
+  "runs": 3,
+  "warmup": true,
+  "finished_at": "2026-11-20 21:45:24",
+  "spark": {
+    "version": "3.5.3",
+    "master": "local[3]",
+    "driver_memory": "2g",
+    "java": "21.0.7"
+  },
+  "machine": {
+    "system": "Darwin",
+    "cpu": "Apple M2",
+    "machine_cores": 8,
+    "machine_ram_gb": 8.0
+  },
+  "all_variants_same_answer": true,
+  "lines": 9781673,
+  "pandas_udf_skipped": "pandas UDF failed on Java 21: DirectByteBuffer.<init>(long, int) not available",
+  "variants": [
+    {
+      "name": "python_udf",
+      "note": "row at a time, the first version",
+      "conf": {},
+      "seconds": [
+        4.26,
+        4.0,
+        4.36
+      ],
+      "median_s": 4.26,
+      "min_s": 4.0,
+      "max_s": 4.36,
+      "warmup_s": 5.14,
+      "answer": {
+        "anesthesia": [
+          239759,
+          742653542.8
+        ],
+        "medicine": [
+          2026457,
+          14270862872.65
+        ],
+        "temporary_q": [
+          32104,
+          4143404545.24
+        ],
+        "outpatient_pps": [
+          1072,
+          70278408.91
+        ],
+        "procedures_g": [
+          650670,
+          3756589679.33
+        ],
+        "evaluation_management": [
+          3093100,
+          29588171096.82
+        ],
+        "transport_supplies": [
+          53804,
+          5136255989.18
+        ],
+        "pathology_lab": [
+          842695,
+          8437631161.92
+        ],
+        "level2_other": [
+          1046,
+          4640909.24
+        ],
+        "orthotics_prosthetics": [
+          129,
+          39911056.01
+        ],
+        "radiology": [
+          1464952,
+          5886996425.14
+        ],
+        "medical_services": [
+          1537,
+          15035116.29
+        ],
+        "surgery": [
+          1118718,
+          13899320378.7
+        ],
+        "vision_hearing": [
+          265,
+          26174540.29
+        ],
+        "drugs": [
+          250351,
+          11137801130.21
+        ],
+        "cpt_category_3": [
+          5013,
+          134577362.33
+        ],
+        "dme": [
+          1,
+          7551.32
+        ]
+      },
+      "metrics": {
+        "jobs": 2,
+        "stages": 2,
+        "tasks": 7,
+        "stage_seconds": 4.2,
+        "shuffle_read_bytes": 8626,
+        "shuffle_write_bytes": 8626,
+        "spill_disk_bytes": 0,
+        "gc_ms": 131,
+        "worst_stage": {
+          "stage_id": 12,
+          "name": "collect at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src",
+          "tasks": 6,
+          "seconds": 4.19,
+          "task_ms_max": 2518,
+          "task_ms_median": 2087.5,
+          "task_ms_sum": 11157,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 8626,
+          "spill_disk_bytes": 0,
+          "input_bytes": 73132448,
+          "output_bytes": 0,
+          "gc_ms": 131
+        },
+        "per_stage": [
+          {
+            "stage_id": 12,
+            "name": "collect at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src",
+            "tasks": 6,
+            "seconds": 4.19,
+            "task_ms_max": 2518,
+            "task_ms_median": 2087.5,
+            "task_ms_sum": 11157,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 8626,
+            "spill_disk_bytes": 0,
+            "input_bytes": 73132448,
+            "output_bytes": 0,
+            "gc_ms": 131
+          },
+          {
+            "stage_id": 14,
+            "name": "collect at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src",
+            "tasks": 1,
+            "seconds": 0.01,
+            "task_ms_max": 3,
+            "task_ms_median": 3,
+            "task_ms_sum": 3,
+            "shuffle_read_bytes": 8626,
+            "shuffle_read_records_max": 97,
+            "shuffle_read_records_median": 97,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "native",
+      "note": "when / substring / rlike, what the job uses",
+      "conf": {},
+      "seconds": [
+        3.55,
+        3.63,
+        3.66
+      ],
+      "median_s": 3.63,
+      "min_s": 3.55,
+      "max_s": 3.66,
+      "warmup_s": 4.12,
+      "answer": {
+        "anesthesia": [
+          239759,
+          742653542.8
+        ],
+        "medicine": [
+          2026457,
+          14270862872.65
+        ],
+        "temporary_q": [
+          32104,
+          4143404545.24
+        ],
+        "outpatient_pps": [
+          1072,
+          70278408.91
+        ],
+        "procedures_g": [
+          650670,
+          3756589679.33
+        ],
+        "evaluation_management": [
+          3093100,
+          29588171096.82
+        ],
+        "transport_supplies": [
+          53804,
+          5136255989.18
+        ],
+        "pathology_lab": [
+          842695,
+          8437631161.92
+        ],
+        "level2_other": [
+          1046,
+          4640909.24
+        ],
+        "orthotics_prosthetics": [
+          129,
+          39911056.01
+        ],
+        "radiology": [
+          1464952,
+          5886996425.14
+        ],
+        "medical_services": [
+          1537,
+          15035116.29
+        ],
+        "surgery": [
+          1118718,
+          13899320378.7
+        ],
+        "vision_hearing": [
+          265,
+          26174540.29
+        ],
+        "drugs": [
+          250351,
+          11137801130.21
+        ],
+        "cpt_category_3": [
+          5013,
+          134577362.33
+        ],
+        "dme": [
+          1,
+          7551.32
+        ]
+      },
+      "metrics": {
+        "jobs": 2,
+        "stages": 2,
+        "tasks": 7,
+        "stage_seconds": 3.49,
+        "shuffle_read_bytes": 8626,
+        "shuffle_write_bytes": 8626,
+        "spill_disk_bytes": 0,
+        "gc_ms": 242,
+        "worst_stage": {
+          "stage_id": 21,
+          "name": "collect at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src",
+          "tasks": 6,
+          "seconds": 3.48,
+          "task_ms_max": 2108,
+          "task_ms_median": 1736.5,
+          "task_ms_sum": 9169,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 8626,
+          "spill_disk_bytes": 0,
+          "input_bytes": 73132448,
+          "output_bytes": 0,
+          "gc_ms": 242
+        },
+        "per_stage": [
+          {
+            "stage_id": 21,
+            "name": "collect at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src",
+            "tasks": 6,
+            "seconds": 3.48,
+            "task_ms_max": 2108,
+            "task_ms_median": 1736.5,
+            "task_ms_sum": 9169,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 8626,
+            "spill_disk_bytes": 0,
+            "input_bytes": 73132448,
+            "output_bytes": 0,
+            "gc_ms": 242
+          },
+          {
+            "stage_id": 23,
+            "name": "collect at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src",
+            "tasks": 1,
+            "seconds": 0.01,
+            "task_ms_max": 2,
+            "task_ms_median": 2,
+            "task_ms_sum": 2,
+            "shuffle_read_bytes": 8626,
+            "shuffle_read_records_max": 97,
+            "shuffle_read_records_median": 97,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      }
+    }
+  ]
+}

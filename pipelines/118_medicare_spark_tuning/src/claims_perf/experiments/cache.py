@@ -8,6 +8,8 @@ Variants
   memory_and_disk   persist(MEMORY_AND_DISK) on only the columns the marts use, what the job does
   disk_only         persist(DISK_ONLY), for a machine where memory is the problem
 """
+import json
+
 from pyspark import StorageLevel
 from pyspark.sql import functions as F
 
@@ -49,7 +51,13 @@ def main(argv=None):
         common.Variant("disk_only", make("disk_only", StorageLevel.DISK_ONLY), note="pruned columns on local disk",
                        after=lambda s: seen.get("disk_only")),
     ]
-    common.run("cache", variants, args, spark, cfg)
+    # code_outliers uses percentile_approx, which can move a few borderline lines between plans
+    result = common.run("cache", variants, args, spark, cfg, same_answer=False)
+    exact = {json.dumps({k: a[k] for k in ("code_specialty", "specialty_state")}) for a in
+             (v["answer"] for v in result["variants"])}
+    flagged = [v["answer"]["code_outliers"][0] for v in result["variants"]]
+    if len(exact) != 1 or max(flagged) - min(flagged) > 0.005 * max(flagged):
+        raise AssertionError(f"cache: variants disagree {[v['answer'] for v in result['variants']]}")
     common.finish(spark, owned)
 
 

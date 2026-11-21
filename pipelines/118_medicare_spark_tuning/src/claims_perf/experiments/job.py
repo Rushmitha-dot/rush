@@ -22,7 +22,12 @@ def main(argv=None):
         common.Variant("tuned", make("tuned", summarize.TUNED),
                        note="AQE on, broadcast joins, native functions, cache, 1 file per mart"),
     ]
-    common.run("job", variants, args, spark, cfg)
+    # code_outliers rides on percentile_approx, so the two plans can flag a few different borderline lines
+    result = common.run("job", variants, args, spark, cfg, same_answer=False)
+    a, b = (v["answer"] for v in result["variants"])
+    if a["code_specialty"] != b["code_specialty"] or a["specialty_state"] != b["specialty_state"] \
+            or abs(a["code_outliers"] - b["code_outliers"]) > 0.005 * a["code_outliers"]:
+        raise AssertionError(f"job: variants disagree {a} {b}")
     shutil.rmtree(scratch, ignore_errors=True)
     common.finish(spark, owned)
 

@@ -6,7 +6,9 @@ on its own only when its size estimate for a side is under spark.sql.autoBroadca
 both sides and sorted them.
 
 Variants
-  smj_default        AQE off, default 10 MB threshold, Spark picks a sort merge join
+  smj_forced         AQE off, broadcast turned off, the sort merge join a bigger dimension would get
+  smj_default        AQE off, default 10 MB threshold. On the real data Spark estimated the pruned
+                     provider side at 7.6 MB and broadcast it anyway, see the README
   broadcast_hint     AQE off, broadcast() on the provider side
   threshold_64mb     AQE off, threshold raised so Spark picks the broadcast itself
   aqe_default        AQE on, no hint. AQE can switch to a broadcast at runtime if the shuffled
@@ -56,6 +58,8 @@ def main(argv=None):
 
     off = {"spark.sql.adaptive.enabled": "false"}
     variants = [
+        common.Variant("smj_forced", make("smj_forced", False), {**off, "spark.sql.autoBroadcastJoinThreshold": "-1"},
+                       "broadcast off, what a dimension over the threshold gets", after=observed("smj_forced")),
         common.Variant("smj_default", make("smj_default", False), off, "10 MB threshold",
                        after=observed("smj_default")),
         common.Variant("broadcast_hint", make("broadcast_hint", True), off, "broadcast() on providers",

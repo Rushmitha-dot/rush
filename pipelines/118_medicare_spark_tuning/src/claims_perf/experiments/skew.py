@@ -69,8 +69,9 @@ def main(argv=None):
         return {"flagged_lines": r["n"], "flagged_payment": float(r["pay"] or 0)}
 
     def observed(name):
-        return lambda s: {"join": "BroadcastHashJoin" if "BroadcastHashJoin" in plans.get(name, "") else
-                          "SortMergeJoin", "skew_split_by_aqe": "skew=true" in plans.get(name, "")}
+        # the provider and HCPCS joins are always broadcast, so any sort merge join is the stats join
+        return lambda s: {"join": "SortMergeJoin" if "SortMergeJoin" in plans.get(name, "") else
+                          "BroadcastHashJoin", "skew_split_by_aqe": "skew=true" in plans.get(name, "")}
 
     aqe_off = {"spark.sql.adaptive.enabled": "false"}
     variants = [
@@ -88,10 +89,15 @@ def main(argv=None):
         common.Variant("broadcast", plain("broadcast", broadcast=True), aqe_off, "broadcast hint on the stats",
                        after=observed("broadcast")),
     ]
-    common.run("skew", variants, args, spark, cfg, extra={
+    # percentile_approx merges its sketches in whatever order the plan produces, so p50 and p99 move
+    # slightly between plans and a few borderline lines flip. The answers are compared within 0.5%.
+    result = common.run("skew", variants, args, spark, cfg, same_answer=False, extra={
         "lines": total, "hot_codes": hot_codes, "salt_buckets": SALT,
         "top_codes": [{"hcpcs_cd": r["hcpcs_cd"], "lines": r["count"], "share": round(r["count"] / total, 4)}
                       for r in top]})
+    counts = [v["answer"]["flagged_lines"] for v in result["variants"]]
+    if (max(counts) - min(counts)) > 0.005 * max(counts):
+        raise AssertionError(f"skew: variants disagree beyond 0.5% {counts}")
     common.finish(spark, owned)
 
 

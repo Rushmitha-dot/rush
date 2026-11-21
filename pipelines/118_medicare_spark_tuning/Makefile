@@ -27,7 +27,7 @@ backfill:
 
 parity:  ## second data home from the same landed files, backfilled, then compared table by table
 	rm -rf data/scratch/parity && mkdir -p data/scratch/parity
-	cp -R data/landing data/scratch/parity/landing
+	ln -s $(CURDIR)/data/landing data/scratch/parity/landing  # read only, saves 700 MB of copying
 	$(PY) -c "from claims_perf import land, ops; from claims_perf.settings import Settings; from pathlib import Path; \
 	o = Settings(home=Path('data/scratch/parity')); \
 	[ops.record(o, 'land', y, m['url'] + '|' + m['last_modified'], 'copied', 'ok', m, 0, 0) \

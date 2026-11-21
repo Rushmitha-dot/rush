@@ -1,0 +1,911 @@
+{
+  "experiment": "skew",
+  "year": 2024,
+  "runs": 3,
+  "warmup": true,
+  "finished_at": "2026-11-20 21:14:51",
+  "spark": {
+    "version": "3.5.3",
+    "master": "local[3]",
+    "driver_memory": "2g",
+    "java": "21.0.7"
+  },
+  "machine": {
+    "system": "Darwin",
+    "cpu": "Apple M2",
+    "machine_cores": 8,
+    "machine_ram_gb": 8.0
+  },
+  "all_variants_same_answer": false,
+  "lines": 9781673,
+  "hot_codes": [
+    "99213",
+    "99233",
+    "G2211",
+    "99232",
+    "G0439",
+    "99214",
+    "99222",
+    "99215",
+    "99204",
+    "G0008",
+    "99223",
+    "99203"
+  ],
+  "salt_buckets": 16,
+  "top_codes": [
+    {
+      "hcpcs_cd": "99214",
+      "lines": 523486,
+      "share": 0.0535
+    },
+    {
+      "hcpcs_cd": "99213",
+      "lines": 473425,
+      "share": 0.0484
+    },
+    {
+      "hcpcs_cd": "99204",
+      "lines": 239126,
+      "share": 0.0244
+    },
+    {
+      "hcpcs_cd": "99232",
+      "lines": 176550,
+      "share": 0.018
+    },
+    {
+      "hcpcs_cd": "99215",
+      "lines": 161945,
+      "share": 0.0166
+    }
+  ],
+  "variants": [
+    {
+      "name": "smj",
+      "note": "first version",
+      "conf": {
+        "spark.sql.adaptive.enabled": "false"
+      },
+      "seconds": [
+        32.51,
+        28.76,
+        125.56
+      ],
+      "median_s": 32.51,
+      "min_s": 28.76,
+      "max_s": 125.56,
+      "warmup_s": 33.89,
+      "answer": {
+        "flagged_lines": 36419,
+        "flagged_payment": 1805150671.03
+      },
+      "metrics": {
+        "jobs": 3,
+        "stages": 6,
+        "tasks": 217,
+        "stage_seconds": 47.43,
+        "shuffle_read_bytes": 212728466,
+        "shuffle_write_bytes": 212728466,
+        "spill_disk_bytes": 37468131,
+        "gc_ms": 5114,
+        "worst_stage": {
+          "stage_id": 62,
+          "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+          "tasks": 6,
+          "seconds": 15.96,
+          "task_ms_max": 8977,
+          "task_ms_median": 7951.5,
+          "task_ms_sum": 40737,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 51717113,
+          "spill_disk_bytes": 37468131,
+          "input_bytes": 52201517,
+          "output_bytes": 0,
+          "gc_ms": 2623
+        },
+        "per_stage": [
+          {
+            "stage_id": 60,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 3,
+            "seconds": 0.35,
+            "task_ms_max": 288,
+            "task_ms_median": 11,
+            "task_ms_sum": 308,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 5622880,
+            "output_bytes": 0,
+            "gc_ms": 20
+          },
+          {
+            "stage_id": 61,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.03,
+            "task_ms_max": 15,
+            "task_ms_median": 15,
+            "task_ms_sum": 15,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 69875,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 62,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 15.96,
+            "task_ms_max": 8977,
+            "task_ms_median": 7951.5,
+            "task_ms_sum": 40737,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 51717113,
+            "spill_disk_bytes": 37468131,
+            "input_bytes": 52201517,
+            "output_bytes": 0,
+            "gc_ms": 2623
+          },
+          {
+            "stage_id": 63,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 21.15,
+            "task_ms_max": 4524,
+            "task_ms_median": 3613.5,
+            "task_ms_sum": 19314,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 160998739,
+            "spill_disk_bytes": 0,
+            "input_bytes": 111724965,
+            "output_bytes": 0,
+            "gc_ms": 980
+          },
+          {
+            "stage_id": 64,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 200,
+            "seconds": 9.85,
+            "task_ms_max": 865,
+            "task_ms_median": 107.5,
+            "task_ms_sum": 27850,
+            "shuffle_read_bytes": 212715852,
+            "shuffle_read_records_max": 536058,
+            "shuffle_read_records_median": 32368.5,
+            "shuffle_write_bytes": 12614,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 1491
+          },
+          {
+            "stage_id": 65,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.09,
+            "task_ms_max": 70,
+            "task_ms_median": 70,
+            "task_ms_sum": 70,
+            "shuffle_read_bytes": 12614,
+            "shuffle_read_records_max": 200,
+            "shuffle_read_records_median": 200,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      },
+      "observed": [
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        }
+      ]
+    },
+    {
+      "name": "salted",
+      "note": "12 hot codes x 16 salts",
+      "conf": {
+        "spark.sql.adaptive.enabled": "false"
+      },
+      "seconds": [
+        31.3,
+        32.07,
+        155.38
+      ],
+      "median_s": 32.07,
+      "min_s": 31.3,
+      "max_s": 155.38,
+      "warmup_s": 22.58,
+      "answer": {
+        "flagged_lines": 36445,
+        "flagged_payment": 1805820675.07
+      },
+      "metrics": {
+        "jobs": 3,
+        "stages": 7,
+        "tasks": 417,
+        "stage_seconds": 53.88,
+        "shuffle_read_bytes": 227993757,
+        "shuffle_write_bytes": 227993757,
+        "spill_disk_bytes": 18441952,
+        "gc_ms": 5819,
+        "worst_stage": {
+          "stage_id": 109,
+          "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+          "tasks": 6,
+          "seconds": 19.31,
+          "task_ms_max": 8367,
+          "task_ms_median": 7562.0,
+          "task_ms_sum": 38860,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 51709999,
+          "spill_disk_bytes": 18441952,
+          "input_bytes": 52201517,
+          "output_bytes": 0,
+          "gc_ms": 2884
+        },
+        "per_stage": [
+          {
+            "stage_id": 107,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 3,
+            "seconds": 0.28,
+            "task_ms_max": 229,
+            "task_ms_median": 5,
+            "task_ms_sum": 238,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 5622880,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 108,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.01,
+            "task_ms_max": 6,
+            "task_ms_median": 6,
+            "task_ms_sum": 6,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 69875,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 109,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 19.31,
+            "task_ms_max": 8367,
+            "task_ms_median": 7562.0,
+            "task_ms_sum": 38860,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 51709999,
+            "spill_disk_bytes": 18441952,
+            "input_bytes": 52201517,
+            "output_bytes": 0,
+            "gc_ms": 2884
+          },
+          {
+            "stage_id": 110,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 22.75,
+            "task_ms_max": 4689,
+            "task_ms_median": 4151.0,
+            "task_ms_sum": 22666,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 175849584,
+            "spill_disk_bytes": 0,
+            "input_bytes": 111724965,
+            "output_bytes": 0,
+            "gc_ms": 1367
+          },
+          {
+            "stage_id": 111,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 200,
+            "seconds": 9.15,
+            "task_ms_max": 419,
+            "task_ms_median": 90.0,
+            "task_ms_sum": 22267,
+            "shuffle_read_bytes": 51709999,
+            "shuffle_read_records_max": 298,
+            "shuffle_read_records_median": 185.0,
+            "shuffle_write_bytes": 421527,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 1444
+          },
+          {
+            "stage_id": 112,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 200,
+            "seconds": 2.36,
+            "task_ms_max": 156,
+            "task_ms_median": 26.0,
+            "task_ms_sum": 6044,
+            "shuffle_read_bytes": 176271111,
+            "shuffle_read_records_max": 170201,
+            "shuffle_read_records_median": 43531.0,
+            "shuffle_write_bytes": 12647,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 124
+          },
+          {
+            "stage_id": 113,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.02,
+            "task_ms_max": 12,
+            "task_ms_median": 12,
+            "task_ms_sum": 12,
+            "shuffle_read_bytes": 12647,
+            "shuffle_read_records_max": 200,
+            "shuffle_read_records_median": 200,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      },
+      "observed": [
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        }
+      ]
+    },
+    {
+      "name": "aqe_skew_default",
+      "note": "skew threshold 256 MB, factor 5",
+      "conf": {
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.autoBroadcastJoinThreshold": "-1"
+      },
+      "seconds": [
+        33.7,
+        30.36,
+        212.72
+      ],
+      "median_s": 33.7,
+      "min_s": 30.36,
+      "max_s": 212.72,
+      "warmup_s": 18.81,
+      "answer": {
+        "flagged_lines": 36445,
+        "flagged_payment": 1805820675.07
+      },
+      "metrics": {
+        "jobs": 6,
+        "stages": 6,
+        "tasks": 21,
+        "stage_seconds": 41.33,
+        "shuffle_read_bytes": 212708994,
+        "shuffle_write_bytes": 212708994,
+        "spill_disk_bytes": 191749190,
+        "gc_ms": 4967,
+        "worst_stage": {
+          "stage_id": 76,
+          "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+          "tasks": 6,
+          "seconds": 23.76,
+          "task_ms_max": 10088,
+          "task_ms_median": 8590.0,
+          "task_ms_sum": 44608,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 51709999,
+          "spill_disk_bytes": 18438351,
+          "input_bytes": 52201517,
+          "output_bytes": 0,
+          "gc_ms": 2675
+        },
+        "per_stage": [
+          {
+            "stage_id": 73,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.04,
+            "task_ms_max": 28,
+            "task_ms_median": 28,
+            "task_ms_sum": 28,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 69875,
+            "output_bytes": 0,
+            "gc_ms": 13
+          },
+          {
+            "stage_id": 74,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 3,
+            "seconds": 0.29,
+            "task_ms_max": 222,
+            "task_ms_median": 20,
+            "task_ms_sum": 245,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 5622880,
+            "output_bytes": 0,
+            "gc_ms": 26
+          },
+          {
+            "stage_id": 75,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 8.67,
+            "task_ms_max": 5034,
+            "task_ms_median": 4305.0,
+            "task_ms_sum": 23113,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 160998739,
+            "spill_disk_bytes": 0,
+            "input_bytes": 111724965,
+            "output_bytes": 0,
+            "gc_ms": 1301
+          },
+          {
+            "stage_id": 76,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 23.76,
+            "task_ms_max": 10088,
+            "task_ms_median": 8590.0,
+            "task_ms_sum": 44608,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 51709999,
+            "spill_disk_bytes": 18438351,
+            "input_bytes": 52201517,
+            "output_bytes": 0,
+            "gc_ms": 2675
+          },
+          {
+            "stage_id": 79,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 4,
+            "seconds": 8.56,
+            "task_ms_max": 7960,
+            "task_ms_median": 7022.5,
+            "task_ms_sum": 24179,
+            "shuffle_read_bytes": 212708738,
+            "shuffle_read_records_max": 3005664,
+            "shuffle_read_records_median": 2899068.0,
+            "shuffle_write_bytes": 256,
+            "spill_disk_bytes": 173310839,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 952
+          },
+          {
+            "stage_id": 83,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.01,
+            "task_ms_max": 1,
+            "task_ms_median": 1,
+            "task_ms_sum": 1,
+            "shuffle_read_bytes": 256,
+            "shuffle_read_records_max": 4,
+            "shuffle_read_records_median": 4,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      },
+      "observed": [
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        }
+      ]
+    },
+    {
+      "name": "aqe_skew_tuned",
+      "note": "skew threshold 8 MB, factor 5",
+      "conf": {
+        "spark.sql.adaptive.enabled": "true",
+        "spark.sql.adaptive.autoBroadcastJoinThreshold": "-1",
+        "spark.sql.adaptive.skewJoin.skewedPartitionThresholdInBytes": "8MB",
+        "spark.sql.adaptive.advisoryPartitionSizeInBytes": "8MB"
+      },
+      "seconds": [
+        33.04,
+        30.31,
+        269.1
+      ],
+      "median_s": 33.04,
+      "min_s": 30.31,
+      "max_s": 269.1,
+      "warmup_s": 21.44,
+      "answer": {
+        "flagged_lines": 36426,
+        "flagged_payment": 1804936587.91
+      },
+      "metrics": {
+        "jobs": 6,
+        "stages": 6,
+        "tasks": 48,
+        "stage_seconds": 40.28,
+        "shuffle_read_bytes": 212716114,
+        "shuffle_write_bytes": 212716114,
+        "spill_disk_bytes": 33005820,
+        "gc_ms": 5461,
+        "worst_stage": {
+          "stage_id": 87,
+          "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+          "tasks": 6,
+          "seconds": 22.44,
+          "task_ms_max": 9531,
+          "task_ms_median": 7794.5,
+          "task_ms_sum": 41080,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 51715394,
+          "spill_disk_bytes": 33005820,
+          "input_bytes": 52201517,
+          "output_bytes": 0,
+          "gc_ms": 2659
+        },
+        "per_stage": [
+          {
+            "stage_id": 84,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.02,
+            "task_ms_max": 9,
+            "task_ms_median": 9,
+            "task_ms_sum": 9,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 69875,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 85,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 3,
+            "seconds": 0.29,
+            "task_ms_max": 238,
+            "task_ms_median": 5,
+            "task_ms_sum": 246,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 5622880,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 86,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 8.34,
+            "task_ms_max": 4577,
+            "task_ms_median": 4150.0,
+            "task_ms_sum": 22412,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 160998739,
+            "spill_disk_bytes": 0,
+            "input_bytes": 111724965,
+            "output_bytes": 0,
+            "gc_ms": 1359
+          },
+          {
+            "stage_id": 87,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 22.44,
+            "task_ms_max": 9531,
+            "task_ms_median": 7794.5,
+            "task_ms_sum": 41080,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 51715394,
+            "spill_disk_bytes": 33005820,
+            "input_bytes": 52201517,
+            "output_bytes": 0,
+            "gc_ms": 2659
+          },
+          {
+            "stage_id": 90,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 31,
+            "seconds": 9.17,
+            "task_ms_max": 1163,
+            "task_ms_median": 875,
+            "task_ms_sum": 26346,
+            "shuffle_read_bytes": 212714133,
+            "shuffle_read_records_max": 536058,
+            "shuffle_read_records_median": 326320,
+            "shuffle_write_bytes": 1981,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 1443
+          },
+          {
+            "stage_id": 94,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.02,
+            "task_ms_max": 9,
+            "task_ms_median": 9,
+            "task_ms_sum": 9,
+            "shuffle_read_bytes": 1981,
+            "shuffle_read_records_max": 31,
+            "shuffle_read_records_median": 31,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      },
+      "observed": [
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        }
+      ]
+    },
+    {
+      "name": "broadcast",
+      "note": "broadcast hint on the stats",
+      "conf": {
+        "spark.sql.adaptive.enabled": "false"
+      },
+      "seconds": [
+        28.05,
+        32.58,
+        78.23
+      ],
+      "median_s": 32.58,
+      "min_s": 28.05,
+      "max_s": 78.23,
+      "warmup_s": 24.07,
+      "answer": {
+        "flagged_lines": 36445,
+        "flagged_payment": 1805820675.07
+      },
+      "metrics": {
+        "jobs": 4,
+        "stages": 6,
+        "tasks": 217,
+        "stage_seconds": 31.35,
+        "shuffle_read_bytes": 51710383,
+        "shuffle_write_bytes": 51710383,
+        "spill_disk_bytes": 18441952,
+        "gc_ms": 4767,
+        "worst_stage": {
+          "stage_id": 138,
+          "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+          "tasks": 6,
+          "seconds": 12.79,
+          "task_ms_max": 7912,
+          "task_ms_median": 6373.5,
+          "task_ms_sum": 34451,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 51709999,
+          "spill_disk_bytes": 18441952,
+          "input_bytes": 52201517,
+          "output_bytes": 0,
+          "gc_ms": 2372
+        },
+        "per_stage": [
+          {
+            "stage_id": 136,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 3,
+            "seconds": 0.3,
+            "task_ms_max": 245,
+            "task_ms_median": 7,
+            "task_ms_sum": 259,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 5622880,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 137,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.02,
+            "task_ms_max": 6,
+            "task_ms_median": 6,
+            "task_ms_sum": 6,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 69875,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 138,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 12.79,
+            "task_ms_max": 7912,
+            "task_ms_median": 6373.5,
+            "task_ms_sum": 34451,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 51709999,
+            "spill_disk_bytes": 18441952,
+            "input_bytes": 52201517,
+            "output_bytes": 0,
+            "gc_ms": 2372
+          },
+          {
+            "stage_id": 139,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 200,
+            "seconds": 6.49,
+            "task_ms_max": 397,
+            "task_ms_median": 78.0,
+            "task_ms_sum": 18125,
+            "shuffle_read_bytes": 51709999,
+            "shuffle_read_records_max": 298,
+            "shuffle_read_records_median": 185.0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 1109
+          },
+          {
+            "stage_id": 140,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 6,
+            "seconds": 11.56,
+            "task_ms_max": 7495,
+            "task_ms_median": 5663.0,
+            "task_ms_sum": 32255,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 384,
+            "spill_disk_bytes": 0,
+            "input_bytes": 111724965,
+            "output_bytes": 0,
+            "gc_ms": 1286
+          },
+          {
+            "stage_id": 141,
+            "name": "first at /private/tmp/claude-501/wt118/pipelines/118_medicare_spark_tuning/src/c",
+            "tasks": 1,
+            "seconds": 0.19,
+            "task_ms_max": 63,
+            "task_ms_median": 63,
+            "task_ms_sum": 63,
+            "shuffle_read_bytes": 384,
+            "shuffle_read_records_max": 6,
+            "shuffle_read_records_median": 6,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          }
+        ]
+      },
+      "observed": [
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        },
+        {
+          "join": "BroadcastHashJoin",
+          "skew_split_by_aqe": false
+        }
+      ]
+    }
+  ]
+}

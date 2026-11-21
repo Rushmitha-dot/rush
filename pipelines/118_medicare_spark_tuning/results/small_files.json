@@ -1,0 +1,477 @@
+{
+  "experiment": "small_files",
+  "year": 2024,
+  "runs": 3,
+  "warmup": true,
+  "finished_at": "2026-11-20 21:44:40",
+  "spark": {
+    "version": "3.5.3",
+    "master": "local[3]",
+    "driver_memory": "2g",
+    "java": "21.0.7"
+  },
+  "machine": {
+    "system": "Darwin",
+    "cpu": "Apple M2",
+    "machine_cores": 8,
+    "machine_ram_gb": 8.0
+  },
+  "all_variants_same_answer": null,
+  "variants": [
+    {
+      "name": "shuffle_200",
+      "note": "dropDuplicates, 200 shuffle partitions",
+      "conf": {
+        "spark.sql.adaptive.enabled": "false"
+      },
+      "seconds": [
+        121.59,
+        126.17,
+        161.5
+      ],
+      "median_s": 126.17,
+      "min_s": 121.59,
+      "max_s": 161.5,
+      "warmup_s": 481.78,
+      "answer": {
+        "files": 11688,
+        "bytes": 650768444,
+        "avg_file_kb": 54.4
+      },
+      "metrics": {
+        "jobs": 1,
+        "stages": 2,
+        "tasks": 206,
+        "stage_seconds": 116.98,
+        "shuffle_read_bytes": 1012511110,
+        "shuffle_write_bytes": 1012511110,
+        "spill_disk_bytes": 443978707,
+        "gc_ms": 7119,
+        "worst_stage": {
+          "stage_id": 98,
+          "name": "parquet at NativeMethodAccessorImpl.java:0",
+          "tasks": 6,
+          "seconds": 18.75,
+          "task_ms_max": 11766,
+          "task_ms_median": 9370.5,
+          "task_ms_sum": 49912,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 1012511110,
+          "spill_disk_bytes": 443978707,
+          "input_bytes": 500704699,
+          "output_bytes": 0,
+          "gc_ms": 1345
+        },
+        "per_stage": [
+          {
+            "stage_id": 98,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 6,
+            "seconds": 18.75,
+            "task_ms_max": 11766,
+            "task_ms_median": 9370.5,
+            "task_ms_sum": 49912,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 1012511110,
+            "spill_disk_bytes": 443978707,
+            "input_bytes": 500704699,
+            "output_bytes": 0,
+            "gc_ms": 1345
+          },
+          {
+            "stage_id": 99,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 200,
+            "seconds": 98.23,
+            "task_ms_max": 2042,
+            "task_ms_median": 1433.0,
+            "task_ms_sum": 291786,
+            "shuffle_read_bytes": 1012511110,
+            "shuffle_read_records_max": 49478,
+            "shuffle_read_records_median": 48912.5,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 650768444,
+            "gc_ms": 5774
+          }
+        ]
+      },
+      "observed": [
+        {
+          "read_query_s": 16.44,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 13.98,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 14.65,
+          "groups": 128881,
+          "pay": 97290311766.38
+        }
+      ]
+    },
+    {
+      "name": "aqe_coalesce",
+      "note": "AQE merges shuffle partitions toward 64 MB",
+      "conf": {
+        "spark.sql.adaptive.enabled": "true"
+      },
+      "seconds": [
+        82.44,
+        56.22,
+        48.87
+      ],
+      "median_s": 56.22,
+      "min_s": 48.87,
+      "max_s": 82.44,
+      "warmup_s": 74.98,
+      "answer": {
+        "files": 1025,
+        "bytes": 553933801,
+        "avg_file_kb": 527.8
+      },
+      "metrics": {
+        "jobs": 2,
+        "stages": 2,
+        "tasks": 23,
+        "stage_seconds": 54.87,
+        "shuffle_read_bytes": 1012511110,
+        "shuffle_write_bytes": 1012511110,
+        "spill_disk_bytes": 461756835,
+        "gc_ms": 4891,
+        "worst_stage": {
+          "stage_id": 108,
+          "name": "parquet at NativeMethodAccessorImpl.java:0",
+          "tasks": 6,
+          "seconds": 21.63,
+          "task_ms_max": 13154,
+          "task_ms_median": 10799.5,
+          "task_ms_sum": 57729,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 1012511110,
+          "spill_disk_bytes": 443978707,
+          "input_bytes": 500704699,
+          "output_bytes": 0,
+          "gc_ms": 1563
+        },
+        "per_stage": [
+          {
+            "stage_id": 108,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 6,
+            "seconds": 21.63,
+            "task_ms_max": 13154,
+            "task_ms_median": 10799.5,
+            "task_ms_sum": 57729,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 1012511110,
+            "spill_disk_bytes": 443978707,
+            "input_bytes": 500704699,
+            "output_bytes": 0,
+            "gc_ms": 1563
+          },
+          {
+            "stage_id": 110,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 17,
+            "seconds": 33.24,
+            "task_ms_max": 6504,
+            "task_ms_median": 5827,
+            "task_ms_sum": 94762,
+            "shuffle_read_bytes": 1012511110,
+            "shuffle_read_records_max": 588127,
+            "shuffle_read_records_median": 586780,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 17778128,
+            "input_bytes": 0,
+            "output_bytes": 553933801,
+            "gc_ms": 3328
+          }
+        ]
+      },
+      "observed": [
+        {
+          "read_query_s": 3.07,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 3.01,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 2.34,
+          "groups": 128881,
+          "pay": 97290311766.38
+        }
+      ]
+    },
+    {
+      "name": "repartition_state",
+      "note": "repartition(state) + maxRecordsPerFile",
+      "conf": {
+        "spark.sql.adaptive.enabled": "true"
+      },
+      "seconds": [
+        68.75,
+        52.52,
+        47.62
+      ],
+      "median_s": 52.52,
+      "min_s": 47.62,
+      "max_s": 68.75,
+      "warmup_s": 51.8,
+      "answer": {
+        "files": 66,
+        "bytes": 514024575,
+        "avg_file_kb": 7605.7
+      },
+      "metrics": {
+        "jobs": 3,
+        "stages": 3,
+        "tasks": 38,
+        "stage_seconds": 51.78,
+        "shuffle_read_bytes": 1808841082,
+        "shuffle_write_bytes": 1808841082,
+        "spill_disk_bytes": 443978707,
+        "gc_ms": 4330,
+        "worst_stage": {
+          "stage_id": 119,
+          "name": "parquet at NativeMethodAccessorImpl.java:0",
+          "tasks": 6,
+          "seconds": 21.61,
+          "task_ms_max": 13164,
+          "task_ms_median": 10798.5,
+          "task_ms_sum": 57417,
+          "shuffle_read_bytes": 0,
+          "shuffle_read_records_max": 0,
+          "shuffle_read_records_median": 0.0,
+          "shuffle_write_bytes": 1012511110,
+          "spill_disk_bytes": 443978707,
+          "input_bytes": 500704699,
+          "output_bytes": 0,
+          "gc_ms": 1713
+        },
+        "per_stage": [
+          {
+            "stage_id": 119,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 6,
+            "seconds": 21.61,
+            "task_ms_max": 13164,
+            "task_ms_median": 10798.5,
+            "task_ms_sum": 57417,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 1012511110,
+            "spill_disk_bytes": 443978707,
+            "input_bytes": 500704699,
+            "output_bytes": 0,
+            "gc_ms": 1713
+          },
+          {
+            "stage_id": 121,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 17,
+            "seconds": 17.5,
+            "task_ms_max": 3761,
+            "task_ms_median": 2946,
+            "task_ms_sum": 50024,
+            "shuffle_read_bytes": 1012511110,
+            "shuffle_read_records_max": 588127,
+            "shuffle_read_records_median": 586780,
+            "shuffle_write_bytes": 796329972,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 1107
+          },
+          {
+            "stage_id": 124,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 15,
+            "seconds": 12.67,
+            "task_ms_max": 3176,
+            "task_ms_median": 2534,
+            "task_ms_sum": 35820,
+            "shuffle_read_bytes": 796329972,
+            "shuffle_read_records_max": 865199,
+            "shuffle_read_records_median": 704074,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 514024575,
+            "gc_ms": 1510
+          }
+        ]
+      },
+      "observed": [
+        {
+          "read_query_s": 1.73,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 1.19,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 1.49,
+          "groups": 128881,
+          "pay": 97290311766.38
+        }
+      ]
+    },
+    {
+      "name": "compact",
+      "note": "rewrite the shuffle_200 output per state",
+      "conf": {
+        "spark.sql.adaptive.enabled": "true"
+      },
+      "seconds": [
+        42.98,
+        35.17,
+        30.84
+      ],
+      "median_s": 35.17,
+      "min_s": 30.84,
+      "max_s": 42.98,
+      "warmup_s": 31.71,
+      "answer": {
+        "files": 66,
+        "bytes": 516780704,
+        "avg_file_kb": 7646.5
+      },
+      "metrics": {
+        "jobs": 4,
+        "stages": 4,
+        "tasks": 446,
+        "stage_seconds": 34.48,
+        "shuffle_read_bytes": 822808098,
+        "shuffle_write_bytes": 822808098,
+        "spill_disk_bytes": 0,
+        "gc_ms": 3419,
+        "worst_stage": {
+          "stage_id": 137,
+          "name": "parquet at NativeMethodAccessorImpl.java:0",
+          "tasks": 16,
+          "seconds": 11.62,
+          "task_ms_max": 2973,
+          "task_ms_median": 2096.0,
+          "task_ms_sum": 32966,
+          "shuffle_read_bytes": 822808098,
+          "shuffle_read_records_max": 865199,
+          "shuffle_read_records_median": 647165.0,
+          "shuffle_write_bytes": 0,
+          "spill_disk_bytes": 0,
+          "input_bytes": 0,
+          "output_bytes": 516779850,
+          "gc_ms": 1885
+        },
+        "per_stage": [
+          {
+            "stage_id": 133,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 62,
+            "seconds": 0.51,
+            "task_ms_max": 46,
+            "task_ms_median": 14.0,
+            "task_ms_sum": 1040,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0.0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 99
+          },
+          {
+            "stage_id": 134,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 1,
+            "seconds": 0.03,
+            "task_ms_max": 2,
+            "task_ms_median": 2,
+            "task_ms_sum": 2,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 0,
+            "gc_ms": 0
+          },
+          {
+            "stage_id": 135,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 367,
+            "seconds": 22.32,
+            "task_ms_max": 604,
+            "task_ms_median": 134,
+            "task_ms_sum": 66165,
+            "shuffle_read_bytes": 0,
+            "shuffle_read_records_max": 0,
+            "shuffle_read_records_median": 0,
+            "shuffle_write_bytes": 822808098,
+            "spill_disk_bytes": 0,
+            "input_bytes": 706446924,
+            "output_bytes": 0,
+            "gc_ms": 1435
+          },
+          {
+            "stage_id": 137,
+            "name": "parquet at NativeMethodAccessorImpl.java:0",
+            "tasks": 16,
+            "seconds": 11.62,
+            "task_ms_max": 2973,
+            "task_ms_median": 2096.0,
+            "task_ms_sum": 32966,
+            "shuffle_read_bytes": 822808098,
+            "shuffle_read_records_max": 865199,
+            "shuffle_read_records_median": 647165.0,
+            "shuffle_write_bytes": 0,
+            "spill_disk_bytes": 0,
+            "input_bytes": 0,
+            "output_bytes": 516779850,
+            "gc_ms": 1885
+          }
+        ]
+      },
+      "observed": [
+        {
+          "read_query_s": 1.09,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 1.41,
+          "groups": 128881,
+          "pay": 97290311766.38
+        },
+        {
+          "read_query_s": 0.89,
+          "groups": 128881,
+          "pay": 97290311766.38
+        }
+      ]
+    }
+  ]
+}

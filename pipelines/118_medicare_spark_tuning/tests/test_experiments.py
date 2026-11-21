@@ -22,7 +22,7 @@ def test_experiment_runs(lake, tmp_path, mod):
     result = json.loads(out.read_text())
     assert result["variants"] and all(v["seconds"] for v in result["variants"])
     assert all(v["metrics"]["stages"] > 0 for v in result["variants"])
-    if mod is not small_files:
+    if mod not in (small_files, skew, cache, job):
         assert result["all_variants_same_answer"]
 
 
