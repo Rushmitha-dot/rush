@@ -14,6 +14,7 @@ Production style pipelines, each in its own folder under `pipelines/` with tests
 | 113 | [Provider lakehouse](pipelines/113_provider_lakehouse/) | Delta Lake on Spark, SCD2 MERGE on a row hash, file ledger, Change Data Feed, time travel backfill, Unity Catalog masks, Databricks Asset Bundle | NPPES monthly + weekly files, Medicare Part D by provider and drug (Texas, 653,089 providers, 3.7M facts) |
 | 114 | [Late-night campus mobility](pipelines/114_late_night_campus_mobility/) | Dagster partitions and sensor, dbt incremental on DuckDB, quarantine and data checks, static report | Bluebikes trip history, MBTA GTFS (fall 2025, 34,969 late-night trips) |
 | 115 | [Review-scored product finder](pipelines/115_review_product_finder/) | dbt incremental (DuckDB, Snowflake target), spaCy rules + VADER, versioned rescoring with view swap, Airflow, Streamlit | Amazon Reviews 2023, All Beauty (701,528 reviews) |
+| 117 | [Drug label change feed](pipelines/117_drug_label_rag_feed/) | DailyMed SPL update files, lxml by LOINC section, content hash incremental embedding, tombstones, Postgres pgvector + full text, hybrid RRF, backfill parity, freshness SLA, OpenLineage | DailyMed human Rx updates Nov 2 to 19, 2026 (1,694 label versions, 49,475 chunks) |
 
 ## Featured
 

@@ -1,0 +1,2325 @@
+{
+ "overall": {
+  "dense": {
+   "n": 54,
+   "hit@1": 0.35185185185185186,
+   "hit@5": 0.46296296296296297,
+   "hit@10": 0.6296296296296297,
+   "mrr@10": 0.4175117577895356,
+   "stale_hits": 0
+  },
+  "full_text": {
+   "n": 54,
+   "hit@1": 0.05555555555555555,
+   "hit@5": 0.14814814814814814,
+   "hit@10": 0.18518518518518517,
+   "mrr@10": 0.0912037037037037,
+   "stale_hits": 0
+  },
+  "hybrid": {
+   "n": 54,
+   "hit@1": 0.25925925925925924,
+   "hit@5": 0.3888888888888889,
+   "hit@10": 0.5,
+   "mrr@10": 0.32468400940623154,
+   "stale_hits": 0
+  }
+ },
+ "by_type": {
+  "cross_section": {
+   "dense": {
+    "n": 12,
+    "hit@1": 0.0,
+    "hit@5": 0.0,
+    "hit@10": 0.08333333333333333,
+    "mrr@10": 0.008333333333333333,
+    "stale_hits": 0
+   },
+   "full_text": {
+    "n": 12,
+    "hit@1": 0.0,
+    "hit@5": 0.0,
+    "hit@10": 0.0,
+    "mrr@10": 0.0,
+    "stale_hits": 0
+   },
+   "hybrid": {
+    "n": 12,
+    "hit@1": 0.0,
+    "hit@5": 0.0,
+    "hit@10": 0.0,
+    "mrr@10": 0.0,
+    "stale_hits": 0
+   }
+  },
+  "lookup": {
+   "dense": {
+    "n": 30,
+    "hit@1": 0.4,
+    "hit@5": 0.5333333333333333,
+    "hit@10": 0.7333333333333333,
+    "mrr@10": 0.47226190476190477,
+    "stale_hits": 0
+   },
+   "full_text": {
+    "n": 30,
+    "hit@1": 0.06666666666666667,
+    "hit@5": 0.2,
+    "hit@10": 0.23333333333333334,
+    "mrr@10": 0.11916666666666667,
+    "stale_hits": 0
+   },
+   "hybrid": {
+    "n": 30,
+    "hit@1": 0.36666666666666664,
+    "hit@5": 0.43333333333333335,
+    "hit@10": 0.5666666666666667,
+    "mrr@10": 0.4132275132275131,
+    "stale_hits": 0
+   }
+  },
+  "version_change": {
+   "dense": {
+    "n": 12,
+    "hit@1": 0.5833333333333334,
+    "hit@5": 0.75,
+    "hit@10": 0.9166666666666666,
+    "mrr@10": 0.6898148148148148,
+    "stale_hits": 0
+   },
+   "full_text": {
+    "n": 12,
+    "hit@1": 0.08333333333333333,
+    "hit@5": 0.16666666666666666,
+    "hit@10": 0.25,
+    "mrr@10": 0.1125,
+    "stale_hits": 0
+   },
+   "hybrid": {
+    "n": 12,
+    "hit@1": 0.25,
+    "hit@5": 0.6666666666666666,
+    "hit@10": 0.8333333333333334,
+    "mrr@10": 0.42800925925925926,
+    "stale_hits": 0
+   }
+  }
+ },
+ "hybrid_worse_than_dense": [
+  {
+   "id": "l03",
+   "dense_rank": 1,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS",
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GERIATRIC USE",
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS"
+   ]
+  },
+  {
+   "id": "l04",
+   "dense_rank": 1,
+   "hybrid_rank": 2,
+   "hybrid_top": [
+    "Metformin HCl / 34068-7 / DOSAGE & ADMINISTRATION",
+    "Metformin Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Adult Dosage",
+    "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+   ]
+  },
+  {
+   "id": "l10",
+   "dense_rank": 10,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Trazodone HCL / 34068-7 / Dosage and administration",
+    "TRAZODONE HYDROCHLORIDE / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa",
+    "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa"
+   ]
+  },
+  {
+   "id": "l12",
+   "dense_rank": 5,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+    "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+    "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh"
+   ]
+  },
+  {
+   "id": "l15",
+   "dense_rank": 8,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Levetiracetam / 43685-7 / Warnings and precautions",
+    "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S",
+    "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+   ]
+  },
+  {
+   "id": "l17",
+   "dense_rank": 2,
+   "hybrid_rank": 3,
+   "hybrid_top": [
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+    "metformin hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS",
+    "METFORMIN HYDROCHLORIDE / 34066-1 / WARNING: LACTIC ACIDOSIS"
+   ]
+  },
+  {
+   "id": "l24",
+   "dense_rank": 2,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Ramipril / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+    "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.2 Hypertension",
+    "Atenolol / 34067-9 / INDICATIONS AND USAGE"
+   ]
+  },
+  {
+   "id": "l25",
+   "dense_rank": 4,
+   "hybrid_rank": 9,
+   "hybrid_top": [
+    "Clonidine / 42232-9 / PRECAUTIONS > Drug Interactions",
+    "sevelamer hydrochloride / 34068-7 / 2. DOSAGE AND ADMINISTRATION",
+    "Clonidine / 34084-4 / ADVERSE REACTIONS"
+   ]
+  },
+  {
+   "id": "l27",
+   "dense_rank": 1,
+   "hybrid_rank": 7,
+   "hybrid_top": [
+    "Losartan potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+   ]
+  },
+  {
+   "id": "l28",
+   "dense_rank": 1,
+   "hybrid_rank": 7,
+   "hybrid_top": [
+    "Midazolam / 34071-1 / WARNINGS",
+    "Midazolam / 34071-1 / WARNINGS",
+    "Midazolam / 34071-1 / WARNINGS"
+   ]
+  },
+  {
+   "id": "c11",
+   "dense_rank": 10,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+    "Furosemide / 34084-4 / ADVERSE REACTIONS",
+    "furosemide / 34084-4 / ADVERSE REACTIONS"
+   ]
+  },
+  {
+   "id": "v03",
+   "dense_rank": 1,
+   "hybrid_rank": 5,
+   "hybrid_top": [
+    "Cefdinir / 42232-9 / PRECAUTIONS > Drug Interactions > Iron Supplements and Foods",
+    "ISENTRESS / 34068-7 / Dosage and administration",
+    "Cefdinir / 42232-9 / PRECAUTIONS > Drug Interactions > Iron Supplements and Foods"
+   ]
+  },
+  {
+   "id": "v04",
+   "dense_rank": 6,
+   "hybrid_rank": 8,
+   "hybrid_top": [
+    "Lacosamide Oral / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Lacosamide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Lacosamide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+   ]
+  },
+  {
+   "id": "v05",
+   "dense_rank": 1,
+   "hybrid_rank": 2,
+   "hybrid_top": [
+    "Nafcillin Sodium / 34068-7 / DOSAGE AND ADMINISTRATION:",
+    "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for",
+    "Norgestimate and Ethinyl Estradiol / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Recommended Dosage and Adm"
+   ]
+  },
+  {
+   "id": "v07",
+   "dense_rank": 9,
+   "hybrid_rank": null,
+   "hybrid_top": [
+    "Divalproex Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Structural Birth Defects",
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "voriconazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Clini"
+   ]
+  },
+  {
+   "id": "v08",
+   "dense_rank": 1,
+   "hybrid_rank": 2,
+   "hybrid_top": [
+    "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS",
+    "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS"
+   ]
+  },
+  {
+   "id": "v10",
+   "dense_rank": 1,
+   "hybrid_rank": 9,
+   "hybrid_top": [
+    "tofacitinib / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.11 Risk of Gastrointestinal O",
+    "Tofacitinib / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.11 Risk of Gastrointestinal O",
+    "Tofacitinib / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.11 Risk of Gastrointestinal O"
+   ]
+  },
+  {
+   "id": "v12",
+   "dense_rank": 1,
+   "hybrid_rank": 5,
+   "hybrid_top": [
+    "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.3 Dependence and Withdrawal R",
+    "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.3 Dependence and Withdrawal R",
+    "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.3 Dependence and Withdrawal R"
+   ]
+  }
+ ],
+ "hybrid_missed": [
+  {
+   "id": "l01",
+   "type": "lookup",
+   "top": [
+    "OXYGEN / 43685-7 / PRODUCT WARNINGS AND PRECAUTIONS",
+    "spironolactone / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism",
+    "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism"
+   ]
+  },
+  {
+   "id": "l02",
+   "type": "lookup",
+   "top": [
+    "Lisinopril and Hydrochlorothiazide / 34068-7 / DOSAGE AND ADMINISTRATION",
+    "Lisinopril and Hydrochlorothiazide / 34068-7 / DOSAGE AND ADMINISTRATION > Dose Titration Guided by Clinica",
+    "Sacubitril and Valsartan / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Considerations"
+   ]
+  },
+  {
+   "id": "l03",
+   "type": "lookup",
+   "top": [
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS",
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GERIATRIC USE",
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS"
+   ]
+  },
+  {
+   "id": "l06",
+   "type": "lookup",
+   "top": [
+    "levothyroxine sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Dosing in Specific Populat",
+    "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+    "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+   ]
+  },
+  {
+   "id": "l09",
+   "type": "lookup",
+   "top": [
+    "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity",
+    "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity",
+    "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity"
+   ]
+  },
+  {
+   "id": "l10",
+   "type": "lookup",
+   "top": [
+    "Trazodone HCL / 34068-7 / Dosage and administration",
+    "TRAZODONE HYDROCHLORIDE / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa",
+    "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa"
+   ]
+  },
+  {
+   "id": "l12",
+   "type": "lookup",
+   "top": [
+    "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+    "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+    "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh"
+   ]
+  },
+  {
+   "id": "l15",
+   "type": "lookup",
+   "top": [
+    "Levetiracetam / 43685-7 / Warnings and precautions",
+    "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S",
+    "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+   ]
+  },
+  {
+   "id": "l18",
+   "type": "lookup",
+   "top": [
+    "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+   ]
+  },
+  {
+   "id": "l19",
+   "type": "lookup",
+   "top": [
+    "Valganciclovir / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Recommended Dosage in Pedi",
+    "topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+   ]
+  },
+  {
+   "id": "l21",
+   "type": "lookup",
+   "top": [
+    "tadalafil / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "tadalafil / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population"
+   ]
+  },
+  {
+   "id": "l24",
+   "type": "lookup",
+   "top": [
+    "Ramipril / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+    "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.2 Hypertension",
+    "Atenolol / 34067-9 / INDICATIONS AND USAGE"
+   ]
+  },
+  {
+   "id": "l26",
+   "type": "lookup",
+   "top": [
+    "Glipizide / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Limitations of Use",
+    "ZALEPLON / 34084-4 / ADVERSE REACTIONS > Adverse Findings Observed in Short-Term,",
+    "Glipizide / 42232-9 / PRECAUTIONS > General"
+   ]
+  },
+  {
+   "id": "c01",
+   "type": "cross_section",
+   "top": [
+    "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi",
+    "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi",
+    "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi"
+   ]
+  },
+  {
+   "id": "c02",
+   "type": "cross_section",
+   "top": [
+    "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use ",
+    "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use ",
+    "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use "
+   ]
+  },
+  {
+   "id": "c03",
+   "type": "cross_section",
+   "top": [
+    "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS",
+    "Metformin HCl / 34068-7 / DOSAGE & ADMINISTRATION",
+    "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re"
+   ]
+  },
+  {
+   "id": "c04",
+   "type": "cross_section",
+   "top": [
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+    "Trazodone Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS",
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS"
+   ]
+  },
+  {
+   "id": "c05",
+   "type": "cross_section",
+   "top": [
+    "Warfarin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage",
+    "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re",
+    "Warfarin Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage"
+   ]
+  },
+  {
+   "id": "c06",
+   "type": "cross_section",
+   "top": [
+    "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS",
+    "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS",
+    "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS"
+   ]
+  },
+  {
+   "id": "c07",
+   "type": "cross_section",
+   "top": [
+    "Ketorolac tromethamine / 34071-1 / WARNINGS",
+    "Ketorolac tromethamine / 34071-1 / WARNINGS",
+    "Ketorolac tromethamine / 34071-1 / WARNINGS"
+   ]
+  },
+  {
+   "id": "c08",
+   "type": "cross_section",
+   "top": [
+    "ARIPIPRAZOLE / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde",
+    "Aripiprazole / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde",
+    "Aripiprazole / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde"
+   ]
+  },
+  {
+   "id": "c09",
+   "type": "cross_section",
+   "top": [
+    "Midazolam / 34070-3 / CONTRAINDICATIONS",
+    "Midazolam / 34070-3 / CONTRAINDICATIONS",
+    "Midazolam / 34070-3 / CONTRAINDICATIONS"
+   ]
+  },
+  {
+   "id": "c10",
+   "type": "cross_section",
+   "top": [
+    "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+    "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+    "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE"
+   ]
+  },
+  {
+   "id": "c11",
+   "type": "cross_section",
+   "top": [
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+    "Furosemide / 34084-4 / ADVERSE REACTIONS",
+    "furosemide / 34084-4 / ADVERSE REACTIONS"
+   ]
+  },
+  {
+   "id": "c12",
+   "type": "cross_section",
+   "top": [
+    "Losartan potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+   ]
+  },
+  {
+   "id": "v07",
+   "type": "version_change",
+   "top": [
+    "Divalproex Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Structural Birth Defects",
+    "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+    "voriconazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Clini"
+   ]
+  },
+  {
+   "id": "v11",
+   "type": "version_change",
+   "top": [
+    "Cabozantinib Laurylsulfate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trial Experience",
+    "Cabozantinib Laurylsulfate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trial Experience",
+    "Balsalazide Disodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Preparation and "
+   ]
+  }
+ ],
+ "per_question": {
+  "dense": [
+   {
+    "id": "l01",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "spironolactone / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism",
+     "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism",
+     "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism"
+    ]
+   },
+   {
+    "id": "l02",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Sacubitril and Valsartan / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Considerations",
+     "Sacubitril and Valsartan / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Adult Heart Failure",
+     "Sacubitril and Valsartan / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.8 Dose Adjustment for Hepati"
+    ]
+   },
+   {
+    "id": "l03",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Metformin Hydrochloride / 34070-3 / 4 CONTRAINDICATIONS",
+     "Metformin Hydrochloride / 34070-3 / 4 CONTRAINDICATIONS",
+     "Metformin Hydrochloride / 34070-3 / 4 CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l04",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Metformin Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Adult Dosage",
+     "Metformin Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Adult Dosage",
+     "Metformin Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Adult Dosage"
+    ]
+   },
+   {
+    "id": "l05",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "levothyroxine sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Administration Inf",
+     "LEVOTHYROXINE SODIUM / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Administration I",
+     "LEVOTHYROXINE SODIUM / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Administration I"
+    ]
+   },
+   {
+    "id": "l06",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "levothyroxine sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Dosing in Specific Populat",
+     "levothyroxine sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 General Principles of Dosi",
+     "LEVOTHYROXINE SODIUM ANHYDROUS / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing in the Elderly and "
+    ]
+   },
+   {
+    "id": "l07",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi",
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi",
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi"
+    ]
+   },
+   {
+    "id": "l08",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi",
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi",
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi"
+    ]
+   },
+   {
+    "id": "l09",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity",
+     "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity",
+     "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity"
+    ]
+   },
+   {
+    "id": "l10",
+    "type": "lookup",
+    "rank": 10,
+    "stale": 0,
+    "top": [
+     "TRAZODONE HYDROCHLORIDE / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa",
+     "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa",
+     "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa"
+    ]
+   },
+   {
+    "id": "l11",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "TRAZODONE HYDROCHLORIDE / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dose Selection",
+     "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dose Selection",
+     "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dose Selection"
+    ]
+   },
+   {
+    "id": "l12",
+    "type": "lookup",
+    "rank": 5,
+    "stale": 0,
+    "top": [
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh"
+    ]
+   },
+   {
+    "id": "l13",
+    "type": "lookup",
+    "rank": 7,
+    "stale": 0,
+    "top": [
+     "Fluconazole / 42232-9 / PRECAUTIONS > Single Dose",
+     "Fluconazole / 42232-9 / PRECAUTIONS > General",
+     "Fluconazole / 42232-9 / PRECAUTIONS > General"
+    ]
+   },
+   {
+    "id": "l14",
+    "type": "lookup",
+    "rank": 8,
+    "stale": 0,
+    "top": [
+     "levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S",
+     "levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S",
+     "Ketorolac tromethamine / 34068-7 / DOSAGE & ADMINISTRATION"
+    ]
+   },
+   {
+    "id": "l15",
+    "type": "lookup",
+    "rank": 8,
+    "stale": 0,
+    "top": [
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S",
+     "Levetiracetam / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S"
+    ]
+   },
+   {
+    "id": "l16",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Warfarin / 34070-3 / 4. CONTRAINDICATIONS",
+     "Warfarin Sodium / 34070-3 / 4 CONTRAINDICATIONS",
+     "Warfarin Sodium / 34070-3 / 4 CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l17",
+    "type": "lookup",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "metformin hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS",
+     "METFORMIN HYDROCHLORIDE / 34066-1 / WARNING: LACTIC ACIDOSIS",
+     "Metformin Hydrochloride / 34066-1 / WARNING: LACTIC ACIDOSIS"
+    ]
+   },
+   {
+    "id": "l18",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l19",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l20",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE"
+    ]
+   },
+   {
+    "id": "l21",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Tadalafil / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Cardiovascular",
+     "Tadalafil / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Cardiovascular",
+     "Tadalafil / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Cardiovascular"
+    ]
+   },
+   {
+    "id": "l22",
+    "type": "lookup",
+    "rank": 10,
+    "stale": 0,
+    "top": [
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Short-Term Treatment of Erosiv",
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Short-Term Treatment of Erosiv",
+     "Pantoprazole / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Short-Term Treatment of Erosiv"
+    ]
+   },
+   {
+    "id": "l23",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "furosemide / 34070-3 / CONTRAINDICATIONS",
+     "Furosemide / 34070-3 / CONTRAINDICATIONS",
+     "furosemide / 34070-3 / CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l24",
+    "type": "lookup",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "ONDANSETRON HYDROCHLORIDE / 34070-3 / 4 CONTRAINDICATIONS",
+     "Ondansetron Hydrochloride / 34070-3 / 4 CONTRAINDICATIONS",
+     "Ondansetron Hydrochloride / 34070-3 / 4 CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l25",
+    "type": "lookup",
+    "rank": 4,
+    "stale": 0,
+    "top": [
+     "Clonidine / 34084-4 / ADVERSE REACTIONS",
+     "Clonidine Hydrochloride / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "clonidine hydrochloride / 34068-7 / DOSAGE AND ADMINISTRATION > Maintenance Dose"
+    ]
+   },
+   {
+    "id": "l26",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Glipizide / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Limitations of Use",
+     "Glipizide / 42232-9 / PRECAUTIONS > General",
+     "Glipizide / 42232-9 / PRECAUTIONS > General"
+    ]
+   },
+   {
+    "id": "l27",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Losartan Potassium and Hydrochlorothiazide / 34070-3 / 4 CONTRAINDICATIONS",
+     "Losartan Potassium and Hydrochlorothiazide / 34070-3 / 4 CONTRAINDICATIONS",
+     "Losartan Potassium / 34070-3 / 4 CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l28",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Midazolam / 34070-3 / CONTRAINDICATIONS",
+     "Midazolam / 34070-3 / CONTRAINDICATIONS",
+     "Midazolam / 34070-3 / CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l29",
+    "type": "lookup",
+    "rank": 8,
+    "stale": 0,
+    "top": [
+     "Potassium Chloride / 34070-3 / Contraindications",
+     "Potassium Chloride / 34070-3 / CONTRAINDICATIONS",
+     "Potassium Chloride / 34070-3 / CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l30",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Losartan Potassium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+     "Losartan potassium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+     "Losartan Potassium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension"
+    ]
+   },
+   {
+    "id": "c01",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Fetal Toxicity",
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Fetal Toxicity",
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Fetal Toxicity"
+    ]
+   },
+   {
+    "id": "c02",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with Drugs that",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with Drugs that",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with Drugs that"
+    ]
+   },
+   {
+    "id": "c03",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Metformin HCl / 34068-7 / DOSAGE & ADMINISTRATION",
+     "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS",
+     "Metformin HCl / 42232-9 / PRECAUTIONS > DRUG INTERACTIONS"
+    ]
+   },
+   {
+    "id": "c04",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Trazodone Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS",
+     "Trazodone Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS",
+     "TRAZODONE HYDROCHLORIDE / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c05",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Warfarin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage",
+     "Warfarin Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage",
+     "Warfarin / 43685-7 / 5. WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage"
+    ]
+   },
+   {
+    "id": "c06",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS",
+     "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS",
+     "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS"
+    ]
+   },
+   {
+    "id": "c07",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "KETOROLAC TROMETHAMINE / 34071-1 / WARNINGS (see also Boxed WARNING) > Gastrointestinal Effects",
+     "ketorolac tromethamine / 34071-1 / WARNINGS > Gastrointestinal Effects \u2013 Risk of Ulceration, Bl",
+     "Ketorolac Tromethamine / 34071-1 / WARNINGS > Gastrointestinal Effects \u2013 Risk of Ulceration, Bl"
+    ]
+   },
+   {
+    "id": "c08",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Aripiprazole / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde",
+     "ARIPIPRAZOLE / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde",
+     "Aripiprazole / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde"
+    ]
+   },
+   {
+    "id": "c09",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Midazolam / 34084-4 / ADVERSE REACTIONS",
+     "Midazolam / 34084-4 / ADVERSE REACTIONS",
+     "Midazolam / 34084-4 / ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c10",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE"
+    ]
+   },
+   {
+    "id": "c11",
+    "type": "cross_section",
+    "rank": 10,
+    "stale": 0,
+    "top": [
+     "Furosemide / 34084-4 / ADVERSE REACTIONS",
+     "furosemide / 34084-4 / ADVERSE REACTIONS",
+     "Furosemide / 34084-4 / ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c12",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Losartan Potassium and Hydrochlorothiazide / 34066-1 / WARNING: FETAL TOXICITY",
+     "Losartan Potassium and Hydrochlorothiazide / 34066-1 / WARNING: FETAL TOXICITY",
+     "Losartan Potassium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Fetal Toxicity"
+    ]
+   },
+   {
+    "id": "v01",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "pembrolizumab / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Patient Selection",
+     "pembrolizumab and berahyaluronidase alfa-pmph / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Patient Selection",
+     "pembrolizumab and berahyaluronidase alfa-pmph / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v02",
+    "type": "version_change",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "sucroferric oxyhydroxide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Dosing Information",
+     "sucroferric oxyhydroxide / 34067-9 / 1 INDICATIONS AND USAGE",
+     "sucroferric oxyhydroxide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Dosing Information"
+    ]
+   },
+   {
+    "id": "v03",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "sucroferric oxyhydroxide / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Monitoring in Patients with",
+     "Ferric derisomaltose / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Recommended Dosage",
+     "Ferric derisomaltose / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Drug Compatibility"
+    ]
+   },
+   {
+    "id": "v04",
+    "type": "version_change",
+    "rank": 6,
+    "stale": 0,
+    "top": [
+     "Lacosamide Oral / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Lacosamide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Lacosamide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v05",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for",
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for",
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for"
+    ]
+   },
+   {
+    "id": "v06",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.5 Recommendations Regarding ",
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for",
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for"
+    ]
+   },
+   {
+    "id": "v07",
+    "type": "version_change",
+    "rank": 9,
+    "stale": 0,
+    "top": [
+     "Divalproex Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Structural Birth Defects",
+     "Divalproex Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Structural Birth Defects",
+     "Divalproex Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Structural Birth Defects"
+    ]
+   },
+   {
+    "id": "v08",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS",
+     "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS",
+     "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "v09",
+    "type": "version_change",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "Tacrolimus / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Prophylaxis of Organ Rejection",
+     "Tacrolimus / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Prophylaxis of Organ Rejection",
+     "Tacrolimus / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Studies Experience"
+    ]
+   },
+   {
+    "id": "v10",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Tofacitinib / 34067-9 / 1 INDICATIONS AND USAGE > 1.5 Ulcerative Colitis",
+     "Tofacitinib / 34067-9 / 1 INDICATIONS AND USAGE > 1.5 Ulcerative Colitis",
+     "Tofacitinib Citrate / 34067-9 / 1 INDICATIONS AND USAGE > 1.5 Ulcerative Colitis"
+    ]
+   },
+   {
+    "id": "v11",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Cabozantinib Laurylsulfate / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.12 Thrombotic Microangiopathy",
+     "Cabozantinib Laurylsulfate / 34084-4 / 6 ADVERSE REACTIONS > 6.2 Postmarketing Experience",
+     "Cabozantinib Laurylsulfate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trial Experience"
+    ]
+   },
+   {
+    "id": "v12",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Pregabalin / 34084-4 / 6 ADVERSE REACTIONS > 6.2 Postmarketing Experience",
+     "PREGABALIN / 34084-4 / 6 ADVERSE REACTIONS > 6.2 Postmarketing Experience",
+     "Pregabalin / 34084-4 / 6 ADVERSE REACTIONS > 6.2 Postmarketing Experience"
+    ]
+   }
+  ],
+  "full_text": [
+   {
+    "id": "l01",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "OXYGEN / 43685-7 / PRODUCT WARNINGS AND PRECAUTIONS",
+     "Tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population",
+     "Tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population"
+    ]
+   },
+   {
+    "id": "l02",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lisinopril and Hydrochlorothiazide / 42232-9 / PRECAUTIONS > Drug Interactions > Lisinopril",
+     "Lisinopril / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Lisinopril / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l03",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Metformin Hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Lactic Acidosis",
+     "Metformin Hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Lactic Acidosis",
+     "Metformin Hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Lactic Acidosis"
+    ]
+   },
+   {
+    "id": "l04",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "l05",
+    "type": "lookup",
+    "rank": 8,
+    "stale": 0,
+    "top": [
+     "LEVOTHYROXINE SODIUM ANHYDROUS / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage",
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l06",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "l07",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re",
+     "Sertraline Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Sertraline Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l08",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S"
+    ]
+   },
+   {
+    "id": "l09",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "l10",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Trazodone HCL / 34068-7 / Dosage and administration",
+     "Trazodone Hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Serotonin Syndrome",
+     "Trazodone Hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Serotonin Syndrome"
+    ]
+   },
+   {
+    "id": "l11",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "teclistamab-cqyv / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Recommended TECVAYLI Dosag",
+     "teclistamab-cqyv / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Recommended TECVAYLI Dosag",
+     "Chloroquine Phosphate / 34068-7 / DOSAGE AND ADMINISTRATION"
+    ]
+   },
+   {
+    "id": "l12",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypotension",
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypotension",
+     "tizanidine hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypotension"
+    ]
+   },
+   {
+    "id": "l13",
+    "type": "lookup",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "bimekizumab / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Fluconazole / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re"
+    ]
+   },
+   {
+    "id": "l14",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Ketorolac tromethamine / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Ketorolac tromethamine / 34068-7 / DOSAGE & ADMINISTRATION",
+     "Ketorolac tromethamine / 34068-7 / DOSAGE & ADMINISTRATION"
+    ]
+   },
+   {
+    "id": "l15",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "Levetiracetam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Somnolence and Fatigue"
+    ]
+   },
+   {
+    "id": "l16",
+    "type": "lookup",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "apixaban / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.5 Converting from or to ELIQ",
+     "Warfarin Sodium / 34070-3 / 4 CONTRAINDICATIONS",
+     "Warfarin Sodium / 34070-3 / 4 CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l17",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "l18",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l19",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Valganciclovir / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Recommended Dosage in Pedi",
+     "Valganciclovir / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Recommended Dosage in Pedi",
+     "CLOZAPINE / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.4 Seizures"
+    ]
+   },
+   {
+    "id": "l20",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "l21",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population",
+     "Tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population",
+     "tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population"
+    ]
+   },
+   {
+    "id": "l22",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Gastroesophageal Reflux Diseas",
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Gastroesophageal Reflux Diseas",
+     "Alendronate Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Upper Gastrointestinal Adve"
+    ]
+   },
+   {
+    "id": "l23",
+    "type": "lookup",
+    "rank": 4,
+    "stale": 0,
+    "top": [
+     "furosemide / 42232-9 / PRECAUTIONS > Drug Interactions",
+     "Furosemide / 42232-9 / PRECAUTIONS > Drug Interactions",
+     "Furosemide / 42232-9 / PRECAUTIONS > Drug Interactions"
+    ]
+   },
+   {
+    "id": "l24",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Mirabegron / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increases in Blood Pressure",
+     "prazosin hydrochloride / 34067-9 / INDICATIONS AND USAGE",
+     "Prazosin hydrochloride / 34067-9 / INDICATIONS AND USAGE"
+    ]
+   },
+   {
+    "id": "l25",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "sevelamer hydrochloride / 34068-7 / 2. DOSAGE AND ADMINISTRATION",
+     "sevelamer hydrochloride / 34068-7 / 2. DOSAGE AND ADMINISTRATION",
+     "Amoxicillin and Clavulanate Potassium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Switching between Dosage F"
+    ]
+   },
+   {
+    "id": "l26",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "ZALEPLON / 34084-4 / ADVERSE REACTIONS > Adverse Findings Observed in Short-Term,",
+     "Zaleplon / 34084-4 / ADVERSE REACTIONS > Adverse Findings Observed in Short-Term,",
+     "Lorazepam / 34084-4 / ADVERSE REACTIONS > Status Epilepticus > COMMONLY OBSERVED A"
+    ]
+   },
+   {
+    "id": "l27",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "pembrolizumab and berahyaluronidase alfa-pmph / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Severe and Fatal Immune-Med",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l28",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "enoxaparin sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.5 Administration",
+     "Liraglutide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Important Administration I",
+     "rusfertide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Missed Dose"
+    ]
+   },
+   {
+    "id": "l29",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Potassium Chloride / 34071-1 / Warnings",
+     "Potassium Chloride / 34071-1 / WARNINGS",
+     "Potassium Chloride / 34071-1 / WARNINGS"
+    ]
+   },
+   {
+    "id": "l30",
+    "type": "lookup",
+    "rank": 5,
+    "stale": 0,
+    "top": [
+     "Losartan Potassium and Hydrochlorothiazide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Hypertension",
+     "Mirabegron / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increases in Blood Pressure",
+     "Losartan Potassium and Hydrochlorothiazide / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension"
+    ]
+   },
+   {
+    "id": "c01",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi",
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi",
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi"
+    ]
+   },
+   {
+    "id": "c02",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use ",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use ",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use "
+    ]
+   },
+   {
+    "id": "c03",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re",
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Colorectal Cancer Combinat",
+     "PREGABALIN / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.7 Dosing for Adult Patients "
+    ]
+   },
+   {
+    "id": "c04",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c05",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re",
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Colorectal Cancer Combinat",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S"
+    ]
+   },
+   {
+    "id": "c06",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Venlafaxine / 42232-9 / PRECAUTIONS > General > Changes in Weight",
+     "bupropion hydrochloride / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "BUPROPION HYDROCHLORIDE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "c07",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Ketorolac tromethamine / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Ketorolac tromethamine / 34068-7 / DOSAGE & ADMINISTRATION",
+     "Ketorolac tromethamine / 34068-7 / DOSAGE & ADMINISTRATION"
+    ]
+   },
+   {
+    "id": "c08",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Olanzapine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Elderly Patients with Demen",
+     "OLANZAPINE / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Elderly Patients with Demen",
+     "ARIPIPRAZOLE / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde"
+    ]
+   },
+   {
+    "id": "c09",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "c10",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Olanzapine / 34084-4 / 6 ADVERSE REACTIONS",
+     "ceftobiprole medocaril sodium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Doxepin Hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Serotonin Syndrome"
+    ]
+   },
+   {
+    "id": "c11",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c12",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Etonogestrel and Ethinyl Estradiol Vaginal / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.4 Risk of Liver Enzyme Elevat",
+     "Etonogestrel and Ethinyl Estradiol Vaginal Ring / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.4 Risk of Liver Enzyme Elevat",
+     "Sulfasalazine / 42232-9 / PRECAUTIONS > Pregnancy:"
+    ]
+   },
+   {
+    "id": "v01",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "pembrolizumab and berahyaluronidase alfa-pmph / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Patient Selection",
+     "pembrolizumab / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Patient Selection",
+     "pembrolizumab and berahyaluronidase alfa-pmph / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v02",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Risperidone / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Metabolic Changes",
+     "Valganciclovir / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Recommended Dosage in Pedi",
+     "Valganciclovir / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Recommended Dosage in Pedi"
+    ]
+   },
+   {
+    "id": "v03",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Amoxicillin and Clavulanate Potassium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Switching between Dosage F",
+     "Amoxicillin and Clavulanate Potassium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Switching between Dosage F",
+     "Amoxicillin and Clavulanate Potassium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Switching between Dosage F"
+    ]
+   },
+   {
+    "id": "v04",
+    "type": "version_change",
+    "rank": 10,
+    "stale": 0,
+    "top": [
+     "Lacosamide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage Information",
+     "Lacosamide Oral / 34068-7 / 2 DOSAGE & ADMINISTRATION > 2.1 Dosage Information",
+     "Lacosamide Oral / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v05",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Nafcillin Sodium / 34068-7 / DOSAGE AND ADMINISTRATION:",
+     "Norgestimate and Ethinyl Estradiol / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Recommended Dosage and Adm",
+     "apixaban / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Adult"
+    ]
+   },
+   {
+    "id": "v06",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "marstacimab-hncq / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Recommended Dosage in Adul",
+     "AMIVANTAMAB and HYALURONIDASE-lpuj (HUMAN RECOMBINANT) / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.7 Missed Dose",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S"
+    ]
+   },
+   {
+    "id": "v07",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "voriconazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Clini",
+     "voriconazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Clini"
+    ]
+   },
+   {
+    "id": "v08",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v09",
+    "type": "version_change",
+    "rank": 4,
+    "stale": 0,
+    "top": [
+     "Tacrolimus / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosage Recommendations for",
+     "Tacrolimus / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosage Recommendations for",
+     "Tacrolimus / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Prophylaxis of Organ Rejection"
+    ]
+   },
+   {
+    "id": "v10",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "TOFACITINIB / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Important Administration I",
+     "Niacin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Initial Dosing",
+     "Tofacitinib / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Important Administration I"
+    ]
+   },
+   {
+    "id": "v11",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Balsalazide Disodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Preparation and ",
+     "balsalazide disodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Preparation and ",
+     "balsalazide disodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Preparation and "
+    ]
+   },
+   {
+    "id": "v12",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Baclofen / 34071-1 / WARNINGS",
+     "Baclofen / 34071-1 / WARNINGS",
+     "Baclofen / 34071-1 / WARNINGS"
+    ]
+   }
+  ],
+  "hybrid": [
+   {
+    "id": "l01",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "OXYGEN / 43685-7 / PRODUCT WARNINGS AND PRECAUTIONS",
+     "spironolactone / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism",
+     "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.4 Primary Hyperaldosteronism"
+    ]
+   },
+   {
+    "id": "l02",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lisinopril and Hydrochlorothiazide / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Lisinopril and Hydrochlorothiazide / 34068-7 / DOSAGE AND ADMINISTRATION > Dose Titration Guided by Clinica",
+     "Sacubitril and Valsartan / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Considerations"
+    ]
+   },
+   {
+    "id": "l03",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS",
+     "Metformin HCl / 42232-9 / PRECAUTIONS > GERIATRIC USE",
+     "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS"
+    ]
+   },
+   {
+    "id": "l04",
+    "type": "lookup",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "Metformin HCl / 34068-7 / DOSAGE & ADMINISTRATION",
+     "Metformin Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Adult Dosage",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "l05",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "LEVOTHYROXINE SODIUM / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Administration I",
+     "LEVOTHYROXINE SODIUM / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Administration I",
+     "Levothyroxine Sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Administration I"
+    ]
+   },
+   {
+    "id": "l06",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "levothyroxine sodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Dosing in Specific Populat",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l07",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi",
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re",
+     "Sertraline Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l08",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosage in Generalized Anxi",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosing for Partial-Onset S"
+    ]
+   },
+   {
+    "id": "l09",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity",
+     "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity",
+     "Azithromycin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hypersensitivity"
+    ]
+   },
+   {
+    "id": "l10",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Trazodone HCL / 34068-7 / Dosage and administration",
+     "TRAZODONE HYDROCHLORIDE / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa",
+     "Trazodone Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Switching to or from Monoa"
+    ]
+   },
+   {
+    "id": "l11",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "TRAZODONE HYDROCHLORIDE / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dose Selection",
+     "teclistamab-cqyv / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Recommended TECVAYLI Dosag",
+     "teclistamab-cqyv / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Recommended TECVAYLI Dosag"
+    ]
+   },
+   {
+    "id": "l12",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh",
+     "Tizanidine / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.5 Interaction with CYP1A2 Inh"
+    ]
+   },
+   {
+    "id": "l13",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Fluconazole / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Fluconazole / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Fluconazole / 34068-7 / DOSAGE AND ADMINISTRATION > Dosage In Patients With Impaired"
+    ]
+   },
+   {
+    "id": "l14",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "ketorolac tromethamine / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "Ketorolac Tromethamine / 34068-7 / DOSAGE AND ADMINISTRATION",
+     "KETOROLAC TROMETHAMINE / 34068-7 / DOSAGE AND ADMINISTRATION"
+    ]
+   },
+   {
+    "id": "l15",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Levetiracetam / 43685-7 / Warnings and precautions",
+     "Levetiracetam / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Dosing for Partial-Onset S",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci"
+    ]
+   },
+   {
+    "id": "l16",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Warfarin Sodium / 34070-3 / 4 CONTRAINDICATIONS",
+     "Warfarin Sodium / 34070-3 / 4 CONTRAINDICATIONS",
+     "Warfarin / 34070-3 / 4. CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l17",
+    "type": "lookup",
+    "rank": 3,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "metformin hydrochloride / 43685-7 / 5 WARNINGS AND PRECAUTIONS",
+     "METFORMIN HYDROCHLORIDE / 34066-1 / WARNING: LACTIC ACIDOSIS"
+    ]
+   },
+   {
+    "id": "l18",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Aripiprazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l19",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Valganciclovir / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.3 Recommended Dosage in Pedi",
+     "topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Topiramate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l20",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Voclosporin / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Speci",
+     "cariprazine / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l21",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "tadalafil / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "tadalafil / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Tadalafil / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.6 Use in Specific Population"
+    ]
+   },
+   {
+    "id": "l22",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Gastroesophageal Reflux Diseas",
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Gastroesophageal Reflux Diseas",
+     "Pantoprazole Sodium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Short-Term Treatment of Erosiv"
+    ]
+   },
+   {
+    "id": "l23",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "FUROSEMIDE / 34070-3 / 4 CONTRAINDICATIONS",
+     "furosemide / 34070-3 / CONTRAINDICATIONS",
+     "Furosemide / 34070-3 / CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "l24",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Ramipril / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+     "SPIRONOLACTONE / 34067-9 / 1 INDICATIONS AND USAGE > 1.2 Hypertension",
+     "Atenolol / 34067-9 / INDICATIONS AND USAGE"
+    ]
+   },
+   {
+    "id": "l25",
+    "type": "lookup",
+    "rank": 9,
+    "stale": 0,
+    "top": [
+     "Clonidine / 42232-9 / PRECAUTIONS > Drug Interactions",
+     "sevelamer hydrochloride / 34068-7 / 2. DOSAGE AND ADMINISTRATION",
+     "Clonidine / 34084-4 / ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "l26",
+    "type": "lookup",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Glipizide / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Limitations of Use",
+     "ZALEPLON / 34084-4 / ADVERSE REACTIONS > Adverse Findings Observed in Short-Term,",
+     "Glipizide / 42232-9 / PRECAUTIONS > General"
+    ]
+   },
+   {
+    "id": "l27",
+    "type": "lookup",
+    "rank": 7,
+    "stale": 0,
+    "top": [
+     "Losartan potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "l28",
+    "type": "lookup",
+    "rank": 7,
+    "stale": 0,
+    "top": [
+     "Midazolam / 34071-1 / WARNINGS",
+     "Midazolam / 34071-1 / WARNINGS",
+     "Midazolam / 34071-1 / WARNINGS"
+    ]
+   },
+   {
+    "id": "l29",
+    "type": "lookup",
+    "rank": 6,
+    "stale": 0,
+    "top": [
+     "SODIUM CHLORIDE and POTASSIUM CHLORIDE / 34070-3 / CONTRAINDICATIONS",
+     "Potassium Chloride / 34070-3 / Contraindications",
+     "Potassium Chloride / 34071-1 / Warnings"
+    ]
+   },
+   {
+    "id": "l30",
+    "type": "lookup",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Losartan Potassium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+     "Losartan potassium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension",
+     "Losartan Potassium / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Hypertension"
+    ]
+   },
+   {
+    "id": "c01",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi",
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi",
+     "Lisinopril / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Angioedema and Anaphylactoi"
+    ]
+   },
+   {
+    "id": "c02",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use ",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use ",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Risks from Concomitant Use "
+    ]
+   },
+   {
+    "id": "c03",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Metformin HCl / 42232-9 / PRECAUTIONS > GENERAL PRECAUTIONS",
+     "Metformin HCl / 34068-7 / DOSAGE & ADMINISTRATION",
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re"
+    ]
+   },
+   {
+    "id": "c04",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Trazodone Hydrochloride / 34084-4 / 6 ADVERSE REACTIONS",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c05",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Warfarin / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage",
+     "Irinotecan Hydrochloride / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Colorectal Single Agent Re",
+     "Warfarin Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Hemorrhage"
+    ]
+   },
+   {
+    "id": "c06",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS",
+     "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS",
+     "levothyroxine sodium / 34066-1 / WARNING: NOT FOR TREATMENT OF OBESITY OR FOR WEIGHT LOSS"
+    ]
+   },
+   {
+    "id": "c07",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Ketorolac tromethamine / 34071-1 / WARNINGS",
+     "Ketorolac tromethamine / 34071-1 / WARNINGS",
+     "Ketorolac tromethamine / 34071-1 / WARNINGS"
+    ]
+   },
+   {
+    "id": "c08",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "ARIPIPRAZOLE / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde",
+     "Aripiprazole / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde",
+     "Aripiprazole / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.1 Increased Mortality in Elde"
+    ]
+   },
+   {
+    "id": "c09",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Midazolam / 34070-3 / CONTRAINDICATIONS",
+     "Midazolam / 34070-3 / CONTRAINDICATIONS",
+     "Midazolam / 34070-3 / CONTRAINDICATIONS"
+    ]
+   },
+   {
+    "id": "c10",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE",
+     "Phentermine Hydrochloride / 34067-9 / 1 INDICATIONS AND USAGE"
+    ]
+   },
+   {
+    "id": "c11",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS",
+     "Furosemide / 34084-4 / ADVERSE REACTIONS",
+     "furosemide / 34084-4 / ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "c12",
+    "type": "cross_section",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Losartan potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Losartan Potassium / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v01",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "pembrolizumab and berahyaluronidase alfa-pmph / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Patient Selection",
+     "pembrolizumab / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Patient Selection",
+     "pembrolizumab and berahyaluronidase alfa-pmph / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v02",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "sucroferric oxyhydroxide / 34067-9 / 1 INDICATIONS AND USAGE",
+     "sucroferric oxyhydroxide / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 General Dosing Information",
+     "sucroferric oxyhydroxide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trial Experience"
+    ]
+   },
+   {
+    "id": "v03",
+    "type": "version_change",
+    "rank": 5,
+    "stale": 0,
+    "top": [
+     "Cefdinir / 42232-9 / PRECAUTIONS > Drug Interactions > Iron Supplements and Foods",
+     "ISENTRESS / 34068-7 / Dosage and administration",
+     "Cefdinir / 42232-9 / PRECAUTIONS > Drug Interactions > Iron Supplements and Foods"
+    ]
+   },
+   {
+    "id": "v04",
+    "type": "version_change",
+    "rank": 8,
+    "stale": 0,
+    "top": [
+     "Lacosamide Oral / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Lacosamide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Lacosamide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience"
+    ]
+   },
+   {
+    "id": "v05",
+    "type": "version_change",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "Nafcillin Sodium / 34068-7 / DOSAGE AND ADMINISTRATION:",
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for",
+     "Norgestimate and Ethinyl Estradiol / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Recommended Dosage and Adm"
+    ]
+   },
+   {
+    "id": "v06",
+    "type": "version_change",
+    "rank": 1,
+    "stale": 0,
+    "top": [
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.5 Recommendations Regarding ",
+     "marstacimab-hncq / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Recommended Dosage in Adul",
+     "Dapagliflozin / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.4 Temporary Interruption for"
+    ]
+   },
+   {
+    "id": "v07",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Divalproex Sodium / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.2 Structural Birth Defects",
+     "Lenalidomide / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "voriconazole / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience > Clini"
+    ]
+   },
+   {
+    "id": "v08",
+    "type": "version_change",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "ARIPIPRAZOLE / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trials Experience",
+     "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS",
+     "Cephalexin / 34084-4 / 6 ADVERSE REACTIONS"
+    ]
+   },
+   {
+    "id": "v09",
+    "type": "version_change",
+    "rank": 2,
+    "stale": 0,
+    "top": [
+     "Tacrolimus / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Prophylaxis of Organ Rejection",
+     "Tacrolimus / 34067-9 / 1 INDICATIONS AND USAGE > 1.1 Prophylaxis of Organ Rejection",
+     "Tacrolimus / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.2 Dosage Recommendations for"
+    ]
+   },
+   {
+    "id": "v10",
+    "type": "version_change",
+    "rank": 9,
+    "stale": 0,
+    "top": [
+     "tofacitinib / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.11 Risk of Gastrointestinal O",
+     "Tofacitinib / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.11 Risk of Gastrointestinal O",
+     "Tofacitinib / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.11 Risk of Gastrointestinal O"
+    ]
+   },
+   {
+    "id": "v11",
+    "type": "version_change",
+    "rank": null,
+    "stale": 0,
+    "top": [
+     "Cabozantinib Laurylsulfate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trial Experience",
+     "Cabozantinib Laurylsulfate / 34084-4 / 6 ADVERSE REACTIONS > 6.1 Clinical Trial Experience",
+     "Balsalazide Disodium / 34068-7 / 2 DOSAGE AND ADMINISTRATION > 2.1 Important Preparation and "
+    ]
+   },
+   {
+    "id": "v12",
+    "type": "version_change",
+    "rank": 5,
+    "stale": 0,
+    "top": [
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.3 Dependence and Withdrawal R",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.3 Dependence and Withdrawal R",
+     "Alprazolam / 43685-7 / 5 WARNINGS AND PRECAUTIONS > 5.3 Dependence and Withdrawal R"
+    ]
+   }
+  ]
+ }
+}

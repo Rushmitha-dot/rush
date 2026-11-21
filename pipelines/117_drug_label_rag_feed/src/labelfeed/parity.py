@@ -63,6 +63,10 @@ def main(argv=None) -> int:
           f"largest difference {worst:.2e}")
     # batching changes float rounding a little, so vectors are compared with a tolerance
     ok &= same_keys and worst < 1e-4
+    # the reads above hold locks until their transactions end, and drop schema waits on them
+    conn.close()
+    daily.close()
+    cache.conn.close()
     store.drop_schema(scratch)
     print("parity ok" if ok else "PARITY FAILED")
     return 0 if ok else 1

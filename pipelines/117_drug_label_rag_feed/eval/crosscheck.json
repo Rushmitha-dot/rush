@@ -1,0 +1,13 @@
+{
+  "run_on": "2026-11-20",
+  "openfda_sample": 100,
+  "openfda": {
+    "same": 100,
+    "openfda_behind": 0,
+    "openfda_ahead": 0,
+    "not_in_openfda": 0
+  },
+  "openfda_ahead": [],
+  "tombstones_checked": 123,
+  "tombstones_still_listed": []
+}
