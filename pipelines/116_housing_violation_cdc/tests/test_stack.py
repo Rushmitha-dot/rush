@@ -77,14 +77,13 @@ def test_change_reaches_iceberg_and_replay_is_a_no_op(stack, tmp_path):
     assert lake.read("violations_current").num_rows == 3
 
     changed = dict(rows[0], currentstatus="NOT COMPLIED WITH", currentstatusid=4, violationstatus="Open")
-    t0 = time.monotonic()
     assert mirror.upsert(conn, [changed], cols)["updated"] == 1
     conn.commit()
-    drain(cfg, lake, "t-live")
-    elapsed = time.monotonic() - t0
+    batches = drain(cfg, lake, "t-live")
     hist = [r for r in lake.read("violation_status_history").to_pylist() if r["violationid"] == rows[0]["violationid"]]
     assert hist[-1]["currentstatus"] == "NOT COMPLIED WITH" and sum(r["is_current"] for r in hist) == 1
-    assert elapsed < 60
+    # mirror commit to Iceberg commit, against the 15 minute SLA
+    assert max(b["lag_max_s"] for b in batches if b["lag_max_s"] is not None) < 15 * 60
 
     snaps = {n: lake.table(n).current_snapshot().snapshot_id
              for n in ("violation_changes", "violations_current", "violation_status_history")}
